@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <TopNav />
     <HomePage />
+
   </div>
 </template>
 
 <script>
 import HomePage from './components/HomePage.vue'
+import TopNav from './components/TopNav.vue'
 
 export default {
   name: 'App',
   components: {
-    HomePage
+    HomePage,
+    TopNav
   }
 }
 </script>
