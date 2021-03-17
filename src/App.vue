@@ -1,7 +1,11 @@
 <template>
   <div>
     <HomePage />
+  
     <foot></foot>
+
+    <loginBtn></loginBtn>
+    <signupBtn></signupBtn>
   </div>
 </template>
 
