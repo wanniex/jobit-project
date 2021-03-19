@@ -1,5 +1,6 @@
 <template>
   <div>
+    <section>
     <img id="pic" :src="imageURL" />
     <div id="content">
       <h1 id="aboutus">About Us</h1>
@@ -17,12 +18,18 @@
         Contact Number: +65 6676 8888
       </p>
     </div>
+    </section>
+    <foot></foot>
   </div>
 </template>
 
 
 <script>
+import Footer from './Footer'
 export default {
+  components: {
+    'foot': Footer
+  },
   data() {
     return {
       imageURL: "https://i.imgur.com/yrhowMy.jpg",
@@ -33,6 +40,11 @@ export default {
 
 
 <style scoped>
+section:after {
+  content: '';
+  display: table;
+  clear: both;
+}
 #itemsList {
   width: 100%;
   max-width: 70%;
@@ -42,16 +54,18 @@ export default {
 }
 
 #pic {
-  position: absolute;
-  width: 539px;
+  /* position: absolute; */
+  float: left;
+  width: 39%;
   height: 810px;
   left: -5px;
   top: 92px;
 }
 
 #content {
-  position: absolute;
-  width: 775px;
+  /* position: absolute; */
+  float: left;
+  width: 61%;
   height: 603px;
   left: 578px;
   top: 177px;
