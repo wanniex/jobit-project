@@ -10,14 +10,6 @@
 
 <script>
 import HomePage from './components/HomePage.vue'
-
-
-
-export default {
-  components: {
-
-    HomePage
-
 import SignupBtn from './components/SignupBtn.vue'
 import LoginBtn from './components/LoginBtn.vue'
 
