@@ -2,30 +2,27 @@
   <div id="app">
     <TopNav />
     <HomePage />
-
+    <loginBtn></loginBtn>
+    <signupBtn></signupBtn>
   </div>
 </template>
 
 <script>
 import HomePage from './components/HomePage.vue'
 import TopNav from './components/TopNav.vue'
+import SignupBtn from './components/SignupBtn.vue'
+import LoginBtn from './components/LoginBtn.vue'
 
 export default {
-  name: 'App',
   components: {
     HomePage,
-    TopNav
+    TopNav,
+    'loginBtn': LoginBtn,
+    'signupBtn': SignupBtn
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
