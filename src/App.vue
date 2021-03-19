@@ -1,18 +1,32 @@
 <template>
   <div>
     <HomePage />
-    <!-- <foot></foot> -->
+
+    <loginBtn></loginBtn>
+    <signupBtn></signupBtn>
+
   </div>
 </template>
 
 <script>
 import HomePage from './components/HomePage.vue'
-// import Footer from './components/Footer.vue'
+
+
 
 export default {
   components: {
-    // 'foot' : Footer,
+
     HomePage
+
+import SignupBtn from './components/SignupBtn.vue'
+import LoginBtn from './components/LoginBtn.vue'
+
+export default {
+  components: {
+    HomePage,
+    'loginBtn': LoginBtn,
+    'signupBtn': SignupBtn
+
   }
 }
 </script>
