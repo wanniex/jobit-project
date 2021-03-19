@@ -1,25 +1,24 @@
 <template>
-    <div>
-        <div class="tealseparator">
-
-        </div>
-        <div style="clear: both;">
+    <div class="sticky">
+        <div class="tealseparator"></div>
+        <span>
             <p class="alignleft">
                 <a class="padding">Home</a>
                 <a>Contact Us</a>
             </p>
             <p class="alignright">Copyright &#169; 2021 JobIt All rights reserved.</p>
-        </div>
+        </span>
     </div>
 </template>
 
 <script>
-export default {
-    
-}
+
 </script>
 
 <style scoped>
+.sticky {
+    position: sticky;
+}
 .tealseparator {
     background-color: #0094B6;
     height: 15px;
