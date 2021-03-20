@@ -1,5 +1,6 @@
 <template>
   <div>
+    <top-nav></top-nav>
     <section>
     <img id="pic" :src="imageURL" />
     <div id="content">
@@ -26,9 +27,12 @@
 
 <script>
 import Footer from './Footer'
+import TopNav from './TopNav.vue';
+
 export default {
   components: {
-    'foot': Footer
+    'foot': Footer,
+    TopNav
   },
   data() {
     return {
@@ -45,6 +49,7 @@ section:after {
   display: table;
   clear: both;
 }
+
 #itemsList {
   width: 100%;
   max-width: 70%;
