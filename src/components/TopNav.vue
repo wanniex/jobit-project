@@ -55,7 +55,7 @@ img {
   position: absolute;
   width: 83px;
   height: 10px;
-  left: 50px;
+  left: -600px;
   top: 10px;
 }
 
@@ -63,7 +63,7 @@ img {
   position: absolute;
   width: 83px;
   height: 10px;
-  left: 200px;
+  left: -400px;
   top: 10px;
 }
 
