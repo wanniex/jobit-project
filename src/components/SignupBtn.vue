@@ -11,7 +11,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 button {
 position: absolute;
 width: 139.23px;
