@@ -6,7 +6,7 @@
       <h1 id="fact">166,600 tonnes of textile waste are generated in Singapore annually.</h1>
     <div id="pgcontent">
       <img id="clothesrack" :src="clothesimg" />
-      <img :src="womanimg" />
+      <img id = "woman" :src="womanimg" />
       <p id="aboutus">Clonate aims to encourage the donation of clothing for the needy, reduce textile waste and empower communities. <br>Join us in our cause today.</p>
       <signup-btn id="pgbtn"></signup-btn>
     </div>
@@ -55,20 +55,20 @@ margin: auto; */
 }
 
 #fact {
-position: absolute;
-width: 1031px;
-height: 171px;
-left: 800px;
-top: 124px;
+  position: absolute;
+  width: 1000px;
+  height: 171px;
+  left: 150px;
+  top: 124px;
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 75px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 50px;
-line-height: 75px;
-
-color: #FFFFFF;
-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: #FFFFFF;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 #pgcontent {
@@ -78,36 +78,48 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 #clothesrack {
-width: 471px;
-height: 500px;
-left: 400px;
-top: 370px;
+  float: left;
+  width: 200px;
+  height: 400px;
+  margin-left: -50px;
+  margin-top: -50px;
+  margin-bottom: 100px;
 }
+
+#woman {
+  float: left;
+  width: 400px;
+  height: 400px;
+  margin-left: 10px;
+  margin-top: -50px;
+  margin-bottom: 100px;
+}
+
 
 #aboutus {
 
-position: absolute;
-width: 900px;
-height: 1000px;
-left: 1100px;
-top: 512px;
+  position: absolute;
+  width: 500px;
+  height: 1000px;
+  left: 700px;
+  top: 450px;
 
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 50px;
-line-height: 50px;
-text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
 
-color: #616161;
+  color: #616161;
 }
 
 #pgbtn {
   position: absolute;
   width: 83px;
   height: 10px;
-  left: -100px;
-  top: 800px;
+  left: -610px;
+  margin-top: 300px;
 }
 
 </style>
