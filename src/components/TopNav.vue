@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../assets/Jobit_logo.png" alt="Jobit" />
+    <img src="../assets/clonate-logo-crop.png" alt="Jobit" />
     <div class="whitebar">
       <ul>
         <li><a href="https://www.google.com.sg/">Home</a></li>
@@ -31,18 +31,17 @@ export default {
 
 <style scoped>
 img {
-  width: 149px;
+  width: 300px;
   height: 71px;
   left: 42px;
   top: 5px;
   z-index: 950;
-  background: url(../assets/Jobit_logo.png);
   float: left;
-  margin-left: 20px;
+  margin-top: 9px;
 }
 
 .tealseparator {
-  background-color: #0094b6;
+  background-color: #87ebd3;
   height: 10px;
 }
 
@@ -104,7 +103,7 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #7ab7c5;
+  background-color: #87ebd3;
   color: white;
 }
 </style>

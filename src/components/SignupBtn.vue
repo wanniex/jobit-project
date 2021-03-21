@@ -18,8 +18,8 @@ width: 139.23px;
 height: 47.43px;
 left: 1100px;
 top: 11px;
-background: #368EA1;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+background: #87ebd3;
+box-shadow: 0px 4px 4px #ffffff;
 border-radius: 30px;
   
 color: white;
