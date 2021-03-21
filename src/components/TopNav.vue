@@ -45,6 +45,7 @@ img {
   height: 10px;
 }
 
+
 .whitebar {
   background-color: #ffffff;
   height: 80px;

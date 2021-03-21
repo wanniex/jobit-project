@@ -35,6 +35,7 @@
   color: #d7dbdd;
 }
 
+
 a {
   color: #000000;
   text-align: center;
