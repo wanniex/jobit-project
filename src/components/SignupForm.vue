@@ -13,7 +13,8 @@
         <label>Confirm password:</label>
         <input v-on:blur = "validate" type="password" required v-model="confirmpassword">
         <!-- <div v-if="passwordError" class="error"></div> -->
-        <div v-show="passwordvalidate"> Passwords do not match! </div>
+        <br><br>
+        <div v-show="passwordvalidate" id ="passwordvalidate"> Passwords do not match! </div>
         <div class="terms">
             <input type="checkbox" v-model="terms" required>
             <label>I agree with the terms and conditions</label>
@@ -73,6 +74,11 @@ export default {
 </script>
 
 <style>
+#passwordvalidate {
+    color: red;
+
+}
+
 form {
     max-width: 420px;
     margin: 30px auto;

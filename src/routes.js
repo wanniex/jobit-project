@@ -1,7 +1,7 @@
 import Register from './components/Register.vue'
 // import Login from './components/Login.vue'
 import Home from './components/HomePage.vue'
-import SignUp from './components/SignupForm.vue'
+import SignUp from './components/SignUpPage.vue'
 
 export default[
     {
