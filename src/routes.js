@@ -1,12 +1,13 @@
 import Register from './components/Register.vue'
-import Login from './components/Login.vue'
+// import Login from './components/Login.vue'
 import Home from './components/HomePage.vue'
+import SignUp from './components/SignupForm.vue'
 
 export default[
     {
         path: '/',
-        name: 'Login',
-        component: Login
+        name: 'Home',
+        component: Home
     },
     {
         path: '/register',
@@ -14,8 +15,13 @@ export default[
         component: Register
     },
     {
-        path: '/home',
-        name: 'Home',
-        component: Home
-    }
+        path: '/SignUp',
+        name: 'SignUp',
+        component: SignUp
+    },
+    // {
+    //     path: '/LogIn',
+    //     name: 'LogIn',
+    //     component: Login
+    // }
 ]

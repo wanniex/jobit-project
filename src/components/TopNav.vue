@@ -8,7 +8,7 @@
         <li><a href="https://www.google.com.sg/">Contact</a></li>
         <li><a href="https://www.google.com.sg/">About</a></li>
       </ul>
-      <signup-btn class="signup-button"></signup-btn>
+      <signup-btn class="signup-button" v-on:click = "route"></signup-btn>
       <login-btn class="login-button"></login-btn>
     </div>
     <div class="tealseparator"></div>
@@ -25,6 +25,11 @@ export default {
     loginBtn: LoginBtn,
     signupBtn: SignupBtn,
   },
+  methods: {
+    route: function() {
+      this.$router.push("register")
+    }
+  }
 };
 </script>
 
@@ -55,7 +60,7 @@ img {
   position: absolute;
   width: 83px;
   height: 10px;
-  left: -600px;
+  left: -180px;
   top: 10px;
 }
 

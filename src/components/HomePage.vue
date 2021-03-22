@@ -8,7 +8,7 @@
       <img id="clothesrack" :src="clothesimg" />
       <img id = "woman" :src="womanimg" />
       <p id="aboutus">Clonate aims to encourage the donation of clothing for the needy, reduce textile waste and empower communities. <br>Join us in our cause today.</p>
-      <signup-btn id="pgbtn"></signup-btn>
+      <signup-btn id="pgbtn" v-on:click = "route()"></signup-btn>
     </div>
     </section>
     <foot></foot>
@@ -35,6 +35,11 @@ export default {
       womanimg: "https://i.imgur.com/dr8DLP8.png",
     };
   },
+  methods: {
+    route: function() {
+      this.$router.push("SignUp")
+    }
+  }
 };
 </script>
 
@@ -118,7 +123,7 @@ margin: auto; */
   position: absolute;
   width: 83px;
   height: 10px;
-  left: -610px;
+  left: -200px;
   margin-top: 300px;
 }
 

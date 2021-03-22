@@ -1,5 +1,6 @@
 <template>
-<form @signup.prevent="checkForm">
+<form @signup.prevent="pressed">
+        <div v-if="error" class="error">{{error.message}}</div>
         <label>Display name:</label>
         <input type="name" required v-model="name">
         
@@ -10,9 +11,9 @@
         <input type="password" required v-model="password">
 
         <label>Confirm password:</label>
-        <input type="password" required v-model="confirmpassword">
-        <div v-if="passwordError" class="error"></div>
-
+        <input v-on:blur = "validate" type="password" required v-model="confirmpassword">
+        <!-- <div v-if="passwordError" class="error"></div> -->
+        <div v-show="passwordvalidate"> Passwords do not match! </div>
         <div class="terms">
             <input type="checkbox" v-model="terms" required>
             <label>I agree with the terms and conditions</label>
@@ -28,6 +29,8 @@
 
 
 <script>
+import auth from '../firebase'
+
 export default {
     data() {
         return {
@@ -36,18 +39,36 @@ export default {
             password: '',
             confirmpassword: '',
             terms: false,
-            passwordError: ''
+            error: '',
+            passwordvalidate: false
         }
     },
     
     methods: {
-        checkForm: function() {
-            //validate password
-            if (this.password != this.confirmpassword) {
-                this.passwordError = 'Passwords do not match.'
+        // checkForm: function() {
+        //     //validate password
+        //     if (this.password != this.confirmpassword) {
+        //         this.passwordError = 'Passwords do not match.'
+        //     }
+        // },
+        async pressed() {
+            try {
+                const user = auth.createUserWithEmailAndPassword(this.email, this.password)
+                console.log(user)
+                this.$router.replace({name: 'Home'});
+            } catch(err) {
+                console.log(err)
             }
+        },
+        validate() {
+            if (this.password === this.confirmpassword) {
+                this.passwordvalidate = false
+            } else {
+                this.passwordvalidate = true
+            }
+        }
+
     }
-}
 }
 </script>
 
@@ -104,5 +125,10 @@ button {
     border-radius: 5px;
     width: 420px;
     height: 40px;
+}
+
+.error {
+    color: red;
+    font-size: 18px;
 }
 </style>
