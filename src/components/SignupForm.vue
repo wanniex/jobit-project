@@ -95,7 +95,7 @@ input[type="checkbox"] {
 }
 
 button {
-    background: #368EA1;
+    background: #87EBD3;
     color: white;
     font-size: 15px;
     font-weight: bold;
