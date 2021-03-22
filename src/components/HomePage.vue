@@ -2,22 +2,13 @@
   <div>
     <top-nav></top-nav>
     <section>
-    <img id="pic" :src="imageURL" />
-    <div id="content">
-      <h1 id="aboutus">About Us</h1>
-      <p id="audescription">
-        JobIt provides you with a safe platform to seek or provide ad-hoc
-        services!
-      </p>
-      <h1 id="contactus">Contact Us</h1>
-      <p id="cudescription">
-        Email: helpdesk@JobIt.com<br /><br />
-        Address: National University of Singapore, <br />
-        1 Lower Kent Ridge Road<br />
-        Singapore 119077<br /><br />
-
-        Contact Number: +65 6676 8888
-      </p>
+      <img id="headerpic" :src="imageURL" />
+      <h1 id="fact">166,600 tonnes of textile waste are generated in Singapore annually.</h1>
+    <div id="pgcontent">
+      <img id="clothesrack" :src="clothesimg" />
+      <img id = "woman" :src="womanimg" />
+      <p id="aboutus">Clonate aims to encourage the donation of clothing for the needy, reduce textile waste and empower communities. <br>Join us in our cause today.</p>
+      <signup-btn id="pgbtn"></signup-btn>
     </div>
     </section>
     <foot></foot>
@@ -25,18 +16,23 @@
 </template>
 
 
+
 <script>
 import Footer from './Footer'
 import TopNav from './TopNav.vue';
+import SignupBtn from './SignupBtn.vue';
 
 export default {
   components: {
     'foot': Footer,
-    TopNav
+    TopNav,
+    SignupBtn
   },
   data() {
     return {
-      imageURL: "https://i.imgur.com/yrhowMy.jpg",
+      imageURL: "https://i.imgur.com/kLbiwtb.png",
+      clothesimg: "https://i.imgur.com/03sVNdK.png",
+      womanimg: "https://i.imgur.com/dr8DLP8.png",
     };
   },
 };
@@ -50,70 +46,80 @@ section:after {
   clear: both;
 }
 
-#itemsList {
-  width: 100%;
-  max-width: 70%;
-  margin: 0px;
-  padding: 0 5px;
-  box-sizing: border-box;
+#headerpic {
+width: 100%;
+height: 248px;
+/* left: -1px;
+top: 85px;
+margin: auto; */
 }
 
-#pic {
-  /* position: absolute; */
-  float: left;
-  width: 39%;
-  height: 810px;
-  left: -5px;
-  top: 92px;
-}
+#fact {
+  position: absolute;
+  width: 1000px;
+  height: 171px;
+  left: 150px;
+  top: 124px;
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 75px;
 
-#content {
-  /* position: absolute; */
-  float: left;
-  width: 61%;
-  height: 603px;
-  left: 578px;
-  top: 177px;
+  color: #FFFFFF;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+#pgcontent {
+  margin-left: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px; 
+}
+
+#clothesrack {
+  float: left;
+  width: 200px;
+  height: 400px;
+  margin-left: -50px;
+  margin-top: -50px;
+  margin-bottom: 100px;
+}
+
+#woman {
+  float: left;
+  width: 400px;
+  height: 400px;
+  margin-left: 10px;
+  margin-top: -50px;
+  margin-bottom: 100px;
+}
+
+
 #aboutus {
-  font-family: Mplus 1p;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 54px;
-  line-height: 80px;
-  text-align: center;
-  color: #368ea1;
-}
 
-#audescription {
-  font-family: Mplus 1p;
+  position: absolute;
+  width: 500px;
+  height: 1000px;
+  left: 700px;
+  top: 450px;
+
+  font-family: Roboto;
   font-style: normal;
-  font-weight: normal;
-  font-size: 32px;
-  line-height: 48px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 50px;
   text-align: center;
+
   color: #616161;
 }
 
-#contactus {
-  font-family: Mplus 1p;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 54px;
-  line-height: 80px;
-  text-align: center;
-  color: #368ea1;
+#pgbtn {
+  position: absolute;
+  width: 83px;
+  height: 10px;
+  left: -610px;
+  margin-top: 300px;
 }
 
-#cudescription {
-  font-family: Mplus 1p;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 30px;
-  text-align: center;
-  color: #616161;
-}
 </style>

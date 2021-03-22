@@ -19,7 +19,7 @@
   position: sticky;
 }
 .tealseparator {
-  background-color: #0094b6;
+  background-color: #87ebd3;
   height: 15px;
 }
 .padding {
@@ -34,6 +34,7 @@
   padding-right: 150px;
   color: #d7dbdd;
 }
+
 
 a {
   color: #000000;
