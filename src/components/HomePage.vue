@@ -8,7 +8,7 @@
       <img id="clothesrack" :src="clothesimg" />
       <img id = "woman" :src="womanimg" />
       <p id="aboutus">Clonate aims to encourage the donation of clothing for the needy, reduce textile waste and empower communities. <br>Join us in our cause today.</p>
-      <signup-btn id="pgbtn" v-on:click = "route()"></signup-btn>
+      <signup-btn id="pgbtn" @click.native = "$router.push('/Signup')"></signup-btn>
     </div>
     </section>
     <foot></foot>

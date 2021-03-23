@@ -3,13 +3,13 @@
     <img src="../assets/clonate-logo-crop.png" alt="Jobit" />
     <div class="whitebar">
       <ul>
-        <li><a href="https://www.google.com.sg/">Home</a></li>
-        <li><a href="https://www.google.com.sg/">News</a></li>
-        <li><a href="https://www.google.com.sg/">Contact</a></li>
-        <li><a href="https://www.google.com.sg/">About</a></li>
+        <li><router-link to="/">Home</router-link></li>
+        <!-- <li><router-link to="/">News</router-link></li>
+        <li><router-link to="/">Home</router-link></li> -->
+        <li><router-link to="/Aboutus">About Us</router-link></li>
       </ul>
-      <signup-btn class="signup-button" v-on:click = "route"></signup-btn>
-      <login-btn class="login-button"></login-btn>
+      <signup-btn class="signup-button" @click.native="$router.push('/SignUp')"></signup-btn>
+      <login-btn class="login-button" @click.native="$router.push('/Login')"></login-btn>
     </div>
     <div class="tealseparator"></div>
   </div>
@@ -26,9 +26,6 @@ export default {
     signupBtn: SignupBtn,
   },
   methods: {
-    route: function() {
-      this.$router.push("register")
-    }
   }
 };
 </script>

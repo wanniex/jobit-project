@@ -15,7 +15,7 @@
                 <div id = "des"> Password </div>
                 <input type="password" placeholder="Password" v-model="password" />
             </div>
-            <button>Login</button>
+            <router-link to= "" tag = "button" id = "loginbtn">Login</router-link>
             <a id = "forgetpw">I forgot my password</a>
             <p id = "text2">
                 <span>Dont have an account?</span> 
@@ -75,7 +75,7 @@ input {
     font-size: 21px;
 }
 
-button {
+#loginbtn {
     position: absolute;
     width: 400px;
     height: 47.43px;
