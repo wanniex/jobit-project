@@ -5,7 +5,7 @@ import SignUp from './components/SignUpPage.vue'
 
 export default[
     {
-        path: '/',
+        path: '',
         name: 'Home',
         component: Home
     },
