@@ -2,6 +2,7 @@ import Register from './components/Register.vue'
 import Login from './components/LoginPage.vue'
 import Home from './components/HomePage.vue'
 import SignUp from './components/SignUpPage.vue'
+import AboutUs from './components/AboutUsPage.vue'
 
 export default[
     {
@@ -23,5 +24,10 @@ export default[
         path: '/LogIn',
         name: 'LogIn',
         component: Login
-    }
+    },
+    {
+        path: '/AboutUs',
+        name: 'AboutUs',
+        component: AboutUs
+    },
 ]
