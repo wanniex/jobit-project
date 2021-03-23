@@ -12,7 +12,6 @@
 
         <label>Confirm password:</label>
         <input v-on:blur = "validate" type="password" required v-model="confirmpassword">
-        <!-- <div v-if="passwordError" class="error"></div> -->
         <br><br>
         <div v-show="passwordvalidate" id ="passwordvalidate"> Passwords do not match! </div>
         <div class="terms">
@@ -46,12 +45,6 @@ export default {
     },
     
     methods: {
-        // checkForm: function() {
-        //     //validate password
-        //     if (this.password != this.confirmpassword) {
-        //         this.passwordError = 'Passwords do not match.'
-        //     }
-        // },
         async pressed() {
             try {
                 const user = auth.createUserWithEmailAndPassword(this.email, this.password)

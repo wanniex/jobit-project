@@ -7,9 +7,11 @@
         <div id = "text1">Welcome Back!</div>
       <div id = "text2">Login to your account</div>
       <Login id = "Login"></Login>
+      <!-- <router-link to="/" tag="button" id = "Login">foo</router-link> -->
     </div>
     <br>
     <foot id = "footer"></foot>
+    
 
   </div>
 </template>

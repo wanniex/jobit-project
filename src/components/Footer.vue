@@ -3,8 +3,8 @@
     <div class="tealseparator"></div>
     <span>
       <p class="alignleft">
-        <a class="padding" href="https://www.google.com.sg/">Home</a>
-        <a href="https://www.google.com.sg/">Contact Us</a>
+        <router-link to = '/' class="padding">Home</router-link>
+        <!-- <a href="https://www.google.com.sg/">Contact Us</a> -->
       </p>
       <p class="alignright">Copyright &#169; 2021 JobIt All rights reserved.</p>
     </span>

@@ -58,7 +58,7 @@ export default {
 }
 
 #aboutusheading, #contactusheading {
-    font-family: Roboto;
+  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 35px;
