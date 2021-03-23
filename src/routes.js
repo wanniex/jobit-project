@@ -1,5 +1,5 @@
 import Register from './components/Register.vue'
-// import Login from './components/Login.vue'
+import Login from './components/LoginPage.vue'
 import Home from './components/HomePage.vue'
 import SignUp from './components/SignUpPage.vue'
 
@@ -19,9 +19,9 @@ export default[
         name: 'SignUp',
         component: SignUp
     },
-    // {
-    //     path: '/LogIn',
-    //     name: 'LogIn',
-    //     component: Login
-    // }
+    {
+        path: '/LogIn',
+        name: 'LogIn',
+        component: Login
+    }
 ]
