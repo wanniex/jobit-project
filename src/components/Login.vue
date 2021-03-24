@@ -18,8 +18,10 @@
             <router-link to= "" tag = "button" id = "loginbtn">Login</router-link>
             <a id = "forgetpw">I forgot my password</a>
             <p id = "text2">
-                <span>Dont have an account?</span> 
-                <span id = "text3"> Join free today!</span>
+                <span>Dont have an account? </span>
+                <span id = "text3">
+                    <router-link id="text3" to=/SignUp exact>Join free today!</router-link>
+                </span>             
             </p>
         </form>
     </div>
