@@ -4,8 +4,6 @@
     <div class="whitebar">
       <ul>
         <li><router-link to="/">Home</router-link></li>
-        <!-- <li><router-link to="/">News</router-link></li>
-        <li><router-link to="/">Home</router-link></li> -->
         <li><router-link to="/Aboutus">About Us</router-link></li>
       </ul>
       <signup-btn class="signup-button" @click.native="$router.push('/SignUp')"></signup-btn>

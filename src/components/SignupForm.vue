@@ -2,16 +2,16 @@
 <form @signup.prevent="pressed">
         <div v-if="error" class="error">{{error.message}}</div>
         <label>Display name:</label>
-        <input type="name" required v-model="name">
+        <input type="name" required v-model="name" placeholder="Name">
         
         <label>Email:</label>
-        <input type="email" required v-model="email">
+        <input type="email" required v-model="email" placeholder="Email">
 
         <label>Password:</label>
-        <input type="password" required v-model="password">
+        <input type="password" required v-model="password" placeholder="Password">
 
         <label>Confirm password:</label>
-        <input v-on:blur = "validate" type="password" required v-model="confirmpassword">
+        <input v-on:blur = "validate" type="password" required v-model="confirmpassword" placeholder="Confirm Password">
         <br><br>
         <div v-show="passwordvalidate" id ="passwordvalidate"> Passwords do not match! </div>
         <div class="terms">
