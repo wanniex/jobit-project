@@ -1,14 +1,14 @@
 <template>
   <div>
-    <TopNav></TopNav>
+    <admin-top-nav></admin-top-nav>
 <b-container fluid>
   <b-row>
     <b-col>
-      <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1"></b-img>
+      <b-img fluid src="https://i.imgur.com/CSCMbNn.jpg" alt="Image 1"></b-img>
     </b-col>
     <b-col fluid class="align-self-center">
       <b-form fluid @submit.prevent="pressed">
-      <h1 style="text-align:center">Login</h1>
+      <h1 style="text-align:center">Login as admin</h1>
       <b-form-group
         id="input-group-1"
         label="Email address:"
@@ -34,12 +34,12 @@
 
       
     <!-- <b-button id="button" @click.native="$router.push('/SignUp')" pill class="mt-4 mr-2 ml-5 mb-5">Login</b-button><br> -->
-    <b-button id="button">Login</b-button><br><br>
+    <button id="button" @click.native="$router.push('/SignUp')">Login</button><br><br>
       <router-link id="forgetpw" to=/ForgotPassword exact>I forgot my password</router-link><br>
       <p id = "text2">
-                <span>Don't have an account? </span>
+                <span>Want to be our partner? </span>
                 <span id = "text3">
-                    <router-link id="text3" to=/SignUp exact>Join free today!</router-link>
+                    <router-link id="text3" to=/Aboutus exact>Contact us today!</router-link>
                 </span>             
             </p>
       </b-form>
@@ -52,16 +52,14 @@
 </template>
 
 <script>
-//import Login from './Login.vue';
-import TopNav from "./TopNav.vue";
 import auth from "../firebase";
 import Footer from './Footer.vue';
+import AdminTopNav from './AdminTopNav.vue';
 
 export default {
   components: {
-    //Login,
     Footer,
-    TopNav,
+    AdminTopNav,
   },
 
   data() {
@@ -90,7 +88,7 @@ export default {
 
 <style scoped>
  #button {
-   background-color: #87EBD3;
+   background-color: #2D8BBA;
    color: #FFFF;
    border: none;
    transition-duration: 0.4s;
@@ -121,7 +119,7 @@ export default {
 }
 
 #text3 {
-  color: rgb(14, 156, 137);
+  color: #2D8BBA;
 }
 
 </style>

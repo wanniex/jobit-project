@@ -47,6 +47,7 @@ export default {
     methods: {
         async pressed() {
             try {
+                console.log("hello")
                 const user = auth.createUserWithEmailAndPassword(this.email, this.password)
                 console.log(user)
                 this.$router.replace({name: 'Home'});
