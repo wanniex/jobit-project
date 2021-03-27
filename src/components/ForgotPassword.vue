@@ -20,9 +20,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-button id="button" pill class="mt-4 ml-5 mb-5"
-          >Reset Password</b-button
-        ><br />
+        <b-button type = "submit" onclick = "checkemail()" id="button" pill class="mt-4 ml-5 mb-5">Reset Password</b-button><br />
       </b-form>
     </b-container>
     <Footer></Footer>
