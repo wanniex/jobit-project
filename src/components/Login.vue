@@ -1,11 +1,5 @@
 <template>
-    <div id="app">
-        <!-- <div>
-            <router-link to=/ exact>Login</router-link>  
-            <router-link to=/register exact> Register</router-link>
-            <router-link to=/home exact>Home</router-link>
-        </div> -->
-        <!-- <h3>Login</h3> -->
+    <div>
         <form @submit.prevent="pressed">
             <div class="login">
                 <div id = "des"> Email </div>
@@ -16,9 +10,9 @@
                 <input type="password" placeholder="Password" v-model="password" />
             </div>
             <router-link to= "" tag = "button" id = "loginbtn">Login</router-link>
-            <a id = "forgetpw">I forgot my password</a>
+            <router-link id = "forgetpw" to=/ForgotPassword exact>I forgot my password</router-link>
             <p id = "text2">
-                <span>Dont have an account? </span>
+                <span>Don't have an account? </span>
                 <span id = "text3">
                     <router-link id="text3" to=/SignUp exact>Join free today!</router-link>
                 </span>             
@@ -56,14 +50,6 @@ export default {
 
 <style scoped>
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 .error {
     color: red;
     font-size: 18px;
@@ -107,6 +93,8 @@ input {
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+
+    color: #616161;
 }
 
 #text2 {
