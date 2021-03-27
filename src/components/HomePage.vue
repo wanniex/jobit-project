@@ -1,130 +1,83 @@
 <template>
   <div>
+    
     <top-nav></top-nav>
-    <section>
-      <img id="headerpic" :src="imageURL" />
-      <h1 id="fact">166,600 tonnes of textile waste are generated in Singapore annually.</h1>
-    <div id="pgcontent">
-      <img id="clothesrack" :src="clothesimg" />
-      <img id = "woman" :src="womanimg" />
-      <p id="aboutus">Clonate aims to encourage the donation of clothing for the needy, reduce textile waste and empower communities. <br>Join us in our cause today.</p>
-      <signup-btn id="pgbtn" @click.native = "$router.push('/Signup')"></signup-btn>
-    </div>
-    </section>
-    <foot></foot>
+
+    <b-container id="container" fluid>
+      <carousel></carousel>
+    </b-container>
+
+
+    <b-container fluid>
+      <b-row align-v="center">
+        <b-col>
+          <b-img
+            src="https://i.imgur.com/03sVNdK.png"
+            fluid
+            alt="placeholder"
+          ></b-img>
+        </b-col>
+        <b-col>
+          <b-img
+            src="https://i.imgur.com/dr8DLP8.png"
+            fluid
+            alt="placeholder"
+          ></b-img>
+        </b-col>
+        <b-col class="text-center">
+          <p id="aboutus">
+          Clonate aims to encourage the donation of clothing for the needy,
+          reduce textile waste and empower communities.<br><br>
+          Join us in our cause today.
+          </p>
+          <signup-btn id="subutton" @click.native="$router.push('/SignUp')"></signup-btn>
+        </b-col>
+      </b-row>
+    </b-container>
+
+    <Footer></Footer>
+
   </div>
 </template>
 
-
-
 <script>
-import Footer from './Footer'
-import TopNav from './TopNav.vue';
+import Carousel from "./Carousel.vue";
 import SignupBtn from './SignupBtn.vue';
+import TopNav from "./TopNav.vue";
+import Footer from "./Footer.vue"
 
 export default {
+
   components: {
-    'foot': Footer,
+    Carousel,
     TopNav,
-    SignupBtn
+    SignupBtn,
+    Footer
   },
-  data() {
-    return {
-      imageURL: "https://i.imgur.com/kLbiwtb.png",
-      clothesimg: "https://i.imgur.com/03sVNdK.png",
-      womanimg: "https://i.imgur.com/dr8DLP8.png",
-    };
-  },
-  methods: {
-    route: function() {
-      this.$router.push("SignUp")
-    }
-  }
 };
 </script>
 
-
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-section:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-#headerpic {
-width: 100%;
-height: 248px;
-/* left: -1px;
-top: 85px;
-margin: auto; */
-}
-
-#fact {
-  position: absolute;
-  width: 1000px;
-  height: 171px;
-  left: 150px;
-  top: 124px;
-  text-align: center;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 50px;
-  line-height: 75px;
-
-  color: #FFFFFF;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-#pgcontent {
-  margin-left: 100px;
-  margin-top: 100px;
-  margin-bottom: 100px; 
-}
-
-#clothesrack {
-  float: left;
-  width: 200px;
-  height: 400px;
-  margin-left: -50px;
-  margin-top: -50px;
-  margin-bottom: 100px;
-}
-
-#woman {
-  float: left;
-  width: 400px;
-  height: 400px;
-  margin-left: 10px;
-  margin-top: -50px;
-  margin-bottom: 100px;
-}
-
-
 #aboutus {
-
-  position: absolute;
-  width: 500px;
-  height: 1000px;
-  left: 700px;
-  top: 450px;
-
   font-family: Roboto;
   font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 50px;
+  font-size: 20px;
+  line-height: 25px;
   text-align: center;
-
   color: #616161;
 }
 
-#pgbtn {
-  position: absolute;
-  width: 83px;
-  height: 10px;
-  left: -200px;
-  margin-top: 300px;
-}
+#subutton {
+   background-color: #87ebd3;
+   color: black;
+   border: none;
+   transition-duration: 0.4s;
+   width: 100px;
+ }
 
+ #subutton:hover {
+   background-color: rgb(212, 212, 212);
+   color: black;
+ }
 </style>

@@ -1,13 +1,24 @@
 <template>
-  <div class="sticky">
-    <div class="tealseparator"></div>
-    <span>
-      <p class="alignleft">
-        <router-link to = '/' class="padding">Home</router-link>
-        <!-- <a href="https://www.google.com.sg/">Contact Us</a> -->
-      </p>
-      <p class="alignright">Copyright &#169; 2021 JobIt All rights reserved.</p>
-    </span>
+  <div>
+    <b-navbar toggleable="sm" type="light" variant="light">
+      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
+
+      <!-- <b-navbar-brand to="/">Home</b-navbar-brand>
+    <b-navbar-brand to="/Aboutus">About Us</b-navbar-brand> -->
+
+      <b-collapse id="nav-text-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item to="/">Home</b-nav-item>
+          <b-nav-item to="/Aboutus">About Us</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav id="alignright">
+          <b-nav-text
+            >Copyright &#169; 2021 Clonate All rights reserved.</b-nav-text
+          >
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
@@ -15,40 +26,15 @@
 </script>
 
 <style scoped>
+#alignright {
+  margin-left: auto;
+}
+
+#alignleft {
+  margin-right: auto;
+}
+
 .sticky {
   position: sticky;
-}
-.tealseparator {
-  background-color: #87ebd3;
-  height: 15px;
-}
-.padding {
-  padding-right: 120px;
-}
-.alignleft {
-  padding-left: 150px;
-  float: left;
-}
-.alignright {
-  float: right;
-  padding-right: 150px;
-  color: #d7dbdd;
-}
-
-
-a {
-  color: #000000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 18px;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.015em;
 }
 </style>
