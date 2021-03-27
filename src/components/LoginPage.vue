@@ -1,53 +1,59 @@
 <template>
   <div>
-    <TopNav></TopNav>
-<b-container fluid>
-  <b-row>
-    <b-col>
-      <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1"></b-img>
-    </b-col>
-    <b-col fluid class="align-self-center">
-      <b-form fluid @submit.prevent="pressed">
-      <h1 style="text-align:center">Login</h1>
-      <b-form-group
-        id="input-group-1"
-        label="Email address:"
-        label-for="input-1"
-      >
-        <b-form-input
-          id="input-1"
-          type="email"
-          placeholder="Enter email"
-          v-model="email"
-          required
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-2" label="Password:" label-for="input-2" class="mb-5">
-        <b-form-input
-          id="input-2"
-          placeholder="Enter password"
-          v-model="password"
-          required
-        ></b-form-input>
-      </b-form-group>
-
+    
+  <TopNav></TopNav>
+  
+  <b-container fluid>
+    <b-row>
+      <b-col>
+        <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1"></b-img>
+      </b-col>
       
-    <!-- <b-button id="button" @click.native="$router.push('/SignUp')" pill class="mt-4 mr-2 ml-5 mb-5">Login</b-button><br> -->
-    <b-button id="button">Login</b-button><br><br>
-      <router-link id="forgetpw" to=/ForgotPassword exact>I forgot my password</router-link><br>
-      <p id = "text2">
-                <span>Don't have an account? </span>
-                <span id = "text3">
-                    <router-link id="text3" to=/SignUp exact>Join free today!</router-link>
-                </span>             
-            </p>
-      </b-form>
-    </b-col>
-  </b-row>
-</b-container>
+      <b-col fluid class="align-self-center">
+        <b-form fluid @submit.prevent="pressed">
+        <h1 style="text-align:center">Login</h1>
+        <b-form-group
+          id="input-group-1"
+          label="Email address:"
+          label-for="input-1"
+        >
+          <b-form-input
+            id="input-1"
+            type="email"
+            placeholder="Enter email"
+            v-model="email"
+            required
+          ></b-form-input>
+        </b-form-group>
 
-<Footer></Footer>
+        <b-form-group id="input-group-2" label="Password:" label-for="input-2" class="mb-5">
+          <b-form-input
+            id="input-2"
+            type="password"
+            placeholder="Enter password"
+            v-model="password"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        
+          <!-- <b-button id="button" @click.native="$router.push('/SignUp')" pill class="mt-4 mr-2 ml-5 mb-5">Login</b-button><br> -->
+          <b-button type="submit">Login</b-button>
+          <br><br>
+          <router-link id="forgetpw" to=/ForgotPassword exact>I forgot my password</router-link><br>
+          <p id = "text2">
+            <span>Don't have an account? </span>
+            <span id = "text3">
+              <router-link id="text3" to=/SignUp exact>Join free today!</router-link>
+            </span>             
+          </p>
+        </b-form>
+      </b-col>
+    </b-row>
+  </b-container>
+
+  <Footer></Footer>
+
   </div>
 </template>
 
@@ -89,7 +95,7 @@ export default {
 
 
 <style scoped>
- #button {
+ button {
    background-color: #87EBD3;
    color: #FFFF;
    border: none;
@@ -97,7 +103,7 @@ export default {
    width: 200px;
  }
 
- #button:hover {
+ button:hover {
    background-color: rgb(212, 212, 212);
    color: black;
  }

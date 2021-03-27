@@ -1,15 +1,17 @@
 <template>
     <div>
         <form @submit.prevent="pressed">
-            <div class="login">
-                <div id = "des"> Email </div>
-                <input type="text" placeholder="Email" v-model="email" />
+            <label>Email:</label>
+            <input type="email" required v-model="email" placeholder="Email">
+            
+            <label>Password:</label>
+            <input type="password" required v-model="password" placeholder="Password">
+
+            <!-- <router-link to= "" tag = "button" id = "loginbtn">Login</router-link> -->
+            <div class="signup">
+                <button type="submit">Login</button>
             </div>
-            <div class="password">
-                <div id = "des"> Password </div>
-                <input type="password" placeholder="Password" v-model="password" />
-            </div>
-            <router-link to= "" tag = "button" id = "loginbtn">Login</router-link>
+            
             <router-link id = "forgetpw" to=/ForgotPassword exact>I forgot my password</router-link>
             <p id = "text2">
                 <span>Don't have an account? </span>
@@ -113,5 +115,17 @@ input {
 
 #text3 {
     color:rgb(14, 156, 137)
+}
+
+button {
+    background: #87EBD3;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
 }
 </style>

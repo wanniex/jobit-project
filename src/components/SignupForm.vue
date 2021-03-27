@@ -1,6 +1,8 @@
 <template>
-<form @signup.prevent="pressed">
-        <div v-if="error" class="error">{{error.message}}</div>
+<div>
+    <div v-if="error" class="error">{{error.message}}</div>
+
+    <form @submit.prevent="pressed">
         <label>Display name:</label>
         <input type="name" required v-model="name" placeholder="Name">
         
@@ -20,11 +22,12 @@
         </div>
         <br>
         <div class="signup">
-            <button>Sign up</button>
+            <button type="submit">Sign up</button>
         </div>
+    
     </form>
+</div>
 
-     
 </template>
 
 
