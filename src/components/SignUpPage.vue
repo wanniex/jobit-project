@@ -35,6 +35,7 @@ export default {
 
 #rightcontent {
   float: right;
+  margin-right: 60px;
 }
 
 #text1{

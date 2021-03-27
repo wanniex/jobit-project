@@ -18,7 +18,7 @@
             <input type="checkbox" v-model="terms" required>
             <label>I agree with the terms and conditions</label>
         </div>
-
+        <br>
         <div class="signup">
             <button>Sign up</button>
         </div>
@@ -123,7 +123,7 @@ button {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     border-radius: 5px;
-    width: 420px;
+    width: 100%;
     height: 40px;
 }
 

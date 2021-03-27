@@ -4,6 +4,9 @@ import SignUp from './components/SignUpPage.vue'
 import AboutUs from './components/AboutUsPage.vue'
 import ForgotPassword from './components/ForgotPassword.vue'
 import AdminLogin from './components/AdminLogin.vue'
+import PasswordResetLink from './components/PasswordResetLink.vue'
+import NewPasswordPage from './components/NewPasswordPage.vue'
+
 
 export default[
     {
@@ -35,5 +38,15 @@ export default[
         path: '/AdminLogin',
         name: 'AdminLogin',
         component: AdminLogin
+    },
+    {
+        path: '/PasswordResetLink',
+        name: 'PasswordResetLink',
+        component: PasswordResetLink
+    },
+    {
+        path: '/NewPasswordPage',
+        name: 'NewPasswordPage',
+        component: NewPasswordPage
     }
 ]
