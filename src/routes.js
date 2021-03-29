@@ -7,6 +7,7 @@ import AdminLogin from './components/AdminLogin.vue'
 import PasswordResetLink from './components/PasswordResetLink.vue'
 import NewPasswordPage from './components/NewPasswordPage.vue'
 import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
+import MerchantPage from './userafterlogin/MerchantPage.vue'
 
 
 export default[
@@ -54,5 +55,11 @@ export default[
         path: '/HomePageAftLogin',
         name: 'HomePageAftLogin',
         component: HomePageAftLogin
-    }
+    },
+    {
+        path: '/MerchantPage',
+        name: 'MerchantPage',
+        component: MerchantPage
+    },
+
 ]
