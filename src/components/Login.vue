@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import auth from '../firebase'
+import fb from '../firebase'
 
 export default {
     components: {
@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         async pressed() {
-            auth.signInWithEmailAndPassword(this.email, this.password)
+            fb.auth().signInWithEmailAndPassword(this.email, this.password)
                 .then(data => {
                     console.log(data);
                     this.$router.replace({name: 'Home'}); //changing the name here would redirect the user to the name of the page
