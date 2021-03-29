@@ -32,7 +32,7 @@
 
 
 <script>
-import auth from '../firebase'
+import fb from '../firebase'
 
 export default {
     data() {
@@ -50,10 +50,18 @@ export default {
     methods: {
         async pressed() {
             try {
-                console.log("hello")
-                const user = auth.createUserWithEmailAndPassword(this.email, this.password)
-                console.log(user)
-                this.$router.replace({name: 'Home'});
+                // console.log("hello")
+                // const user = auth.createUserWithEmailAndPassword(this.email, this.password)
+                // console.log(user)        
+                // this.$router.replace({name: 'Home'});
+
+                fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
+                    return fb.firestore().collection("users").doc(cred.user.uid).set({
+                        "name": this.name
+                        }).then( () => {
+                        return this.$router.replace({name: 'Home'});
+                    })
+                });
             } catch(err) {
                 console.log(err)
             }
