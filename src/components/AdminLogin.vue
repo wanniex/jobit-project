@@ -34,7 +34,9 @@
 
       
     <!-- <b-button id="button" @click.native="$router.push('/SignUp')" pill class="mt-4 mr-2 ml-5 mb-5">Login</b-button><br> -->
-    <button id="button" @click.native="$router.push('/SignUp')">Login</button><br><br>
+    <!-- <button id="button" @click.native="$router.push('/SignUp')">Login</button><br><br> -->
+
+    <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block mb-5">Login</b-button>
       <router-link id="forgetpw" to=/ForgotPassword exact>I forgot my password</router-link><br>
       <p id = "text2">
                 <span>Want to be our partner? </span>
