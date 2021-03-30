@@ -8,6 +8,7 @@ import PasswordResetLink from './components/PasswordResetLink.vue'
 import NewPasswordPage from './components/NewPasswordPage.vue'
 import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
 import MerchantPage from './userafterlogin/MerchantPage.vue'
+import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 
 
 export default[
@@ -61,5 +62,9 @@ export default[
         name: 'MerchantPage',
         component: MerchantPage
     },
-
+    {
+        path: '/RedeemPoints',
+        name: 'RedeemPoints',
+        component: RedeemPoints
+    },
 ]
