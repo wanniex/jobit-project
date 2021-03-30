@@ -21,6 +21,8 @@
       <b-row class="mt-5 mb-5"></b-row>
 
       <b-row class="mt-5">
+
+        <!-- Location 1 -->
         <b-col>
           <b-card-group deck >
             <b-card
@@ -30,7 +32,6 @@
               img-height="300"
           img-width="200"
             >
-
               <b-card-text class="text-center">
                 <h4>Ang Moh Kio CC</h4>
                 Address: <br>795 Ang Mo Kio Ave 1, Singapore 569976<br><br>
@@ -41,6 +42,7 @@
           </b-card-group>
         </b-col>
 
+        <!-- Location 2 -->
         <b-col>
           <b-card-group deck>
             <b-card
@@ -60,6 +62,7 @@
           </b-card-group>
         </b-col>
 
+        <!-- Location 3 -->
         <b-col>
           <b-card-group deck>
             <b-card
