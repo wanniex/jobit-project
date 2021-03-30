@@ -57,9 +57,11 @@ export default {
 
                 fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
                     return fb.firestore().collection("users").doc(cred.user.uid).set({
-                        "name": this.name
+                        "name": this.name,
+                        "clothes_donated": 0,
+                        "profile_pic": ""
                         }).then( () => {
-                        return this.$router.replace({name: 'Home'});
+                        return this.$router.replace({name: 'UserStats'});
                     })
                 });
             } catch(err) {
