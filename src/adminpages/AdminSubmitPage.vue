@@ -86,7 +86,6 @@
 </template>
 
 <script>
-import auth from "../firebase";
 import Footer from "../components/Footer.vue";
 import AdminAftLoginTopNav from "./AdminAftLoginTopNav.vue";
 
@@ -102,19 +101,6 @@ export default {
       clothesnum: "",
       staffname: "",
     };
-  },
-  methods: {
-    async pressed() {
-      auth
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((data) => {
-          console.log(data);
-          this.$router.replace({ name: "Home" }); //changing the name here would redirect the user to the name of the page
-        })
-        .catch((error) => {
-          this.error = error;
-        });
-    },
   },
 };
 </script>
