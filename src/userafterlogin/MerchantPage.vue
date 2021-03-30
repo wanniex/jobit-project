@@ -24,18 +24,15 @@
         <b-col>
           <b-card-group deck >
             <b-card
-              img-src="https://i.imgur.com/SuTBBgo.jpg"
+              img-src="https://oroinc.com/b2b-ecommerce/wp-content/uploads/sites/3/2019/07/fairprice-1500x1500-1.png"
               img-alt="Card image"
               img-top
-              img-height="300"
+              img-height="500"
           img-width="200"
             >
 
               <b-card-text class="text-center">
-                <h4>Ang Moh Kio CC</h4>
-                Address: <br>795 Ang Mo Kio Ave 1, Singapore 569976<br><br>
-
-                Opening Hours: <br>10am - 6pm, Monday to Sunday<br><br>
+                <h4>FairPrice</h4><br>
               </b-card-text>
               <b-button href="#" id="button" class="btn btn-primary mx-auto d-block">Select</b-button>
             </b-card>
@@ -45,17 +42,14 @@
         <b-col>
           <b-card-group deck>
             <b-card
-              img-src="https://i.imgur.com/WYpN7Gq.jpg"
+              img-src="https://i.imgur.com/fuUy3Ah.png"
               img-alt="Card image"
               img-top
-              img-height="300"
+              img-height="500"
           img-width="200"
             >
               <b-card-text class="text-center">
-                  <h4>Buona Vista CC</h4>
-                Address: <br>36 Holland Dr, Singapore 270036<br><br>
-
-                Opening Hours: <br>9am - 10pm, Monday to Sunday<br><br>
+                  <h4>Pizza Hut</h4><br>
               </b-card-text>
               <b-button href="#" id="button" class="btn btn-primary mx-auto d-block">Select</b-button>
             </b-card>
@@ -65,18 +59,15 @@
         <b-col>
           <b-card-group deck>
             <b-card
-              img-src="https://i.imgur.com/D68dRe6.jpg"
+              img-src="https://i.imgur.com/yfQYUIm.png"
               img-alt="Card image"
               img-top
-              img-height="300"
+              img-height="500"
           img-width="200"
             >
 
               <b-card-text class="text-center">
-                  <h4>Clementi CC</h4>
-                Address: <br>220 Clementi Ave 4, Singapore 129880<br><br>
-
-                Opening Hours: <br>9am - 10pm, Monday to Sunday<br><br>
+                  <h4>Starbucks Coffee</h4><br>
               </b-card-text>
               <b-button href="#" id="button" class="btn btn-primary mx-auto d-block">Select</b-button>
             </b-card>
