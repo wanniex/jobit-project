@@ -9,8 +9,7 @@ import NewPasswordPage from './components/NewPasswordPage.vue'
 import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
 import MerchantPage from './userafterlogin/MerchantPage.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
-import UserStats from './userafterlogin/UserStats.vue'
-import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
+
 
 export default[
     {
@@ -67,15 +66,5 @@ export default[
         path: '/EditProfile',
         name: 'EditProfile',
         component: EditProfile
-    },
-    {
-        path: '/UserStats',
-        name: 'UserStats',
-        component: UserStats
-    },
-    {
-        path: '/EditProfileInputs',
-        name: 'EditProfileInputs',
-        component: EditProfileInputs
     }
 ]
