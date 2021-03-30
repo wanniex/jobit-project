@@ -5,10 +5,15 @@
       <!-- Header -->
       <!-- <br><br><h1 style="text-align:center">Submit a donation approval</h1> -->
       <b-row align-h="center" class="mt-5">
-        <h1>Submit a donation approval</h1>
+        <b-col cols="7">
+          <b-img right fluid src="https://i.imgur.com/hxJp1vi.png"></b-img>
+        </b-col>
+        <b-col cols="5" align-self="center">
+          <h1>Submission complete</h1>
+        </b-col>
       </b-row>
 
-      <b-row>
+      <b-row class="mt-5">
         <!-- Filler Column -->
         <b-col cols="1"></b-col>
 
@@ -17,63 +22,39 @@
           <b-img
             center
             fluid
-            src="https://i.imgur.com/1ZeFo1N.png"
+            src="https://i.imgur.com/JZIDK5w.png"
             alt="Image 1"
           ></b-img>
         </b-col>
 
-        <!-- Form to submit donation approval -->
+        <!-- Submitted donation approval details -->
         <b-col fluid align-self="center" cols="5">
-          <b-form fluid @submit.prevent="pressed">
-            <b-form-group
-              id="input-group-1"
-              label="Email address:"
-              label-for="input-1"
-            >
-              <b-form-input
-                id="input-1"
-                type="email"
-                placeholder="Enter email"
-                v-model="email"
-                required
-              ></b-form-input>
-            </b-form-group>
+          <b-card-group deck>
+            <b-card>
+              <b-card-text class="mt-2">
+                <h4 style="text-align: center">
+                  Submitted on 1/1/2021, 5:45 PM<br />
+                  Location: Buona Vista CC
+                </h4>
+                <br /><br>
 
-            <b-form-group
-              id="input-group-2"
-              label="Number of clothings donated:"
-              label-for="input-2"
-            >
-              <b-form-input
-                id="input-2"
-                placeholder="Enter a number"
-                type="number"
-                v-model="clothesnum"
-                required
-              ></b-form-input>
-            </b-form-group>
+                <p><strong>Submission Details:</strong></p>
 
-            <b-form-group
-              id="input-group-3"
-              label="Staff Name:"
-              label-for="input-3"
-              class="mb-5"
-            >
-              <b-form-input
-                id="input-3"
-                placeholder="Enter Staff Name"
-                v-model="staffname"
-                required
-              ></b-form-input>
-            </b-form-group>
+                <ul style="list-style-type: none">
+                  <li>Email: jessica@gmail.com</li><br>
+                  <li>Number of clothings donated: 3</li><br>
+                  <li>Staff Name: John</li><br>
+                  <li>Points to be awarded: 900</li>
+                </ul>
+              </b-card-text>
+            </b-card>
+          </b-card-group>
 
-            <b-button
-              id="button"
-              type="submit"
-              class="btn btn-primary mx-auto d-block mb-5"
-              >Login</b-button
-            >
-          </b-form>
+          <b-button
+            id="button"
+            class="btn btn-primary mx-auto d-block mb-5 mt-5"
+            >Back to Homepage</b-button
+          >
         </b-col>
 
         <!-- Filler Column -->

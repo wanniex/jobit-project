@@ -16,8 +16,11 @@ import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
 import AdminSubmitPage from './adminpages/AdminSubmitPage.vue'
+import AdminConfirmPage from './adminpages/AdminConfirmPage.vue'
 
 export default[
+
+    // For User Pages
     {
         path: '',
         name: 'Home',
@@ -95,5 +98,10 @@ export default[
         path: '/AdminSubmitPage',
         name: 'AdminSubmitPage',
         component: AdminSubmitPage
+    },
+    {
+        path: '/AdminConfirmPage',
+        name: 'AdminConfirmPage',
+        component: AdminConfirmPage
     },
 ]
