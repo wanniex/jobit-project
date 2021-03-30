@@ -26,6 +26,7 @@
       <b-form-group id="input-group-2" label="Password:" label-for="input-2" class="mb-5">
         <b-form-input
           id="input-2"
+          type="password"
           placeholder="Enter password"
           v-model="password"
           required
@@ -55,7 +56,7 @@
 
 <script>
 import auth from "../firebase";
-import Footer from './Footer.vue';
+import Footer from '../components/Footer.vue';
 import AdminTopNav from './AdminTopNav.vue';
 
 export default {
