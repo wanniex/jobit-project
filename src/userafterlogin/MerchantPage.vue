@@ -22,13 +22,14 @@
 
       <b-row class="mt-5">
         <b-col>
-          <b-card-group deck >
+          <b-card-group deck>
             <b-card
               img-src="https://oroinc.com/b2b-ecommerce/wp-content/uploads/sites/3/2019/07/fairprice-1500x1500-1.png"
               img-alt="Card image"
               img-top
               img-height="500"
           img-width="200"
+          fluid
             >
 
               <b-card-text class="text-center">
@@ -47,6 +48,7 @@
               img-top
               img-height="500"
           img-width="200"
+          fluid
             >
               <b-card-text class="text-center">
                   <h4>Pizza Hut</h4><br>
@@ -89,15 +91,6 @@ export default {
     Footer,
     TopNavAftLogin,
   },
-
-  data() {
-    return {
-      email: "",
-      password: "",
-      error: "",
-    };
-  },
-  methods: {},
 };
 </script>
 
