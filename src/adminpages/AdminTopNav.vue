@@ -11,8 +11,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item to="/Aboutus">About Us</b-nav-item>
+        <!-- <b-nav-item to="/">Home</b-nav-item>
+        <b-nav-item to="/Aboutus">About Us</b-nav-item> -->
         <b-nav-item to="/Login">User</b-nav-item>
       </b-navbar-nav>
       
@@ -49,17 +49,4 @@ export default {
   padding-right: 5rem;
   padding-left: 0.5rem;
 }
-
-#subutton {
-   background-color:#ffffff;
-   color: black;
-   border: none;
-   transition-duration: 0.4s;
-   width: 100px;
- }
-
- #subutton:hover {
-   background-color: rgb(212, 212, 212);
-   color: black;
- }
 </style>
