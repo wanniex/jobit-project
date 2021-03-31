@@ -69,7 +69,7 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           console.log(data);
-          this.$router.replace({ name: "Home" }); //changing the name here would redirect the user to the name of the page
+          this.$router.replace({ name: "HomePageAftLogin" }); //changing the name here would redirect the user to the name of the page
         })
         .catch((error) => {
           this.error = error;
