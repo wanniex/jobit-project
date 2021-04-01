@@ -12,6 +12,7 @@ import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
 import UserStats from './userafterlogin/UserStats.vue'
 import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
+import ProfilePage from './userafterlogin/ProfilePage.vue'
 
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
@@ -85,6 +86,11 @@ export default[
         path: '/EditProfileInputs',
         name: 'EditProfileInputs',
         component: EditProfileInputs
+    },
+    {
+        path: '/ProfilePage',
+        name: 'ProfilePage',
+        component: ProfilePage
     },
 
 
