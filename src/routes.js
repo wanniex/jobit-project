@@ -10,13 +10,15 @@ import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
 import MerchantPage from './userafterlogin/MerchantPage.vue'
 import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
-import UserStats from './userafterlogin/UserStats.vue'
-import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
+// import UserStats from './userafterlogin/UserStats.vue'
+// import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
 
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
 import AdminSubmitPage from './adminpages/AdminSubmitPage.vue'
 import AdminConfirmPage from './adminpages/AdminConfirmPage.vue'
+import AdminHomepage from './adminpages/AdminHomepage.vue'
+import Chart from './adminpages/Charts/Goal.vue'
 
 export default[
 
@@ -76,16 +78,16 @@ export default[
         name: 'EditProfile',
         component: EditProfile
     },
-    {
-        path: '/UserStats',
-        name: 'UserStats',
-        component: UserStats
-    },
-    {
-        path: '/EditProfileInputs',
-        name: 'EditProfileInputs',
-        component: EditProfileInputs
-    },
+    // {
+    //     path: '/UserStats',
+    //     name: 'UserStats',
+    //     component: UserStats
+    // },
+    // {
+    //     path: '/EditProfileInputs',
+    //     name: 'EditProfileInputs',
+    //     component: EditProfileInputs
+    // },
 
 
     // For Admin Pages
@@ -103,5 +105,15 @@ export default[
         path: '/AdminConfirmPage',
         name: 'AdminConfirmPage',
         component: AdminConfirmPage
+    },
+    {
+        path: '/AdminHomepage',
+        name: 'AdminHomepage',
+        component: AdminHomepage
+    },
+    {
+        path: '/Chart',
+        name: 'Chart',
+        component: Chart
     },
 ]
