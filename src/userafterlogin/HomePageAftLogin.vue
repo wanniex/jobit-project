@@ -20,11 +20,10 @@
 
       <b-row class="mt-5 mb-5"></b-row>
 
-      <b-row class="mt-5" v-for="ele in partners" :key="ele.name">
+      <b-row class="mt-5">
 
         <!-- Location 1 -->
-        <ul id="ul">
-        <b-col>
+        <b-col v-for="ele in partners" :key="ele.name">
           <b-card-group deck>
             <b-card
               v-bind:img-src="ele.imageURL"
@@ -42,7 +41,6 @@
             </b-card>
           </b-card-group>
         </b-col>
-        </ul>
 
         <!-- Location 2 -->
         <!-- <b-col>
