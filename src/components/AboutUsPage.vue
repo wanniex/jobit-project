@@ -11,10 +11,10 @@
         </b-card-text>
       </b-card>
 
-      <b-card title="Contact Us" class="text-center" img-src="https://i.imgur.com/9GSGKcp.png" img-alt="Card image" img-bottom>
+      <b-card title="Contact Us" class="text-center" v-bind:img-src="this.imageURL" img-alt="Card image" img-bottom>
         <b-card-text>
-          Email: contact@clonate.com<br>Number: +65 6516 6666<br><br>
-          Address:<br>21 Lower Kent Ridge Road,<br>Singapore 119077
+          Email: {{this.email}} <br>Number: {{this.number}}<br><br>
+          Address:<br>{{this.address}},<br>{{this.postal}}
         </b-card-text>
       </b-card>
     </b-card-group>
@@ -53,12 +53,42 @@
 <script>
 import Footer from './Footer.vue';
 import TopNav from './TopNav.vue';
+import fb from '../firebase'
 
 export default {
   components: {
     TopNav,
     Footer,
   },
+  data() {
+    return {
+      email: '',
+      address: '',
+      imageURL: '',
+      number: '',
+      postal: '',
+    }
+  },
+  methods: {
+    fetchItems: function() {
+      fb.firestore().collection('aboutus').get().then(snapshot => {
+        let item = {}
+        snapshot.docs.forEach(doc => {
+          console.log(doc.data())
+          item = doc.data()
+          this.email = item.email
+          this.address = item.address
+          this.imageURL = item.imageURL
+          this.number = item.number
+          this.postal = item.postal
+        })
+      })
+    }
+  },
+  created() {
+    this.fetchItems()
+    console.log(this.email)
+  }
 }
     Footer
 </script>
