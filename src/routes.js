@@ -10,6 +10,7 @@ import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
 import MerchantPage from './userafterlogin/MerchantPage.vue'
 import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
+
 import UserStats from './userafterlogin/UserStats.vue'
 import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
 import ProfilePage from './userafterlogin/ProfilePage.vue'
@@ -18,6 +19,8 @@ import ProfilePage from './userafterlogin/ProfilePage.vue'
 import AdminLogin from './adminpages/AdminLogin.vue'
 import AdminSubmitPage from './adminpages/AdminSubmitPage.vue'
 import AdminConfirmPage from './adminpages/AdminConfirmPage.vue'
+import AdminHomepage from './adminpages/AdminHomepage.vue'
+import Chart from './adminpages/Charts/Goal.vue'
 
 export default[
 
@@ -93,7 +96,6 @@ export default[
         component: ProfilePage
     },
 
-
     // For Admin Pages
     {
         path: '/AdminLogin',
@@ -109,5 +111,15 @@ export default[
         path: '/AdminConfirmPage',
         name: 'AdminConfirmPage',
         component: AdminConfirmPage
+    },
+    {
+        path: '/AdminHomepage',
+        name: 'AdminHomepage',
+        component: AdminHomepage
+    },
+    {
+        path: '/Chart',
+        name: 'Chart',
+        component: Chart
     },
 ]
