@@ -10,7 +10,8 @@ import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
 import MerchantPage from './userafterlogin/MerchantPage.vue'
 import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
-
+import UserStats from './userafterlogin/UserStats.vue'
+import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
 
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
@@ -103,5 +104,4 @@ export default[
         name: 'AdminConfirmPage',
         component: AdminConfirmPage
     },
-
 ]
