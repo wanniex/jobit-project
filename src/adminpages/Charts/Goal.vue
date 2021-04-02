@@ -2,6 +2,7 @@
     <div class="chart">
         
         <Goal style = "width: 60%; margin-left: auto; margin-right: auto;"></Goal>
+        <!-- <div id="total" style="position:absolute;top:40%;right:37%;color:grey;font-size:200px;">300</div> -->
     </div>
     
 </template>

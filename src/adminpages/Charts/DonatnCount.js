@@ -10,7 +10,8 @@ export default {
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             labels: [],
             datasets: [{
-                backgroundColor: ["#3e95cd","#8e5ea2","#3cba9f","#e8c3b9","#c45850","#ffdb58"],
+                backgroundColor: "#87ebd3",
+                // ["#3e95cd","#8e5ea2","#3cba9f","#e8c3b9","#c45850","#ffdb58"],
                 data: []
               }]
         },
