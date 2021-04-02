@@ -122,4 +122,5 @@ export default[
         name: 'Chart',
         component: Chart
     },
+    
 ]

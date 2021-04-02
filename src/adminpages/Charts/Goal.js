@@ -1,5 +1,8 @@
 import { Doughnut } from 'vue-chartjs'
+// import Chart from "chart.js";
 import fb from '../../firebase.js'
+
+var perctotal;
 
 export default {
     extends: Doughnut,
@@ -23,56 +26,28 @@ export default {
                     text: 'Goal',
                     fontSize: 30,
                 },
-                // trying this to add text into doughnut chart, but not working
-                // elements: {
-                //     center: {
-                //         text: "Hello",
-                //         color: "#2D8BBA"
-                //     }
-                // },
+                animation: {
+                    animateScale: true,
+                },
+                cutoutPercentage: 65,
                 responsive: true,
                 maintainAspectRatio: true
             },
         }
     },
-    // mounted() {
-    //     var db = fb.firestore();
-    //     // var curuser = fb.auth().currentUser;
-    //     //uid = curuser.uid; 
-    //     var uid = "KRqkR8RDsluWJMENfe4U";//*********** change this later
-    //     var curcount, perc, goal,d ,curmonth;
-    //     db.collection('partners').doc(uid).get().then(doc => {
-    //         d = new Date();
-    //         curmonth = d.getMonth();   
-    //         curcount = doc.data().clothes_donated[curmonth];
-    //         goal = doc.data().donation_goal[curmonth];
-    //         perc = ((curcount/goal)/goal).toFixed(2);
-            
-    //         if (curcount >= goal) {
-    //             curcount = goal;
-    //         }
-    //         goal = goal - curcount;
-    //         this.datacollection.datasets[0].data.push(curcount);
-    //         this.datacollection.datasets[0].data.push(goal);
-    //         console.log(this.datacollection.datasets[0].data)
-    //         console.log(this.datacollection.labels)
-    //     });
-    //     this.renderChart(this.datacollection, this.options);
-    // }
     methods: {
         fetchItems() {
             var db = fb.firestore();
             // var curuser = fb.auth().currentUser;
             //uid = curuser.uid; 
             var uid = "KRqkR8RDsluWJMENfe4U";//*********** change this later
-            var curcount, perc, goal,d ,curmonth;
+            var curcount, goal,d ,curmonth;
             db.collection('partners').doc(uid).get().then(doc => {
                 d = new Date();
                 curmonth = d.getMonth();   
                 curcount = doc.data().clothes_donated[curmonth];
                 goal = doc.data().donation_goal[curmonth];
-                perc = ((curcount/goal)/goal).toFixed(2);
-                
+                perctotal = ((curcount/goal)*100).toFixed(0);
                 if (curcount >= goal) {
                     curcount = goal;
                 }
@@ -82,10 +57,32 @@ export default {
             }).then(() => {
                 this.renderChart(this.datacollection, this.options);
             })
-        }
+        },
+        
     },
     created() {
+        this.addPlugin({
+            id: 'my-plugin',
+            beforeDraw: plugin
+        })
         this.fetchItems();
-        
-    }
+    },
+}
+
+var plugin = function(chart) {
+    var width = chart.chart.width;
+    var height = chart.chart.height;
+    var ctx = chart.chart.ctx;
+
+    ctx.restore();
+    var fontSize = (height / 114).toFixed(2);
+    ctx.font = fontSize + "em sans-serif";
+    ctx.textBaseline = "middle";
+
+    var text = perctotal + "%";
+    var textX = Math.round((width - ctx.measureText(text).width) / 2);
+    var textY = height / 2 + 30;
+
+     ctx.fillText(text, textX, textY);
+     ctx.save();
 }
