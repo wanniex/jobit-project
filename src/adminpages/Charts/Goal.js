@@ -13,7 +13,6 @@ export default {
                 datasets: [{
                     data:[],
                     backgroundColor: ["#2D8BBA","grey"],
-                    // hoverBorderColor: ["black", "red"]
                     borderWidth:0,
                 }]
             },
@@ -40,7 +39,7 @@ export default {
             var db = fb.firestore();
             // var curuser = fb.auth().currentUser;
             //uid = curuser.uid; 
-            var uid = "KRqkR8RDsluWJMENfe4U";//*********** change this later
+            var uid = "HAXIeBjEPnzGcTdL8Mbk";//*********** change this later
             var curcount, goal,d ,curmonth;
             db.collection('partners').doc(uid).get().then(doc => {
                 d = new Date();
