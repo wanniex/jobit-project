@@ -12,18 +12,24 @@
       </b-row>
 
       <b-row align-h="center" class="mt-5 mb-5">
-        <b-dropdown id="dropdown-1" text="Sort by" class="m-md-2">
+                <!-- Dropdown for sorting -->
+        
+        <div class="mr-2">Sort by:</div>
+        <b-form-select v-model="selected" :options="options" id="formformat"
+          >Sort by</b-form-select
+        >
+
+        <!-- <b-dropdown id="dropdown-1" text="Sort by" class="m-md-2">
           <b-dropdown-item>Ascending Order</b-dropdown-item>
           <b-dropdown-item>Descending Order</b-dropdown-item>
-        </b-dropdown>
+        </b-dropdown> -->
       </b-row>
 
       <b-row class="mt-5 mb-5"></b-row>
 
       <b-row class="mt-5">
 
-        <!-- Location 1 -->
-        <b-col v-for="ele in partners" :key="ele.name">
+        <b-col v-for="ele in sortedArray" :key="ele.name">
           <b-card-group deck>
             <b-card
               v-bind:img-src="ele.imageURL"
@@ -103,9 +109,17 @@ export default {
   data() {
     return {
       partners: [],
-      email: "",
-      password: "",
-      error: "",
+      selected: "Ascending",
+      options: [
+        {
+          value: "Ascending",
+          text: "Ascending",
+        },
+        {
+          value: "Descending",
+          text: "Descending",
+        },
+      ],
     };
   },
   methods: {
@@ -119,6 +133,32 @@ export default {
       })
     }
   },
+
+  computed: {
+    sortedArray: function () {
+      console.log("new");
+      var newArray = this.partners;
+      function compareAsc(a, b) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      }
+
+      function compareDesc(a, b) {
+        if (a.name > b.name) return -1;
+        if (a.name < b.name) return 1;
+        return 0;
+      }
+      console.log(newArray);
+      if (this.selected == "Ascending") {
+        return newArray.sort(compareAsc);
+      } else {
+        return newArray.sort(compareDesc);
+      }
+    },
+  },
+
+
   created() {
     this.fetchItems()
     console.log(this.partners)
@@ -142,5 +182,9 @@ export default {
   border: 1px solid #222;
   margin: 10px;
   font-weight: bold;
+}
+
+#formformat {
+  width: 10%;
 }
 </style>
