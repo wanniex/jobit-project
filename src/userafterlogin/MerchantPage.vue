@@ -24,7 +24,9 @@
           </b-dropdown-item>
 
         </b-dropdown> -->
-        <b-text class="mr-2">Sort by:</b-text>
+
+        <!-- Dropdown for sorting -->
+        <div class="mr-2">Sort by:</div>
         <b-form-select v-model="selected" :options="options" id="formformat"
           >Sort by</b-form-select
         >
