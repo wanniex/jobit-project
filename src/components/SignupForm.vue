@@ -61,7 +61,7 @@ export default {
                         "clothes_donated": 0,
                         "profile_pic": ""
                         }).then( () => {
-                        return this.$router.replace({name: 'UserStats'});
+                        return this.$router.replace({name: 'HomePageAftLogin'});
                     })
                 });
             } catch(err) {
