@@ -4,7 +4,7 @@
 
        <div>
     <b-card-group deck class="ml-2 mr-2 mt-5">
-      <b-card title="About Us" class="text-center" img-src="https://i.imgur.com/3cPui7W.jpg" img-alt="Card image" img-top>
+      <b-card title="About Us" class="text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
         <b-card-text>
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
           <br><br>Join us in our cause today.
@@ -67,6 +67,7 @@ export default {
       imageURL: '',
       number: '',
       postal: '',
+      imageURL2: '',
     }
   },
   methods: {
@@ -81,6 +82,7 @@ export default {
           this.imageURL = item.imageURL
           this.number = item.number
           this.postal = item.postal
+          this.imageURL2 = item.imageURL2
         })
       })
     }
