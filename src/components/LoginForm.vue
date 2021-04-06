@@ -68,7 +68,8 @@ export default {
       fb.auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then((data) => {
-          console.log(data);
+          alert(data);
+
           this.$router.replace({ name: "HomePageAftLogin" }); //changing the name here would redirect the user to the name of the page
         })
         .catch((error) => {

@@ -17,8 +17,8 @@
       
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-avatar href="#foo" src="https://placekitten.com/300/300" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
-        <b-button pill id="sobutton" class="mt-2 mr-2 ml-2" @click='pressed'>Sign Out</b-button>
+        <b-avatar href="#foo" v-bind:src = "profilepic" id = "profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
+        <b-button pill id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -26,12 +26,35 @@
 
 
 <script>
-import fb from '../firebase';
+import fb from '../firebase.js'
+
 
 export default {
+  data() {
+    return {
+      uid: null,
+      profilepic: "",
+    }
+  },
   components: {
   },
   methods: {
+    getprofilepic() {
+      alert('ingetprofilepic');
+      fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
+        // document.getElementById('profilepic').src = imgURL;
+        this.profilepic = imgURL;
+        alert(imgURL);
+      })
+    }
+
+  },
+  created() {
+    this.uid = fb.auth().currentUser.uid;
+    this.getprofilepic();
+  }
+
+};
      async pressed() {
     fb
       .auth()
