@@ -18,7 +18,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-avatar href="#foo" src="https://placekitten.com/300/300" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
-        <b-button pill id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
+        <b-button pill id="sobutton" class="mt-2 mr-2 ml-2" @click='pressed'>Sign Out</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -26,13 +26,27 @@
 
 
 <script>
+import fb from '../firebase';
 
 export default {
   components: {
   },
   methods: {
-  }
-};
+     async pressed() {
+    fb
+      .auth()
+      .signOut()
+      .then(() => {
+        alert('Successfully logged out');
+        this.$router.push('/');
+      })
+      .catch(error => {
+        alert(error.message);
+        this.$router.push('/');
+      });
+     },
+  },
+}; 
 </script>
 
 
