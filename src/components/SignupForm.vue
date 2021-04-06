@@ -16,6 +16,10 @@
         <input v-on:blur = "validate" type="password" required v-model="confirmpassword" placeholder="Confirm Password">
         <br><br>
         <div v-show="passwordvalidate" id ="passwordvalidate"> Passwords do not match! </div>
+
+        <label>Profile Picture</label>
+        <input type = "file" @change = "chooseFile" />
+        <img style = "width: 300px; height: auto" src = "https://via.placeholder.com/150" class = "ui image centered" id = "img">
         <div class="terms">
             <input type="checkbox" v-model="terms" required>
             <label>I agree with the terms and conditions</label>
@@ -34,6 +38,8 @@
 <script>
 import fb from '../firebase'
 
+let imgfile = {}
+
 export default {
     data() {
         return {
@@ -43,31 +49,40 @@ export default {
             confirmpassword: '',
             terms: false,
             error: '',
-            passwordvalidate: false
+            passwordvalidate: false,
+            imgext: '',
         }
     },
     
     methods: {
+        chooseFile(e) {
+            imgfile =  e.target.files[0];
+            const objectURL = URL.createObjectURL(imgfile)
+            document.getElementById('img').src = objectURL;
+        },
         async pressed() {
             try {
-                // console.log("hello")
-                // const user = auth.createUserWithEmailAndPassword(this.email, this.password)
-                // console.log(user)        
-                // this.$router.replace({name: 'Home'});
-
                 fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
-                    return fb.firestore().collection("users").doc(cred.user.uid).set({
-                        "name": this.name,
-                        "clothes_donated": 0,
-                        "profile_pic": ""
-                        }).then( () => {
-                        return this.$router.replace({name: 'HomePageAftLogin'});
+                    fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
+                        
+                        console.log('photo successfully uploaded');
+                        fb.firestore().collection("users").doc(cred.user.uid).set({
+                            "name": this.name,
+                            "clothes_donated": 0,
+                            // "profile_pic": ""
+                        }).then(() => {
+                            this.$router.replace({name: 'HomePageAftLogin'});
+                        })
                     })
+                    
                 });
             } catch(err) {
                 console.log(err)
             }
+
         },
+
+
         validate() {
             if (this.password === this.confirmpassword) {
                 this.passwordvalidate = false
@@ -75,6 +90,9 @@ export default {
                 this.passwordvalidate = true
             }
         }
+
+    },
+    watch: {
 
     }
 }
