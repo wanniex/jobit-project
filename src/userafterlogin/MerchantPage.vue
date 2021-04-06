@@ -7,71 +7,50 @@
         <h1>Redeem your points</h1>
       </b-row>
 
-     <b-row align-h="center" class="mt-4">
-        <h4 style="color:gray">Choose your merchant:</h4>
+      <b-row align-h="center" class="mt-4">
+        <h4 style="color: gray">Choose your merchant:</h4>
       </b-row>
 
       <b-row align-h="center" class="mt-5 mb-5">
-        <b-dropdown id="dropdown-1" text="Sort by" class="m-md-2">
-          <b-dropdown-item>Ascending Order</b-dropdown-item>
-          <b-dropdown-item>Descending Order</b-dropdown-item>
-        </b-dropdown>
+        <!-- <b-dropdown id="dropdown-1" text="Sort by" class="m-md-2" v-on:change="fetchItems">
+          <b-dropdown-item id="asc" value="asc">Ascending Order</b-dropdown-item>
+          <b-dropdown-item id="desc" value="desc">Descending Order</b-dropdown-item>
+
+          <b-dropdown-item v-for="option in options" 
+          :key="option.value"
+          :value="option.value"
+          @click="this.selected = option.value">
+          {{option.text}}
+          </b-dropdown-item>
+
+        </b-dropdown> -->
+
+        <!-- Dropdown for sorting -->
+        <div class="mr-2">Sort by:</div>
+        <b-form-select v-model="selected" :options="options" id="formformat"
+          >Sort by</b-form-select
+        >
       </b-row>
 
       <b-row class="mt-5 mb-5"></b-row>
 
-      <b-row class="mt-5">
-        <b-col>
-          <b-card-group deck>
+      <b-row class="mt-5 align-items-stretch">
+        <b-col v-for="ele in sortedArray" :key="ele.name">
+          <b-card-group deck class="h-100 mb-3">
             <b-card
-              img-src="https://oroinc.com/b2b-ecommerce/wp-content/uploads/sites/3/2019/07/fairprice-1500x1500-1.png"
-              img-alt="Card image"
-              img-top
-              img-height="500"
-          img-width="200"
-          fluid
+              v-bind:header="ele.name"
+              body-class="d-flex flex-column"
+              class="mb-5"
+              fluid
+              align="center"
             >
+              <!-- <b-card-text class="text-center">
+                Fairprice
+              </b-card-text> -->
 
-              <b-card-text class="text-center">
-                <h4>FairPrice</h4><br>
-              </b-card-text>
-              <b-button href="#" id="button" class="btn btn-primary mx-auto d-block">Select</b-button>
-            </b-card>
-          </b-card-group>
-        </b-col>
+              <b-img v-bind:src="ele.imageURL" fluid class="mb-4"></b-img>
 
-        <b-col>
-          <b-card-group deck>
-            <b-card
-              img-src="https://i.imgur.com/fuUy3Ah.png"
-              img-alt="Card image"
-              img-top
-              img-height="500"
-          img-width="200"
-          fluid
-            >
-              <b-card-text class="text-center">
-                  <h4>Pizza Hut</h4><br>
-              </b-card-text>
-              <b-button href="#" id="button" class="btn btn-primary mx-auto d-block">Select</b-button>
-            </b-card>
-          </b-card-group>
-        </b-col>
-
-        <b-col>
-          <b-card-group deck>
-            <b-card
-              img-src="https://i.imgur.com/yfQYUIm.png"
-              img-alt="Card image"
-              img-top
-              img-height="500"
-          img-width="200"
-            >
-
-              <b-card-text class="text-center">
-                  <h4>Starbucks Coffee</h4><br>
-              </b-card-text>
-              <b-button href="#" id="button" class="btn btn-primary mx-auto d-block">Select</b-button>
+              <b-button href="#" id="button" class="mt-auto">Select</b-button>
             </b-card>
           </b-card-group>
         </b-col>
@@ -85,28 +64,92 @@
 <script>
 import TopNavAftLogin from "./TopNavAftLogin.vue";
 import Footer from "../components/Footer.vue";
+import fb from "../firebase";
 
 export default {
   components: {
     Footer,
     TopNavAftLogin,
   },
+
+  data() {
+    return {
+      merchants: [],
+      selected: "Ascending",
+      options: [
+        {
+          value: "Ascending",
+          text: "Ascending",
+        },
+        {
+          value: "Descending",
+          text: "Descending",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    fetchItems: function () {
+      var merchantsRef = fb.firestore().collection("merchants");
+      merchantsRef.get().then((snapshot) => {
+        let item = {};
+        snapshot.docs.forEach((doc) => {
+          // console.log(doc.data())
+          item = doc.data();
+          this.merchants.push(item);
+        });
+      });
+    },
+  },
+
+  computed: {
+    sortedArray: function () {
+      console.log("new");
+      var newArray = this.merchants;
+      function compareAsc(a, b) {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      }
+
+      function compareDesc(a, b) {
+        if (a.name > b.name) return -1;
+        if (a.name < b.name) return 1;
+        return 0;
+      }
+      console.log(newArray);
+      if (this.selected == "Ascending") {
+        return newArray.sort(compareAsc);
+      } else {
+        return newArray.sort(compareDesc);
+      }
+    },
+  },
+
+  created() {
+    this.fetchItems();
+  },
 };
 </script>
 
 
 <style scoped>
-
 #button {
   background-color: #87ebd3;
   color: #ffff;
   border: none;
   transition-duration: 0.4s;
   width: 200px;
+  align-self: center;
 }
 
 #button:hover {
   background-color: rgb(212, 212, 212);
   color: black;
+}
+
+#formformat {
+  width: 10%;
 }
 </style>
