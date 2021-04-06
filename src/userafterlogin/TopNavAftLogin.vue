@@ -28,6 +28,7 @@
 <script>
 import fb from '../firebase.js'
 
+
 export default {
   data() {
     return {
@@ -54,6 +55,21 @@ export default {
   }
 
 };
+     async pressed() {
+    fb
+      .auth()
+      .signOut()
+      .then(() => {
+        alert('Successfully logged out');
+        this.$router.push('/');
+      })
+      .catch(error => {
+        alert(error.message);
+        this.$router.push('/');
+      });
+     },
+  },
+}; 
 </script>
 
 
