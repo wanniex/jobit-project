@@ -11,6 +11,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
+        <b-nav-item to="/HomePageAftLogin">Home</b-nav-item>
         <b-nav-item to="/MerchantPage">Redeem Points</b-nav-item>
       </b-navbar-nav>
       
