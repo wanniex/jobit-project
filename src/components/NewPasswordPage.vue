@@ -8,7 +8,7 @@
                     id="input-group-1"
                     label="New Password:"
                     label-for="password1"
-                    class="mt-4"
+                    class="mt-2"
                 >
                     <b-form-input
                         id="password1"
@@ -33,8 +33,7 @@
                         required
                     ></b-form-input>
                 </b-form-group>
-                <b-button id="resetpassword" pill class="mt-4 ml-5 mb-5" type = "submit"
-                style = "width: 200px; background-color: #87ebd3; color: black;">Reset Password</b-button><br />
+                <b-button type = "submit" id="button" pill class="mt-4 ml-5 mb-5">Reset Password</b-button><br />
             </b-form>
 
         </b-container>
@@ -84,5 +83,16 @@ export default {
 </script>
 
 <style scoped>
+#button {
+  background-color: #87ebd3;
+  color: black;
+  border: none;
+  transition-duration: 0.4s;
+  width: 200px;
+}
 
+#button:hover {
+  background-color: rgb(212, 212, 212);
+  color: black;
+}
 </style>

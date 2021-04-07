@@ -17,7 +17,7 @@
         <b-col cols="4">
           <b-card-group deck>
             <b-card
-              img-src="https://oroinc.com/b2b-ecommerce/wp-content/uploads/sites/3/2019/07/fairprice-1500x1500-1.png"
+              v-bind:img-src="this.datapacket[0].imageURL"
               img-alt="Card image"
               img-top
               img-height="500"
@@ -105,11 +105,40 @@
 <script>
 import TopNavAftLogin from "./TopNavAftLogin.vue";
 import Footer from "../components/Footer.vue";
+import fb from "../firebase";
 
 export default {
+  data() {
+    return {
+      datapacket: [],
+    }
+  },
+  
   components: {
     Footer,
     TopNavAftLogin,
+  },
+
+    methods: {
+    fetchItems: function () {
+      var merchantsRef = fb.firestore().collection("merchants");
+      merchantsRef.get().then((snapshot) => {
+        let item = {};
+        snapshot.docs.forEach((doc) => {
+          console.log("hey")
+          item = doc.data();
+          if (doc.id == this.$route.params.id) {
+          this.datapacket.push(item);
+          console.log(this.datapacket[0]);
+          console.log("hello");
+          }
+        });
+      });
+    }
+  },
+  
+    created() {
+    this.fetchItems();
   },
 };
 </script>
