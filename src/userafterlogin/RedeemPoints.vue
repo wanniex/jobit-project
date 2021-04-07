@@ -17,16 +17,13 @@
         <b-col cols="4">
           <b-card-group deck>
             <b-card
-              v-bind:img-src="this.datapacket[0].imageURL"
-              img-alt="Card image"
-              img-top
-              img-height="500"
-              img-width="200"
+              body-class="d-flex flex-column"
+              class="mb-5"
+              fluid
+              align="center"
+              v-bind:footer="this.datapacket[0].name"
             >
-              <b-card-text class="text-center">
-                <h4>FairPrice</h4>
-                <br />
-              </b-card-text>
+            <b-img v-bind:src="this.datapacket[0].imageURL" fluid class="mb-4"></b-img>
             </b-card>
           </b-card-group>
         </b-col>
