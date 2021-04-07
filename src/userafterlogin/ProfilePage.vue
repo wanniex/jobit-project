@@ -5,7 +5,7 @@
         <div class="justify-content-center">
             <b-container style = "margin-top: 100px;">
                 <b-row align-h="center">
-                <b-avatar href="#foo" src="https://placekitten.com/300/300" size="11em"></b-avatar>
+                <b-avatar href="#foo" :src= "profilepic" size="11em"></b-avatar>
                 </b-row>
                 
                 <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">Jessica</p>
@@ -35,6 +35,7 @@
 import TopNavAftLogin from './TopNavAftLogin.vue'
 import UserStats from './UserStats.vue'
 import Footer from '../components/Footer.vue'
+import fb from '../firebase.js'
 
 export default {
     components: {
@@ -44,11 +45,21 @@ export default {
     },
     data() {
         return {
-
+            uid: "",
+            profilepic: "",
         }
     },
     methods: {
-
+        getprofilepic() {
+            fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
+                // document.getElementById('profilepic').src = imgURL;
+                this.profilepic = imgURL;
+            })
+        },
+    },
+    created() {
+        this.uid = fb.auth().currentUser.uid;
+        this.getprofilepic();
     }
 
 }

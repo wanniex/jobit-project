@@ -31,7 +31,7 @@ import fb from '../firebase.js'
 export default {
     data() {
         return {
-            
+            uid: "",
         }
     },
     methods: {
@@ -40,10 +40,10 @@ export default {
             // var uid = user.uid;
 
             // var user = fb.auth().currentUser;
-            var uid = "Pmn78vDLq3ZCSZc4G0uudIxH06L2";
+            // var uid = "Pmn78vDLq3ZCSZc4G0uudIxH06L2";
             var name, clothes_donated, water, cotton;
-            if (uid) {  // ***************change back to user later
-                fb.firestore().collection("users").doc(uid).get().then(doc => {
+            if (this.uid) {
+                fb.firestore().collection("users").doc(this.uid).get().then(doc => {
                     name = doc.data().name;
                     clothes_donated = doc.data().clothes_donated;
                     water = clothes_donated * 2700 * 0.264172; // liter to gallons 
@@ -60,6 +60,7 @@ export default {
         }
     },
     created() {
+        this.uid = fb.auth().currentUser.uid;
         this.fetchStats()
     }
 
