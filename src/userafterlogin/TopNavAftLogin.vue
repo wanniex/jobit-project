@@ -17,8 +17,8 @@
       
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-avatar href="#foo" v-bind:src = "profilepic" id = "profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
-        <b-button pill id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
+        <router-link to="/EditProfile"><b-avatar v-bind:src = "profilepic" id = "profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar></router-link>
+        <b-button pill @click="signout()" id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -40,26 +40,13 @@ export default {
   },
   methods: {
     getprofilepic() {
-      alert('ingetprofilepic');
       fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
         // document.getElementById('profilepic').src = imgURL;
         this.profilepic = imgURL;
-        alert(imgURL);
       })
-    }
-
-  },
-  created() {
-    this.uid = fb.auth().currentUser.uid;
-    this.getprofilepic();
-  }
-
-};
-     async pressed() {
-    fb
-      .auth()
-      .signOut()
-      .then(() => {
+    },
+    signout() {
+      fb.auth().signOut().then(() => {
         alert('Successfully logged out');
         this.$router.push('/');
       })
@@ -67,9 +54,18 @@ export default {
         alert(error.message);
         this.$router.push('/');
       });
-     },
+    },
+
   },
-}; 
+  created() {
+    this.uid = fb.auth().currentUser.uid;
+    this.getprofilepic();
+  }
+
+
+};
+
+
 </script>
 
 

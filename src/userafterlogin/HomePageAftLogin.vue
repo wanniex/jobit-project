@@ -4,7 +4,7 @@
 
     <b-container fluid class="mt-5 mb-5">
       <b-row align-h="center">
-        <h1>Welcome Back!</h1>
+        <h1>Welcome Back, {{username}}!</h1>
       </b-row>
 
      <b-row align-h="center" class="mt-4">
@@ -110,6 +110,8 @@ export default {
     return {
       partners: [],
       selected: "Ascending",
+      username: "",
+      userid: "",
       options: [
         {
           value: "Ascending",
@@ -130,6 +132,10 @@ export default {
           item = doc.data()
           this.partners.push(item)
         })
+      }),
+      fb.firestore().collection('users').doc(this.userid).get().then(snapshot => {
+        this.username = snapshot.data().name;
+        this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
       })
     }
   },
@@ -160,6 +166,7 @@ export default {
 
 
   created() {
+    this.userid = fb.auth().currentUser.uid;
     this.fetchItems()
     console.log(this.partners)
   }
