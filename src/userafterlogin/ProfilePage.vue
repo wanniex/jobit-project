@@ -12,7 +12,7 @@
                 
                 <p class="text-center" style="color: #616161; font-size: 25px;"> 2,400 points
                 <img 
-                src="../assets/points-image.png"
+                src="../assets/pointsanimate.png"
                 style="float: center; margin-left: 5px;"        
                 />
                 </p>

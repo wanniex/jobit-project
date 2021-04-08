@@ -18,11 +18,6 @@
         <b-form-select v-model="selected" :options="options" id="formformat"
           >Sort by</b-form-select
         >
-
-        <!-- <b-dropdown id="dropdown-1" text="Sort by" class="m-md-2">
-          <b-dropdown-item>Ascending Order</b-dropdown-item>
-          <b-dropdown-item>Descending Order</b-dropdown-item>
-        </b-dropdown> -->
       </b-row>
 
       <b-row class="mt-5 mb-5"></b-row>
@@ -47,47 +42,6 @@
             </b-card>
           </b-card-group>
         </b-col>
-
-        <!-- Location 2 -->
-        <!-- <b-col>
-          <b-card-group deck>
-            <b-card
-              img-src="https://i.imgur.com/WYpN7Gq.jpg"
-              img-alt="Card image"
-              img-top
-              img-height="300"
-              img-width="200"
-            >
-              <b-card-text class="text-center">
-                  <h4>Buona Vista CC</h4>
-                Address: <br>36 Holland Dr, Singapore 270036<br><br>
-
-                Opening Hours: <br>9am - 10pm, Monday to Sunday<br><br>
-              </b-card-text>
-            </b-card>
-          </b-card-group>
-        </b-col> -->
-
-        <!-- Location 3 -->
-        <!-- <b-col>
-          <b-card-group deck>
-            <b-card
-              img-src="https://i.imgur.com/D68dRe6.jpg"
-              img-alt="Card image"
-              img-top
-              img-height="300"
-              img-width="200"
-            >
-
-              <b-card-text class="text-center">
-                  <h4>Clementi CC</h4>
-                Address: <br>220 Clementi Ave 4, Singapore 129880<br><br>
-
-                Opening Hours: <br>9am - 10pm, Monday to Sunday<br><br>
-              </b-card-text>
-            </b-card>
-          </b-card-group>
-        </b-col> -->
       </b-row>
     </b-container>
 
