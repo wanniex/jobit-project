@@ -69,6 +69,7 @@ export default {
                         fb.firestore().collection("users").doc(cred.user.uid).set({
                             "name": this.name,
                             "clothes_donated": 0,
+                            "points": 0
                             // "profile_pic": ""
                         }).then(() => {
                             this.$router.replace({name: 'HomePageAftLogin'});

@@ -134,6 +134,7 @@ export default {
         })
       }),
       fb.firestore().collection('users').doc(this.userid).get().then(snapshot => {
+        console.log(this.userid)
         this.username = snapshot.data().name;
         this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
       })

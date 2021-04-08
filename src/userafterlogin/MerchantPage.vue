@@ -94,7 +94,7 @@ export default {
         name: "RedeemPoints",
         params: { id: event.target.getAttribute("id") },
       });
-      console.log(event.target.getAttribute("id"))
+      // console.log(event.target.getAttribute("id"))
     },
   },
 
@@ -112,7 +112,7 @@ export default {
         if (a[1].name < b[1].name) return 1;
         return 0;
       }
-      console.log(newArray);
+      // console.log(newArray);
       if (this.selected == "Ascending") {
         return newArray.sort(compareAsc);
       } else {
