@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import fb from '../firebase.js'
+import fb from 'firebase'
 
 export default {
     data() {

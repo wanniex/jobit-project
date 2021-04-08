@@ -28,99 +28,157 @@ export default[
     {
         path: '',
         name: 'Home',
-        component: Home
+        component: Home,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/SignUp',
         name: 'SignUp',
-        component: SignUp
+        component: SignUp,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/LogIn',
         name: 'LogIn',
-        component: Login
+        component: Login,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/AboutUs',
         name: 'AboutUs',
-        component: AboutUs
+        component: AboutUs,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/ForgotPassword',
         name: 'ForgotPassword',
-        component: ForgotPassword
+        component: ForgotPassword,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/PasswordResetLink',
         name: 'PasswordResetLink',
-        component: PasswordResetLink
+        component: PasswordResetLink,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/NewPasswordPage',
         name: 'NewPasswordPage',
-        component: NewPasswordPage
+        component: NewPasswordPage,
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/HomePageAftLogin',
         name: 'HomePageAftLogin',
-        component: HomePageAftLogin
+        component: HomePageAftLogin,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/MerchantPage',
         name: 'MerchantPage',
-        component: MerchantPage
+        component: MerchantPage,
+        meta: {
+            auth: true
+        }
+        
     },
     {
         path: '/RedeemPoints',
         name: 'RedeemPoints',
-        component: RedeemPoints
+        component: RedeemPoints,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/EditProfile',
         name: 'EditProfile',
-        component: EditProfile
+        component: EditProfile,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/UserStats',
         name: 'UserStats',
-        component: UserStats
+        component: UserStats,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/EditProfileInputs',
         name: 'EditProfileInputs',
-        component: EditProfileInputs
+        component: EditProfileInputs,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/ProfilePage',
         name: 'ProfilePage',
-        component: ProfilePage
+        component: ProfilePage,
+        meta: {
+            auth: true
+        }
     },
 
     // For Admin Pages
     {
         path: '/AdminLogin',
         name: 'AdminLogin',
-        component: AdminLogin
+        component: AdminLogin,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/AdminSubmitPage',
         name: 'AdminSubmitPage',
-        component: AdminSubmitPage
+        component: AdminSubmitPage,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/AdminConfirmPage',
         name: 'AdminConfirmPage',
-        component: AdminConfirmPage
+        component: AdminConfirmPage,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/AdminHomepage',
         name: 'AdminHomepage',
-        component: AdminHomepage
+        component: AdminHomepage,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/Chart',
         name: 'Chart',
-        component: Chart
+        component: Chart,
+        meta: {
+            auth: true
+        }
     },
     
 ]

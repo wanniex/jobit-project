@@ -1,6 +1,6 @@
 // import { BreadcrumbPlugin } from 'bootstrap-vue';
 import { Bar } from 'vue-chartjs'
-import fb from '../../firebase.js'
+import fb from 'firebase'
 
 export default {
   extends: Bar,

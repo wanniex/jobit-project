@@ -1,6 +1,6 @@
 import { Doughnut } from 'vue-chartjs'
 // import Chart from "chart.js";
-import fb from '../../firebase.js'
+import fb from 'firebase'
 
 var perctotal;
 

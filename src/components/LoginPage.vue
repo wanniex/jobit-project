@@ -11,7 +11,7 @@
 <script>
 import LoginForm from './LoginForm.vue';
 import TopNav from "./TopNav.vue";
-import auth from "../firebase";
+import fb from "firebase";
 import Footer from './Footer.vue';
 
 export default {
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     async pressed() {
-      auth
+      fb.auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           console.log(data);

@@ -53,7 +53,7 @@
 <script>
 import Footer from './Footer.vue';
 import TopNav from './TopNav.vue';
-import fb from '../firebase'
+import fb from 'firebase'
 
 export default {
   components: {

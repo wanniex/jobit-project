@@ -51,7 +51,7 @@
 <script>
 import TopNavAftLogin from "./TopNavAftLogin.vue";
 import Footer from "../components/Footer.vue";
-import fb from "../firebase";
+import fb from "firebase";
 
 export default {
   components: {

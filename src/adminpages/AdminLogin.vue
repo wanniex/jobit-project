@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import auth from "../firebase";
+import auth from "firebase";
 import Footer from '../components/Footer.vue';
 import AdminTopNav from './AdminTopNav.vue';
 

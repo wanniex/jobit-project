@@ -3,6 +3,7 @@ import App from './App.vue'
 import Routes from './routes.js'
 import VueRouter from 'vue-router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import firebase from 'firebase';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -15,6 +16,19 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyDtr6cQZ-bMR-dibwF9m6eE3oS9Gc9S3b4",
+  authDomain: "jobit-38c72.firebaseapp.com",
+  projectId: "jobit-38c72",
+  storageBucket: "jobit-38c72.appspot.com",
+  messagingSenderId: "407951507326",
+  appId: "1:407951507326:web:18f29a4c16508568d07d2f",
+  measurementId: "G-W1SZ08LYHH"
+};
+
+firebase.initializeApp(firebaseConfig);
 
 const myRouter = new VueRouter({
   routes: Routes,

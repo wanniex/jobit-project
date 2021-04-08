@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import fb from "../firebase";
+import fb from "firebase";
 
 export default {
   components: {},
@@ -63,17 +63,40 @@ export default {
       error: "",
     };
   },
+
+  created() {
+    fb.auth().onAuthStateChanged(userAuth => {
+      if (userAuth) {
+        var auth = userAuth.auth;
+        if (auth == "normal") {
+          this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
+        } else {
+          this.$router.replace({ name: "Home" })
+        }
+      }
+    })
+      //   fb.auth()
+      //     .currentUser.getIdTokenResult()
+      //     .then(tokenResult => {
+      //       console.log(tokenResult.claims);
+      //     });
+      // }
+    
+  },
   methods: {
     async pressed() {
-      fb.auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((data) => {
-          this.$router.replace({ name: "HomePageAftLogin" }); //changing the name here would redirect the user to the name of the page
-        })
-        .catch((error) => {
-          this.error = error;
-          alert(this.error);
-        });
+      try {
+        fb.auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(
+            //conditional statement to check auth
+            this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
+          )
+      } catch (error) {
+        console.log(error)
+        this.error = error;
+        alert(this.error);
+      }      
     },
   },
 };
