@@ -17,7 +17,7 @@
       
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <router-link to="/ProfilePage"><b-avatar v-bind:src = "profilepic" id = "profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar></router-link>
+        <b-avatar v-bind:src = "profilepic" to="/ProfilePage" id = "profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
         <b-button pill @click="signout()" id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
       </b-navbar-nav>
     </b-collapse>
