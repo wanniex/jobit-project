@@ -90,7 +90,7 @@
             </li>
             <li>
               Redemption of promo code is applicable only for purchases made on
-              {{this.merchantname}} Online at www.{{this.merchantnamesmall}}.com.sg and {{this.merchantname}} Mobile App upon
+              {{this.merchantname}} Online at {{this.merchantlink}} and {{this.merchantname}} Mobile App upon
               login, and for home delivery only.
             </li>
             <li>
@@ -120,7 +120,7 @@ export default {
       userid: "",
       userpoints: "",
       merchantname: "",
-      merchantnamesmall: "",
+      merchantlink: "",
       pointsrequired: ""
     }
   },
@@ -140,7 +140,7 @@ export default {
           if (doc.id == this.$route.params.id) {
           this.datapacket.push(item);
           this.merchantname = doc.data().name;
-          this.merchantnamesmall = doc.data().name.charAt(0).toLowerCase() + this.merchantname.slice(1);
+          this.merchantlink = doc.data().link;
           }
         });
       });
