@@ -24,14 +24,14 @@
 
         <!-- Form to submit donation approval -->
         <b-col fluid align-self="center" cols="5">
-          <b-form fluid @submit.prevent="pressed">
+          <b-form fluid @submit.prevent="onsubmit">
             <b-form-group
               id="input-group-1"
               label="Email address:"
-              label-for="input-1"
+              label-for="email_input"
             >
               <b-form-input
-                id="input-1"
+                id="email_input"
                 type="email"
                 placeholder="Enter email"
                 v-model="email"
@@ -42,13 +42,13 @@
             <b-form-group
               id="input-group-2"
               label="Number of clothings donated:"
-              label-for="input-2"
+              label-for="count_input"
             >
               <b-form-input
-                id="input-2"
+                id="count_input"
                 placeholder="Enter a number"
                 type="number"
-                v-model="clothesnum"
+                v-model="addclothes"
                 required
               ></b-form-input>
             </b-form-group>
@@ -56,11 +56,11 @@
             <b-form-group
               id="input-group-3"
               label="Staff Name:"
-              label-for="input-3"
+              label-for="staff_input"
               class="mb-5"
             >
               <b-form-input
-                id="input-3"
+                id="staff_input"
                 placeholder="Enter Staff Name"
                 v-model="staffname"
                 required
@@ -71,7 +71,7 @@
               id="button"
               type="submit"
               class="btn btn-primary mx-auto d-block mb-5"
-              >Login</b-button
+              >Submit</b-button
             >
           </b-form>
         </b-col>
@@ -88,6 +88,7 @@
 <script>
 import Footer from "../components/Footer.vue";
 import AdminAftLoginTopNav from "./AdminAftLoginTopNav.vue";
+import fb from "../firebase.js"
 
 export default {
   components: {
@@ -98,10 +99,37 @@ export default {
   data() {
     return {
       email: "",
-      clothesnum: "",
+      addclothes: "",
       staffname: "",
+      uid: "",
+      donatecount: 0,
     };
   },
+  methods: {
+    onsubmit() {
+      
+      this.email = document.getElementById("email_input").value;
+      this.addclothes = document.getElementById("count_input").value;
+      this.staffname = document.getElementById("staff_input").value;
+
+      fb.firestore().collection("useremail").doc(this.email).get().then(doc => {
+        this.uid = doc.data().uid
+      }).then(() => {
+        fb.firestore().collection("users").doc(this.uid).get().then(doc =>{
+          this.donatecount = doc.data().clothes_donated
+        }).then(() => {
+          this.donatecount = Number(this.donatecount) + Number(this.addclothes)
+          fb.firestore().collection("users").doc(this.uid).update({
+            "clothes_donated": Number(this.donatecount)
+          }).then(() => {
+            alert("clothes updated!");
+            this.$router.push("/AdminHomepage");
+          })
+        })
+      })
+      
+    }
+  }
 };
 </script>
 

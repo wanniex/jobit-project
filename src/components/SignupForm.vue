@@ -71,8 +71,13 @@ export default {
                             "clothes_donated": 0,
                             // "profile_pic": ""
                         }).then(() => {
+                            fb.firestore().collection("useremail").doc(this.email).set({
+                                "uid": cred.user.uid,
+                            })
+                        }).then(() => {
                             this.$router.replace({name: 'HomePageAftLogin'});
                         })
+                        
                     })
                     
                 });
