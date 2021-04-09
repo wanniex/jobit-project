@@ -22,8 +22,8 @@
                 <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Redeem Points</b-button>
 
                 <br>
-
-                <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Edit Profile</b-button>
+                <!-- <router-link to="/EditProfileInputs" tag = "button" id = "button">Edit Profile</router-link> -->
+                <router-link to = "/EditProfile"><b-button id="button" class="btn btn-primary mx-auto d-block">Edit Profile</b-button></router-link>
                 
                 </b-container>
                 </div>
