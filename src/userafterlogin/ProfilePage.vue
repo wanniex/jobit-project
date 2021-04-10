@@ -8,7 +8,7 @@
                 <b-avatar href="#foo" :src= "profilepic" size="11em"></b-avatar>
                 </b-row>
                 
-                <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">Jessica</p>
+                <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">{{username}}</p>
                 
                 <p class="text-center" style="color: #616161; font-size: 25px;"> 2,400 points
                 <img 
@@ -46,6 +46,8 @@ export default {
         return {
             uid: "",
             profilepic: "",
+            username: "",
+
         }
     },
     methods: {
