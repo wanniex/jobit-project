@@ -18,7 +18,6 @@ import EditUsername from './userafterlogin/EditUsername.vue'
 import EditPassword from './userafterlogin/EditPassword.vue'
 import EditPhoto from './userafterlogin/EditPhoto.vue'
 
-
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
 import AdminSubmitPage from './adminpages/AdminSubmitPage.vue'
