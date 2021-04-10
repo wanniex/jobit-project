@@ -1,9 +1,10 @@
 <template>
     <div class="justify-content-center">
         <b-container>
-            <b-form @submit="onSubmit" @reset="onReset">
+            <router-link to ="/EditUsername" tag = "button"> Change Username </router-link>
+            <b-form>
                 <b-row align-h="center">
-                <b-avatar v-bind:src = "'require('+profilepic+')'" id = "profilepic" class="mr-5" size="8em"></b-avatar>
+                <b-avatar v-bind:src = "profilepic" id = "profilepic" class="mr-5" size="8em"></b-avatar>
                 </b-row>
                 <b-form-group
                     id = "name"
@@ -57,40 +58,21 @@ import fb from 'firebase'
 export default {
     data() {
         return {
-            uid: '',
-            // profilepic: 'https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/users%2F2vobHEO0uYZSwvfdT2JiFWfwC3x1%2Fprofile.jpg?alt=media&token=aa678c37-b275-40d5-ac56-57ef85f9188b',
-            profilepic: '',
+            uid: null,
+            profilepic: "hello",
         }
     },
     methods: {
         getprofilepic() {
-            alert("getting profile pic")
-            fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
-            // document.getElementById('profilepic').src = imgURL;
+        fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
             this.profilepic = imgURL;
-            // alert(this.profilepic);
-            // alert(this.profilepic);
-            });
+        })
         },
-
-        getuuid(){
-            return new Promise((resolve, reject) => {
-            var user = fb.auth().currentUser;
-            if(user == null) reject()
-            if (user) {
-                resolve(user.uid)
-                alert("got user");
-            }
-            })
-        }
     },
     created() {
         this.uid = fb.auth().currentUser.uid;
         this.getprofilepic();
-        // this.getuuid().then(uid=> (this.uid = uid)
-        //     .then(() => this.getprofilepic())
-        // )
-    },
+    }
 
 }
 </script>

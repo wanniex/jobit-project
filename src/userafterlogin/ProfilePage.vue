@@ -22,8 +22,7 @@
                 <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Redeem Points</b-button>
 
                 <br>
-
-                <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Edit Profile</b-button>
+                <router-link to = "/EditProfile"><b-button id="button" class="btn btn-primary mx-auto d-block">Edit Profile</b-button></router-link>
                 
                 </b-container>
                 </div>
@@ -52,7 +51,6 @@ export default {
     methods: {
         getprofilepic() {
             fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
-                // document.getElementById('profilepic').src = imgURL;
                 this.profilepic = imgURL;
             })
         },

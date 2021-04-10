@@ -71,7 +71,7 @@ export default {
         if (auth == "normal") {
           this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
         } else {
-          this.$router.replace({ name: "Home" })
+          // this.$router.replace({ name: "Home" })
         }
       }
     })
