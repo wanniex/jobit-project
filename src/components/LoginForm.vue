@@ -67,29 +67,21 @@ export default {
   created() {
     fb.auth().onAuthStateChanged(userAuth => {
       if (userAuth) {
-        var auth = userAuth.auth;
-        if (auth == "normal") {
-          this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
-        } else {
-          // this.$router.replace({ name: "Home" })
-        }
+        fb.auth()
+          .currentUser.getIdTokenResult()
+          .then(tokenResult => {
+            console.log(tokenResult.claims);
+          });   
       }
     })
-      //   fb.auth()
-      //     .currentUser.getIdTokenResult()
-      //     .then(tokenResult => {
-      //       console.log(tokenResult.claims);
-      //     });
-      // }
-    
   },
+
   methods: {
     async pressed() {
       try {
         fb.auth()
           .signInWithEmailAndPassword(this.email, this.password)
           .then(
-            //conditional statement to check auth
             this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
           )
       } catch (error) {

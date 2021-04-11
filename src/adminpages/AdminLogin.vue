@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import auth from "firebase";
+import fb from "firebase";
 import Footer from '../components/Footer.vue';
 import AdminTopNav from './AdminTopNav.vue';
 
@@ -72,17 +72,32 @@ export default {
       error: "",
     };
   },
+
+  created() {
+    fb.auth().onAuthStateChanged(userAuth => {
+      if (userAuth) {
+        fb.auth()
+          .currentUser.getIdTokenResult()
+          .then(tokenResult => {
+            console.log(tokenResult.claims);
+          });   
+      }
+    })
+  },
+
   methods: {
     async pressed() {
-      auth
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((data) => {
-          console.log(data);
-          this.$router.replace({ name: "Home" }); //changing the name here would redirect the user to the name of the page
-        })
-        .catch((error) => {
-          this.error = error;
-        });
+      try {
+        fb.auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(
+            this.$router.replace({ name: "AdminHomePage" }) //changing the name here would redirect the user to the name of the page
+          )
+      } catch (error) {
+        console.log(error)
+        this.error = error;
+        alert(this.error);
+      }      
     },
   },
 };
