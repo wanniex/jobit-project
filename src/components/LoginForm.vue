@@ -85,22 +85,27 @@ export default {
   },
   methods: {
     async pressed() {
-      try {
-        fb.auth()
+      fb.auth()
           .signInWithEmailAndPassword(this.email, this.password)
-          .then(
+          .then( user =>{
             //conditional statement to check auth
             this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
-          )
-      } catch (error) {
-        console.log(error)
-        this.error = error;
-        alert(this.error);
-      }      
+          }).catch(function(error) {
+            var ecode = error.code;
+            var emessage = error.message;
+            if ( ecode == 'auth/user-not-found' ) {
+                alert('Please provide a valid email');
+            } else if ( ecode == 'auth/wrong-password' ) {
+                alert('Wrong password!');
+            } else {
+                alert(emessage);
+            }
+          })
     },
   },
 };
 </script>
+
 
 <style scoped>
 .error {
