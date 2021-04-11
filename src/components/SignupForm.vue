@@ -62,21 +62,28 @@ export default {
         },
         async pressed() {
             try {
-                fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
-                    fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
-                        
-                        console.log('photo successfully uploaded');
-                        fb.firestore().collection("users").doc(cred.user.uid).set({
-                            "name": this.name,
-                            "clothes_donated": 0,
-                            "points": 0,
-                            "auth": "normal"
-                            // "profile_pic": ""
-                        }).then(() => {
-                            this.$router.replace({name: 'HomePageAftLogin'});
-                        })
-                    })
-                    
+                var user 
+                = await fb
+                    .auth()
+                    .createUserWithEmailAndPassword(this.email, this.password).then(cred => {
+                        fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {
+                            console.log('photo successfully uploaded');
+                            fb.firestore().collection("users").doc(cred.user.uid).set({
+                                "name": this.name,
+                                "clothes_donated": 0,
+                                "points": 0,
+                                // "profile_pic": ""
+                            })
+                            // .then(() => {
+                            //     this.$router.replace({name: 'HomePageAftLogin'});
+                        });
+                    });
+                
+                fb
+                .auth()
+                .signOut()
+                .then(user => {
+                    this.$router.push('/LogIn');
                 });
             } catch(err) {
                 console.log(err)

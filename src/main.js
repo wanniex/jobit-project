@@ -39,3 +39,44 @@ new Vue({
   render: h => h(App),
   router: myRouter,
 }).$mount('#app')
+
+myRouter.beforeEach((to, from, next) => {
+
+  firebase.auth().onAuthStateChanged(userAuth => {
+
+    if (userAuth) {
+      firebase.auth().currentUser.getIdTokenResult()
+        .then(function ({
+          claims
+        }) {
+
+          if (claims.customer) {
+            if (to.path !== '/HomePageAftLogin')
+              return next({
+                path: '/HomePageAftLogin',
+              })
+          } else if (claims.admin) {
+            if (to.path !== '/AdminHomePage')
+              return next({
+                path: '/AdminHomePage',
+              })
+          } 
+        })
+    } else {
+      if (to.matched.some(record => record.meta.auth)) {
+        next({
+          path: '/',
+          query: {
+            redirect: to.fullPath
+          }
+        })
+      } else {
+        next()
+      }
+    }
+
+  })
+
+  next()
+
+})
