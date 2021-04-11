@@ -8,9 +8,9 @@
                 <b-avatar href="#foo" :src= "profilepic" size="11em"></b-avatar>
                 </b-row>
                 
-                <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">Jessica</p>
+                <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">{{username}}</p>
                 
-                <p class="text-center" style="color: #616161; font-size: 25px;"> 2,400 points
+                <p class="text-center" style="color: #616161; font-size: 25px;"> {{userpoints}} points
                 <img 
                 src="../assets/pointsanimate.png"
                 style="float: center; margin-left: 5px;"        
@@ -19,7 +19,7 @@
 
                 <br>
 
-                <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Redeem Points</b-button>
+                <router-link to = "/MerchantPage"><b-button id="button" class="btn btn-primary mx-auto d-block">Redeem Points</b-button></router-link>
 
                 <br>
                 <router-link to = "/EditProfile"><b-button id="button" class="btn btn-primary mx-auto d-block">Edit Profile</b-button></router-link>
@@ -46,6 +46,8 @@ export default {
         return {
             uid: "",
             profilepic: "",
+            username: "",
+            userpoints: "",
         }
     },
     methods: {
@@ -54,10 +56,18 @@ export default {
                 this.profilepic = imgURL;
             })
         },
+        getuserinfo() {
+            fb.firestore().collection('users').doc(this.uid).get().then(snapshot => {
+                this.username = snapshot.data().name;
+                this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
+                this.userpoints = snapshot.data().points;
+            })
+        },
     },
     created() {
         this.uid = fb.auth().currentUser.uid;
         this.getprofilepic();
+        this.getuserinfo();
     }
 
 }
