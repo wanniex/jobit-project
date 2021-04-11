@@ -15,6 +15,8 @@ import UserStats from './userafterlogin/UserStats.vue'
 import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
 import ProfilePage from './userafterlogin/ProfilePage.vue'
 import EditUsername from './userafterlogin/EditUsername.vue'
+import EditPassword from './userafterlogin/EditPassword.vue'
+import EditPhoto from './userafterlogin/EditPhoto.vue'
 
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
@@ -127,6 +129,22 @@ export default[
         path: '/EditProfileInputs',
         name: 'EditProfileInputs',
         component: EditProfileInputs,
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: '/EditPassword',
+        name: 'EditPassword',
+        component: EditPassword,
+        meta: {
+            auth: true
+        }
+    },
+    {
+        path: '/EditPhoto',
+        name: 'EditPhoto',
+        component: EditPhoto,
         meta: {
             auth: true
         }
