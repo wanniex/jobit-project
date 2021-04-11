@@ -46,8 +46,8 @@ export default {
                 fb.firestore().collection("users").doc(this.uid).get().then(doc => {
                     name = doc.data().name;
                     clothes_donated = doc.data().clothes_donated;
-                    water = clothes_donated * 2700 * 0.264172; // liter to gallons 
-                    cotton = clothes_donated * 0.138
+                    water = (clothes_donated * 2700 * 0.264172).toFixed(); // liter to gallons 
+                    cotton = (clothes_donated * 0.138).toFixed(2);
                     document.getElementById("nclothes").innerHTML = clothes_donated + " articles of clothing(s)";
                     document.getElementById("water").innerHTML = water + " gallons of water";
                     document.getElementById("cotton").innerHTML = cotton + "kg of clothes and other textiles";

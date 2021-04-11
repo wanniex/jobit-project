@@ -48,7 +48,6 @@
                 id="count_input"
                 placeholder="Enter a number"
                 type="number"
-                v-model="clothesnum"
                 required
               ></b-form-input>
             </b-form-group>
@@ -117,11 +116,15 @@ export default {
         this.donateuid = doc.data().uid
       }).then(() => {
         fb.firestore().collection("users").doc(this.donateuid).get().then(doc =>{
-          this.donatecount = doc.data().clothes_donated
+          this.donatecount = doc.data().clothes_donated;
+          this.donatepoints = doc.data().points;
         }).then(() => {
-          this.donatecount = Number(this.donatecount) + Number(this.addclothes)
+          this.donatepoints = Number(this.donatepoints) + Number(Number(this.donatecount) * 300);
+          this.donatecount = Number(this.donatecount) + Number(this.addclothes);
+          
           fb.firestore().collection("users").doc(this.donateuid).update({
-            "clothes_donated": Number(this.donatecount)
+            "clothes_donated": Number(this.donatecount),
+            "points": Number(this.donatepoints)
           }).then(() => {
             fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
               var d, curmonth, curcount, curarr;
@@ -133,6 +136,7 @@ export default {
               curarr[curmonth] = curcount;
 
             })
+            
           }).then(() => {
             alert("clothes updated!");
             this.$router.push("/AdminHomepage");
