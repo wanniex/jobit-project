@@ -5,7 +5,7 @@
             
             <b-container>
                 
-                <b-form @submit.prevent="updatepassword">
+                <b-form @submit.prevent="changePassword">
                     <b-row align-h="center">
                     <b-avatar v-bind:src = "profilepic" class="mr-5" size="8em"></b-avatar>
                     </b-row>
@@ -30,7 +30,7 @@
                     </b-form-group>
 
                     <br>
-                    <b-button id="button" type="submit" onclick = "changePassword()" class="btn btn-primary mx-auto d-block">Submit</b-button>
+                    <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Submit</b-button>
                 </b-form>
 
             </b-container>
@@ -53,11 +53,11 @@ export default {
     },
     data() {
         return {
-            uid: null,
+            user: "",
             profilepic: "",
             username: "",
-            password: "",
-            newPassword:"",
+            old_pw: "",
+            new_pw:"",
              
 
         }
@@ -65,20 +65,28 @@ export default {
     methods: {
         // Reauthenticates the current user 
         reauthenticate(password) {
-            var user = fb.auth().currentUser;
-            var cred = fb.auth.EmailAuthProvider.credential(user.email, password);
-            return user.reauthenticateWithCredential(cred);
-            },
+            var cred = fb.auth.EmailAuthProvider.credential(this.user.email, password);
+            return this.user.reauthenticateWithCredential(cred);
+        },
+        getprofilepic() {
+            fb.storage().ref('users/' + this.user.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
+                this.profilepic = imgURL;
+            })
+            
+        },
 
         // Changes user's password...
         changePassword() {
-            this.reauthenticate(this.state.password).then(() => {
-                var user = fb.auth().currentUser;
-                user.updatePassword(this.state.newPassword).then(() => {
+            this.reauthenticate(this.old_pw).then(() => {
+                this.user.updatePassword(this.new_pw).then(() => {
                     console.log("Password updated!");
                     }).catch((error) => { console.log(error.message); });
                     }).catch((error) => { console.log(error.message) });
                     },
+    },
+    created() {
+        this.user = fb.auth().currentUser;
+        this.getprofilepic();
     }
 }
 </script>
