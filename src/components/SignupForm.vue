@@ -73,7 +73,6 @@ export default {
                         this.$router.replace({name: 'HomePageAftLogin'});
                     }).catch((error) => {alert(error);});
                 }).catch((error) => {alert(error);});
-                    
             }).catch((error) => {alert(error);});
             
         },
