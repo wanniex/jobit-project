@@ -19,7 +19,7 @@
 
         <label>Profile Picture</label>
         <input type = "file" @change = "chooseFile" required/>
-        <img style = "width: 300px; height: auto" src = "https://via.placeholder.com/150" class = "ui image centered" id = "img">
+        <img style = "width: 150px; height: auto;" src = "https://via.placeholder.com/150" class = "ui image centered" id = "img">
         <div class="terms">
             <input type="checkbox" v-model="terms" required>
             <label>I agree with the terms and conditions</label>
@@ -61,27 +61,21 @@ export default {
             document.getElementById('img').src = objectURL;
         },
         async pressed() {
-            try {
-                fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
-                    fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
-                        
-                        console.log('photo successfully uploaded');
-                        fb.firestore().collection("users").doc(cred.user.uid).set({
-                            "name": this.name,
-                            "clothes_donated": 0,
-                            "points": 0,
-                            "auth": "normal"
-                            // "profile_pic": ""
-                        }).then(() => {
-                            this.$router.replace({name: 'HomePageAftLogin'});
-                        })
-                    })
+            fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
+                fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
+                    console.log('photo successfully uploaded');
+                    fb.firestore().collection("users").doc(cred.user.uid).set({
+                        "name": this.name,
+                        "clothes_donated": 0,
+                        "points": 0,
+                        "auth": "normal"
+                    }).then(() => {
+                        this.$router.replace({name: 'HomePageAftLogin'});
+                    }).catch((error) => {alert(error);});
+                }).catch((error) => {alert(error);});
                     
-                });
-            } catch(err) {
-                alert(err)
-            }
-
+            }).catch((error) => {alert(error);});
+            
         },
 
 
