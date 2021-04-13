@@ -10,7 +10,7 @@
         <input type="email" required v-model="email" placeholder="Email">
 
         <label>Password:</label>
-        <input type="password" required v-model="password" placeholder="Password">
+        <input v-on:blur = "validate" type="password" required v-model="password" placeholder="Password">
 
         <label>Confirm password:</label>
         <input v-on:blur = "validate" type="password" required v-model="confirmpassword" placeholder="Confirm Password">
@@ -18,7 +18,7 @@
         <div v-show="passwordvalidate" id ="passwordvalidate"> Passwords do not match! </div>
 
         <label>Profile Picture</label>
-        <input type = "file" @change = "chooseFile" />
+        <input type = "file" @change = "chooseFile" required/>
         <img style = "width: 300px; height: auto" src = "https://via.placeholder.com/150" class = "ui image centered" id = "img">
         <div class="terms">
             <input type="checkbox" v-model="terms" required>
@@ -79,7 +79,7 @@ export default {
                     
                 });
             } catch(err) {
-                console.log(err)
+                alert(err)
             }
 
         },
