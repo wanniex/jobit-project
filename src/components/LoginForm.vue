@@ -80,9 +80,9 @@ export default {
     async pressed() {
       fb.auth()
           .signInWithEmailAndPassword(this.email, this.password)
-          .then( user =>{
-            this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
-          }).catch(function(error) {
+          // .then( user =>{
+          //   this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
+          .catch(function(error) {
             var ecode = error.code;
             var emessage = error.message;
             if ( ecode == 'auth/user-not-found' ) {

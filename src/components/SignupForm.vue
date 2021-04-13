@@ -2,7 +2,7 @@
 <div>
     <div v-if="error" class="error">{{error.message}}</div>
 
-    <form @submit.prevent="pressed">
+    <form @submit.prevent="registerButtonPressed">
         <label>Display name:</label>
         <input type="name" required v-model="name" placeholder="Name">
         
@@ -60,20 +60,49 @@ export default {
             const objectURL = URL.createObjectURL(imgfile)
             document.getElementById('img').src = objectURL;
         },
-        async pressed() {
-            fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
-                fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
-                    console.log('photo successfully uploaded');
-                    fb.firestore().collection("users").doc(cred.user.uid).set({
-                        "name": this.name,
-                        "clothes_donated": 0,
-                        "points": 0,
-                        "auth": "normal"
-                    }).then(() => {
-                        this.$router.replace({name: 'HomePageAftLogin'});
-                    }).catch((error) => {alert(error);});
-                }).catch((error) => {alert(error);});
-            }).catch((error) => {alert(error);});
+        async registerButtonPressed() {
+            try {
+                await fb
+                    .auth()
+                    .createUserWithEmailAndPassword(this.email, this.password)
+                    .then(cred => {
+                        fb
+                        .storage().ref('users/' + cred.user.uid + '/profile.jpg')
+                        .put(imgfile)
+                        .then(() => {
+                            console.log('photo successfully uploaded');
+                            fb
+                            .firestore()
+                            .collection('users')
+                            .doc(cred.user.uid)
+                            .set({
+                                "name": this.name,
+                                "clothes_donated": 0,
+                                "points": 0,
+                            })
+                        })
+                    })
+                fb
+                .auth()
+                .signOut()
+                .then(user => {
+                    this.$router.push('/LogIn');
+                    });
+            } catch (error) {
+                console.log(error.message);
+            }
+            // fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
+            //     fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
+            //         console.log('photo successfully uploaded');
+            //         fb.firestore().collection("users").doc(cred.user.uid).set({
+            //             "name": this.name,
+            //             "clothes_donated": 0,
+            //             "points": 0,
+            //         }).then(() => {
+            //             this.$router.replace({name: 'HomePageAftLogin'});
+            //         }).catch((error) => {alert(error);});
+            //     }).catch((error) => {alert(error);});
+            // }).catch((error) => {alert(error);});
             
         },
 
