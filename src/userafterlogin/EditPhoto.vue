@@ -4,16 +4,16 @@
         
         <div class="justify-content-center">
             <b-container>
-                <b-form @submit.prevent="updatePhoto">
+                <form @submit.prevent="updatePhoto">
                     <label>Profile Picture</label>
                     <input type = "file" @change = "chooseFile" />
                     <img style = "width: 300px; height: auto" src = "https://via.placeholder.com/150" class = "ui image centered" id = "img">
 
                     <br><br>
 
-                    <b-button id="button" type="submit" onclick = "changePhoto()" class="btn btn-primary mx-auto d-block">Submit</b-button>
+                    <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Submit</b-button>
 
-                </b-form>
+                </form>
          </b-container>
        </div>
 
@@ -42,23 +42,21 @@ export default {
         }
     },
     methods: {
-
-        changePhoto(e) {
+        chooseFile(e) {
             imgfile =  e.target.files[0];
             const objectURL = URL.createObjectURL(imgfile)
             document.getElementById('img').src = objectURL;
-            
+        },
+        updatePhoto(e) {
             var user = fb.auth().currentUser;
-            
-            user.updateProfile({
-            photoURL: objectURL,
-            }).then(function() {
-                // Update successful.
-                }).catch(function(error) {
-                    // An error happened.
-                    });
-                    }
-            }
+            fb.storage().ref('users/' + user.uid + '/profile.jpg').delete().then(() => {
+                fb.storage().ref('users/' + user.uid + '/profile.jpg').put(imgfile).then(() => {
+                    alert("Profile photo has been updated!");
+                    this.$router.replace({name: 'EditProfile'});
+                })
+            })
+        }
+    }
 }
 </script>
 
