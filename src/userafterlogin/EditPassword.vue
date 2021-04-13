@@ -26,9 +26,21 @@
                     v-model= "new_pw"
                     type="password"
                     placeholder= "Enter New Password"
+                    v-on:blur = "validate"
                     ></b-form-input>
                     </b-form-group>
-
+                    
+                   <b-form-group label="Confirm New Password:" label-for="cfm_new_pw">
+                    <b-form-input
+                    id="cfm_new_pw"
+                    v-model= "cfm_new_pw"
+                    type="password"
+                    placeholder= "Confirm New Password"
+                    v-on:blur = "validate"
+                    ></b-form-input>
+                    </b-form-group>
+                    <div v-show="passwordvalidate" id ="passwordvalidate"> New Passwords do not match! </div>
+                    
                     <br>
                     <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Submit</b-button>
                 </b-form>
@@ -58,7 +70,8 @@ export default {
             username: "",
             old_pw: "",
             new_pw:"",
-             
+            cfm_new_pw: "",
+            passwordvalidate: false,
 
         }
     },
@@ -79,11 +92,21 @@ export default {
         changePassword() {
             this.reauthenticate(this.old_pw).then(() => {
                 this.user.updatePassword(this.new_pw).then(() => {
-                    console.log("Password updated!");
-                    }).catch((error) => { console.log(error.message); });
-                    }).catch((error) => { console.log(error.message) });
-                    },
+                    alert("Password updated!");
+                    this.$router.replace({name: 'EditProfile'});
+                    }).catch((error) => { alert(error.message); });
+                    }).catch((error) => { alert(error.message) });
+        },
+
+        validate() {
+            if (this.new_pw === this.cfm_new_pw) {
+                this.passwordvalidate = false
+            } else {
+                this.passwordvalidate = true
+            }
+        }
     },
+        
     created() {
         this.user = fb.auth().currentUser;
         this.getprofilepic();

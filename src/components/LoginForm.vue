@@ -88,7 +88,6 @@ export default {
       fb.auth()
           .signInWithEmailAndPassword(this.email, this.password)
           .then( user =>{
-            //conditional statement to check auth
             this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
           }).catch(function(error) {
             var ecode = error.code;
