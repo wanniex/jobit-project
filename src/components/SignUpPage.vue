@@ -5,9 +5,9 @@
     <img id="clothes1" src="../assets/Clothes1.png"/>
     <div id = "rightcontent">
       <div id = "text1"> Sign up for a free account now!</div>
-      <SignupForm class = "SignUpForm"></SignupForm>
+      <SignupForm class = "SignUpForm" style = "margin-top: -60px;"></SignupForm>
     </div>
-    <foot></foot>
+    <foot style = "clear: both"></foot>
 
   </div>
 </template>
@@ -36,6 +36,7 @@ export default {
 #rightcontent {
   float: right;
   margin-right: 60px;
+  margin-top: -50px;
 }
 
 #text1{
