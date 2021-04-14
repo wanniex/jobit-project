@@ -17,13 +17,21 @@
                 />
                 </p>
 
-                <br>
+               
 
-                <router-link to = "/MerchantPage"><b-button id="button" class="btn btn-primary mx-auto d-block">Redeem Points</b-button></router-link>
+                <b-button
+          id="button"
+          class="btn btn-primary mx-auto d-block mb-3 mt-5"
+          @click="$router.push('MerchantPage')"
+          >Redeem Points</b-button
+        >
 
-                <br>
-                <router-link to = "/EditProfile"><b-button id="button" class="btn btn-primary mx-auto d-block">Edit Profile</b-button></router-link>
-                
+        <b-button
+          id="button"
+          class="btn btn-primary mx-auto d-block mb-3"
+          @click="$router.push('EditProfile')"
+          >Edit Profile</b-button
+        >  
                 </b-container>
                 </div>
         <Footer style = "clear: left;"></Footer>

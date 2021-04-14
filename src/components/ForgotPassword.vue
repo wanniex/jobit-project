@@ -48,11 +48,14 @@ export default {
       const auth = fb.auth();
       auth.sendPasswordResetEmail(this.email).then(function() {
         // Email sent.
-        alert("reset password link has been sent to your email!")
-        this.$router.push('/Login');
-      }).catch(function(error) {
+        alert("Reset password link has been sent to your email!")
+      })
+      .catch(function(error) {        
         alert(error);
-      });
+      })
+       .then( 
+            this.$router.push('/PasswordResetLink') //changing the name here would redirect the user to the name of the page
+          );
     },
   },
 };
