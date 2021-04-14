@@ -24,8 +24,8 @@
 
       <b-row class="mt-5 align-items-stretch">
 
-        <b-col v-for="ele in sortedArray" :key="ele.name" cols="4">
-          <b-card-group deck class="mb-3">
+        <b-col v-for="ele in sortedArray" :key="ele.name" cols="4" class="mb-3">
+          <b-card-group deck class="h-100">
             <b-card
               v-bind:img-src="ele.imageURL"
               body-class="d-flex flex-column"

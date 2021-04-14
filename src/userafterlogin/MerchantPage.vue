@@ -134,8 +134,6 @@ export default {
   color: #ffff;
   border: none;
   transition-duration: 0.4s;
-  width: 200px;
-  align-self: center;
 }
 
 .btn:hover {
