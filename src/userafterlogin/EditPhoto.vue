@@ -26,9 +26,7 @@
 import TopNavAftLogin from './TopNavAftLogin.vue'
 import fb from 'firebase'
 import Footer from '../components/Footer.vue'
-
 let imgfile = {}
-
 export default {
     components: {
         TopNavAftLogin,
@@ -68,10 +66,8 @@ export default {
   transition-duration: 0.4s;
   width: 200px;
 }
-
 #button:hover {
   background-color: rgb(212, 212, 212);
   color: black;
 }
-
 </style>

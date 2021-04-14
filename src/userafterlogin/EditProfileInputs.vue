@@ -1,59 +1,86 @@
 <template>
-    <div class="justify-content-center">
-        <b-container>
-            <b-form>
+  <div class="justify-content-center">
+    <b-container>
+      <b-row align-h="center" class="mt-5 mb-3">
+        <h1>Edit your profile</h1>
+      </b-row>
 
-                <b-row align-h="center">
-                <b-avatar v-bind:src = "profilepic" id = "profilepic" class="mr-5" size="8em"></b-avatar>
-                </b-row>
+      <b-row align-h="center">
+        <b-avatar
+          v-bind:src="profilepic"
+          id="profilepic"
+          size="8em"
+          class="mt-3 mb-3"
+        ></b-avatar>
+      </b-row>
 
-                <br>
+      <b-row align-h="center" class="mb-3">
+        <h4>{{ this.username }}</h4>
+      </b-row>
 
-                <b-row align-h="center">
-                    <h1>{{username}}</h1>
-                    </b-row>
+      <b-row align-h="center" class="mb-3">
+        <b-button
+          id="button"
+          class="btn btn-primary mx-auto d-block"
+          @click="$router.push('EditUsername')"
+          >Change Username</b-button
+        >
+      </b-row>
 
-                <br>
-                <router-link to ="/EditUsername" tag = "button"> Change Username </router-link>
-                
-                <br><br>
-                <router-link to ="/EditPhoto" tag = "button"> Change Profile Picture </router-link>
-                
-                <br><br>
-                <router-link to ="/EditPassword" tag = "button"> Change Password </router-link>
+      <b-row align-h="center" class="mb-3">
+        <b-button
+          id="button"
+          class="btn btn-primary mx-auto d-block"
+          @click="$router.push('EditPhoto')"
+          >Change Profile Photo</b-button
+        >
+      </b-row>
 
-    
-            </b-form>
-
-        </b-container>
-    </div>
-
+      <b-row align-h="center" class="mb-5">
+        <b-button
+          id="button"
+          class="btn btn-primary mx-auto d-block"
+          @click="$router.push('EditPassword')"
+          >Change Password</b-button
+        >
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
-import fb from 'firebase'
+import fb from "firebase";
 
 export default {
-    data() {
-        return {
-            uid: null,
-            profilepic: "hello",
-            username:"",
-        }
+  data() {
+    return {
+      uid: null,
+      profilepic: "hello",
+      username: "",
+    };
+  },
+  methods: {
+    getprofilepic() {
+      fb.storage()
+        .ref("users/" + this.uid + "/profile.jpg")
+        .getDownloadURL()
+        .then((imgURL) => {
+          this.profilepic = imgURL;
+        });
     },
-    methods: {
-        getprofilepic() {
-        fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
-            this.profilepic = imgURL;
-        })
+    getuserinfo() {
+            fb.firestore().collection('users').doc(this.uid).get().then(snapshot => {
+                this.username = snapshot.data().name;
+                this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
+            })
         },
-    },
-    created() {
-        this.uid = fb.auth().currentUser.uid;
-        this.getprofilepic();
-    }
-
-}
+  },
+  created() {
+    this.uid = fb.auth().currentUser.uid;
+    this.getprofilepic();
+    this.getuserinfo();
+  },
+};
 </script>
 
 <style scoped>

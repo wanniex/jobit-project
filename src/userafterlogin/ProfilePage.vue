@@ -5,7 +5,7 @@
         <div class="justify-content-center">
             <b-container style = "margin-top: 100px;">
                 <b-row align-h="center">
-                <b-avatar href="#foo" :src= "profilepic" size="11em"></b-avatar>
+                <b-avatar :to="{ path: '/EditPhoto'}" :src= "profilepic" size="11em"></b-avatar>
                 </b-row>
                 
                 <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">{{username}}</p>
