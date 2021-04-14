@@ -13,12 +13,35 @@
 
       <b-row align-h="center" class="mt-5 mb-5">
                 <!-- Dropdown for sorting -->
-        
-        <div class="mr-2">Sort by:</div>
-        <b-form-select v-model="selected" :options="options" id="formformat"
-          >Sort by</b-form-select
+                <b-col align-v="center" class="mr-2" cols="1">
+          <b-row align-h="end" class="mt-1">
+          <p>Filter by:</p>
+          </b-row>
+        </b-col>
+        <b-col align-v="center"  cols="2">
+          <b-row align-h="start">
+        <b-form-select v-model="filterselect" :options="filteroptions" id="formformat"
+          >Filter by</b-form-select
         >
+          </b-row>
+        </b-col>
+        
+        
+        <b-col align-v="center" class="mr-2"  cols="1">
+          <b-row align-h="end" class="mt-1">
+          <p>Sort by:</p>
+          </b-row>
+        </b-col>
+        <b-col align-v="center" cols="2">
+          <b-row align-h="start">
+        <b-form-select v-model="selected" :options="options" id="formformat"
+          >Sort by</b-form-select>
+          </b-row>
+        </b-col>
+
       </b-row>
+
+
 
       <b-row class="mt-5 mb-5"></b-row>
 
@@ -77,6 +100,21 @@ export default {
           text: "Descending",
         },
       ],
+    filteroptions: [
+      {
+        value: "All",
+        text: "All"
+      },
+      {
+        value: "Community Clubs",
+        text: "Community Clubs"
+      },
+      {
+        value: "Sports Centres",
+        text: "Sports Centres"
+      }
+    ],
+    filterselect: "All"
     };
   },
   methods: {
@@ -98,7 +136,7 @@ export default {
 
   computed: {
     sortedArray: function () {
-      console.log("new");
+      console.log(this.partners);
       var newArray = this.partners;
       function compareAsc(a, b) {
         if (a.name < b.name) return -1;
@@ -112,10 +150,36 @@ export default {
         return 0;
       }
       console.log(newArray);
-      if (this.selected == "Ascending") {
+      if (this.selected == "Ascending" && this.filterselect == "All") {
         return newArray.sort(compareAsc);
-      } else {
+      } else if (this.selected == "Descending" && this.filterselect == "All") {
         return newArray.sort(compareDesc);
+      } else if (this.selected == "Ascending") {
+        newArray = [];
+        for (let i = 0; i < this.partners.length; i++) {
+          if (this.filterselect == "Community Clubs" && this.partners[i].category == "CC") {
+            newArray.push(this.partners[i]);
+          } else if (this.filterselect == "Sports Centres" && this.partners[i].category == "sports") {
+            newArray.push(this.partners[i]);
+          }
+        }
+
+        return newArray.sort(compareAsc);
+
+      } else if (this.selected == "Descending") {
+        newArray = [];
+        for (let i = 0; i < this.partners.length; i++) {
+          if (this.filterselect == "Community Clubs" && this.partners[i].category == "CC") {
+            newArray.push(this.partners[i]);
+          } else if (this.filterselect == "Sports Centres" && this.partners[i].category == "sports") {
+            newArray.push(this.partners[i]);
+          }
+        }
+
+        return newArray.sort(compareDesc);
+
+      } else {
+        return newArray.sort(compareAsc);
       }
     },
   },
@@ -148,6 +212,6 @@ export default {
 }
 
 #formformat {
-  width: 10%;
+  width: 80%;
 }
 </style>
