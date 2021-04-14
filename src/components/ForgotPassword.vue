@@ -2,7 +2,7 @@
   <div>
     <top-nav></top-nav>
     <b-container>
-      <b-form fluid @submit.prevent="handleSubmit">
+      <b-form fluid @submit.prevent="forgetpwbtn">
         <h1 style="text-align: center">Forgot Password?</h1><br>
         <p style="text-align: center">Please enter your email address below.</p>
         <b-form-group
@@ -20,7 +20,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-button type = "submit" onclick = "checkemail()" id="button" pill class="mt-4 ml-5 mb-5">Reset Password</b-button><br />
+        <b-button type = "submit" id="button" pill class="mt-4 ml-5 mb-5">Reset Password</b-button><br />
       </b-form>
     </b-container>
     <Footer></Footer>
@@ -30,6 +30,7 @@
 <script>
 import Footer from "./Footer.vue";
 import TopNav from "./TopNav.vue";
+import fb from 'firebase'
 
 export default {
   name: "ForgotPassword",
@@ -43,7 +44,16 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {},
+    forgetpwbtn() {
+      const auth = fb.auth();
+      auth.sendPasswordResetEmail(this.email).then(function() {
+        // Email sent.
+        alert("reset password link has been sent to your email!")
+        this.$router.push('/Login');
+      }).catch(function(error) {
+        alert(error);
+      });
+    },
   },
 };
 </script>
