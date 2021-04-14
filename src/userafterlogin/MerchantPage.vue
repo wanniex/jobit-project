@@ -12,11 +12,33 @@
       </b-row>
 
       <b-row align-h="center" class="mt-5 mb-5">
-        <!-- Dropdown for sorting -->
-        <div class="mr-2">Sort by:</div>
-        <b-form-select v-model="selected" :options="options" id="formformat"
-          >Sort by</b-form-select
+                <!-- Dropdown for sorting -->
+                <b-col align-v="center" class="mr-2" cols="1">
+          <b-row align-h="end" class="mt-1">
+          <p>Filter by:</p>
+          </b-row>
+        </b-col>
+        <b-col align-v="center"  cols="2">
+          <b-row align-h="start">
+        <b-form-select v-model="filterselect" :options="filteroptions" id="formformat"
+          >Filter by</b-form-select
         >
+          </b-row>
+        </b-col>
+        
+        
+        <b-col align-v="center" class="mr-2"  cols="1">
+          <b-row align-h="end" class="mt-1">
+          <p>Sort by:</p>
+          </b-row>
+        </b-col>
+        <b-col align-v="center" cols="2">
+          <b-row align-h="start">
+        <b-form-select v-model="selected" :options="options" id="formformat"
+          >Sort by</b-form-select>
+          </b-row>
+        </b-col>
+
       </b-row>
 
       <b-row class="mt-5 mb-5"></b-row>
@@ -25,7 +47,7 @@
         <b-col v-for="ele in sortedArray" :key="ele.name" cols="3">
           <b-card-group deck class="h-100 mb-3">
             <b-card
-              v-bind:header="ele[1].name"
+              v-bind:header="ele.name"
               body-class="d-flex flex-column"
               class="mb-5"
               fluid
@@ -35,9 +57,9 @@
                 Fairprice
               </b-card-text> -->
 
-              <b-img v-bind:src="ele[1].imageURL" fluid class="mb-4"></b-img>
+              <b-img v-bind:src="ele.imageURL" fluid class="mb-4"></b-img>
 
-              <b-button v-bind:id="ele[0]" v-on:click="route($event)" class="mt-auto btn">Select</b-button>
+              <b-button v-bind:id="ele.docid" v-on:click="route($event)" class="mt-auto btn">Select</b-button>
             </b-card>
           </b-card-group>
         </b-col>
@@ -62,6 +84,7 @@ export default {
   data() {
     return {
       merchants: [],
+      merchantitems: [],
       selected: "Ascending",
       options: [
         {
@@ -73,6 +96,25 @@ export default {
           text: "Descending",
         },
       ],
+      filteroptions: [
+      {
+        value: "All",
+        text: "All"
+      },
+      {
+        value: "Food & Beverage",
+        text: "Food & Beverage"
+      },
+      {
+        value: "Supermarket",
+        text: "Supermarket"
+      },
+      {
+        value: "Fashion",
+        text: "Fashion"
+      }
+    ],
+    filterselect: "All"
     };
   },
 
@@ -83,8 +125,15 @@ export default {
         let item = {};
         snapshot.docs.forEach((doc) => {
           // console.log(doc.data())
-          item = doc.data();
-          this.merchants.push([doc.id, item]);
+          item = {
+            name: doc.data().name,
+            imageURL: doc.data().imageURL,
+            category: doc.data().category,
+            link: doc.data().link,
+            docid: doc.id
+          }
+          //this.merchants.push([doc.id, item]);
+          this.merchantitems.push(item);
         });
       });
     },
@@ -100,23 +149,54 @@ export default {
 
   computed: {
     sortedArray: function () {
-      var newArray = this.merchants;
+      var newArray = this.merchantitems;
       function compareAsc(a, b) {
-        if (a[1].name < b[1].name) return -1;
-        if (a[1].name > b[1].name) return 1;
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
         return 0;
       }
 
       function compareDesc(a, b) {
-        if (a[1].name > b[1].name) return -1;
-        if (a[1].name < b[1].name) return 1;
+        if (a.name > b.name) return -1;
+        if (a.name < b.name) return 1;
         return 0;
       }
-      // console.log(newArray);
-      if (this.selected == "Ascending") {
+      console.log("hello");
+      console.log(this.merchantitems);
+       if (this.selected == "Ascending" && this.filterselect == "All") {
         return newArray.sort(compareAsc);
-      } else {
+      } else if (this.selected == "Descending" && this.filterselect == "All") {
         return newArray.sort(compareDesc);
+      } else if (this.selected == "Ascending") {
+        newArray = [];
+        for (let i = 0; i < this.merchantitems.length; i++) {
+          if (this.filterselect == "Food & Beverage" && this.merchantitems[i].category == "foodbev") {
+            newArray.push(this.merchantitems[i]);
+          } else if (this.filterselect == "Supermarket" && this.merchantitems[i].category == "supermarket") {
+            newArray.push(this.merchantitems[i]);
+          } else if (this.filterselect == "Fashion" && this.merchantitems[i].category == "fashion") {
+            newArray.push(this.merchantitems[i]);
+          }
+        }
+
+        return newArray.sort(compareAsc);
+
+      } else if (this.selected == "Descending") {
+        newArray = [];
+          for (let i = 0; i < this.merchantitems.length; i++) {
+          if (this.filterselect == "Food & Beverage" && this.merchantitems[i].category == "foodbev") {
+            newArray.push(this.merchantitems[i]);
+          } else if (this.filterselect == "Supermarket" && this.merchantitems[i].category == "supermarket") {
+            newArray.push(this.merchantitems[i]);
+          } else if (this.filterselect == "Fashion" && this.merchantitems[i].category == "fashion") {
+            newArray.push(this.merchantitems[i]);
+          }
+        }
+
+        return newArray.sort(compareDesc);
+
+      } else {
+        return newArray.sort(compareAsc);
       }
     },
   },
@@ -142,6 +222,6 @@ export default {
 }
 
 #formformat {
-  width: 10%;
+  width: 80%;
 }
 </style>
