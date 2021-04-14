@@ -4,6 +4,10 @@
         <div class="justify-content-center">
             
             <b-container>
+
+                <b-row align-h="center" class="mt-5">
+                    <h2>Change your password</h2>
+                </b-row> 
                 
                 <b-form @submit.prevent="changePassword">
                     <b-row align-h="center">

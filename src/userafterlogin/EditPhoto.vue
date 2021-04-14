@@ -4,6 +4,9 @@
         
         <div class="justify-content-center">
             <b-container>
+                <b-row align-h="center" class="mt-5">
+                    <h2>Change your profile photo</h2>
+                </b-row> 
                 <form @submit.prevent="updatePhoto">
                     <label>Profile Picture</label>
                     <input type = "file" @change = "chooseFile" />

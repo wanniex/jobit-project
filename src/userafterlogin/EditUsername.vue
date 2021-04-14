@@ -8,7 +8,7 @@
                 <b-row align-h="center">
                 <b-form @submit.prevent="updateusername">
                 <b-row align-h="center" class="mb-5">
-                    <h2>Change Your Username</h2>
+                    <h2>Change your username</h2>
                 </b-row> 
                     <b-row align-h="center">
                     <b-avatar v-bind:src = "profilepic" size="8em"></b-avatar>
