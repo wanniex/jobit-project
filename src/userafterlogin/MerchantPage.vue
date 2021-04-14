@@ -22,7 +22,7 @@
       <b-row class="mt-5 mb-5"></b-row>
 
       <b-row class="mt-5 align-items-stretch">
-        <b-col v-for="ele in sortedArray" :key="ele.name">
+        <b-col v-for="ele in sortedArray" :key="ele.name" cols="3">
           <b-card-group deck class="h-100 mb-3">
             <b-card
               v-bind:header="ele[1].name"

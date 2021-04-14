@@ -22,12 +22,13 @@
 
       <b-row class="mt-5 mb-5"></b-row>
 
-      <b-row class="mt-5">
+      <b-row class="mt-5 align-items-stretch">
 
-        <b-col v-for="ele in sortedArray" :key="ele.name">
-          <b-card-group deck>
+        <b-col v-for="ele in sortedArray" :key="ele.name" cols="4">
+          <b-card-group deck class="mb-3">
             <b-card
               v-bind:img-src="ele.imageURL"
+              body-class="d-flex flex-column"
               img-alt="Card image"
               img-top
               img-height="300"
