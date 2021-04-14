@@ -46,22 +46,23 @@ myRouter.beforeEach((to, from, next) => {
 
     if (userAuth) {
       firebase.auth().currentUser.getIdTokenResult()
-        .then(function ({
-          claims
-        }) {
-
-          if (claims.customer) {
-            if (to.path !== '/HomePageAftLogin')
-              return next({
-                path: '/HomePageAftLogin',
-              })
-          } else if (claims.admin) {
-            if (to.path !== '/AdminHomePage')
-              return next({
-                path: '/AdminHomePage',
-              })
-          } 
-        })
+        // .then(function ({
+        //   claims
+        // }) 
+        // {
+        //
+        //   if (claims.customer) {
+        //     if (to.path !== '/HomePageAftLogin')
+        //       return next({
+        //         path: '/HomePageAftLogin',
+        //       })
+        //   } else if (claims.admin) {
+        //     if (to.path !== '/AdminHomePage')
+        //       return next({
+        //         path: '/AdminHomePage',
+        //       })
+        //   } 
+        // })
     } else {
       if (to.matched.some(record => record.meta.auth)) {
         next({
