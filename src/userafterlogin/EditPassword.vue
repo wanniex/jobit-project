@@ -11,7 +11,7 @@
                 
                 <b-form @submit.prevent="changePassword">
                     <b-row align-h="center">
-                    <b-avatar v-bind:src = "profilepic" class="mr-5" size="8em"></b-avatar>
+                    <b-avatar v-bind:src = "profilepic" size="8em"></b-avatar>
                     </b-row>
                     <br>
                     
