@@ -46,7 +46,6 @@ export default {
   methods: {
     forgetpwbtn() {
       const auth = fb.auth();
-      alert("ckuc")
       auth.sendPasswordResetEmail(this.email).then(function() {
         // Email sent.
         alert("reset password link has been sent to your email!")
