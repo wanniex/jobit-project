@@ -90,9 +90,9 @@ export default {
       try {
         fb.auth()
           .signInWithEmailAndPassword(this.email, this.password)
-          // .then(
-          //   this.$router.replace({ name: "AdminHomePage" }) //changing the name here would redirect the user to the name of the page
-          // )
+          .then(
+            this.$router.replace({ name: "AdminHomePage" }) //changing the name here would redirect the user to the name of the page
+          )
       } catch (error) {
         console.log(error)
         this.error = error;
