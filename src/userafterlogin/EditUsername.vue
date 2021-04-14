@@ -4,13 +4,17 @@
         <div class="justify-content-center">
             
             <b-container>
-                
+
+                <b-row align-h="center">
                 <b-form @submit.prevent="updateusername">
+                <b-row align-h="center" class="mb-5">
+                    <h2>Change Your Username</h2>
+                </b-row> 
                     <b-row align-h="center">
-                    <b-avatar v-bind:src = "profilepic" class="mr-5" size="8em"></b-avatar>
+                    <b-avatar v-bind:src = "profilepic" size="8em"></b-avatar>
                     </b-row>
-                    <br>
-                    <b-row align-h="start">
+
+                    <b-row align-h="center" class="mt-2">
                     <div> Current Username: {{username}} </div>
                     </b-row>
                     <b-form-group
@@ -28,6 +32,7 @@
                     <br>
                     <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Submit</b-button>
                 </b-form>
+                </b-row>
 
             </b-container>
         </div>
