@@ -49,7 +49,7 @@
                   href="#"
                   id="button"
                   class="mt-auto"
-                  v-on:click="pointsRedeemed(1000); redeem()"
+                  v-on:click="pointsRedeemed(1000); redeem(); makeid(9); sendEmail()"
                   >Redeem</b-button
                 >
               </b-card-text>
@@ -111,6 +111,7 @@
 import TopNavAftLogin from "./TopNavAftLogin.vue";
 import Footer from "../components/Footer.vue";
 import fb from "firebase";
+import emailjs from "emailjs-com";
 
 export default {
   data() {
@@ -121,7 +122,11 @@ export default {
       userpoints: "",
       merchantname: "",
       merchantlink: "",
-      pointsrequired: ""
+      pointsrequired: "",
+      username: "",
+      email: "",
+      vouchercode: "",
+      vouchervalue: "",
     }
   },
   
@@ -157,21 +162,62 @@ export default {
       } else {
         this.userpoints = this.userpoints - this.pointsrequired;
         this.currUser.points = this.userpoints;
+
         alert('Your redemption is successful');
 
         // Updating new number of points user has in firebase
         fb.firestore().collection("users")
         .doc(this.userid)
-        .set(this.currUser)
+        .set(this.currUser)        
+        
+        this.username = this.currUser.name;
+        this.email = this.currUser.email;
         // .then(() => this.$router.push({ path: "/HomePageAftLogin" }));
       }
     },
 
     pointsRedeemed: function(arg) {
       this.pointsrequired = arg;
-    }
+    },
+
+    sendEmail: function() {
+      var templateParams = {
+        to_name: this.username,
+        to_email: this.email,
+        vouchercode: this.vouchercode,
+        merchantname: this.merchantname,
+        merchantlink: this.merchantlink,
+        vouchervalue: this.pointsrequired == 1000 ? "$10" : "$20",
+      };
+      try {
+        emailjs.send(
+          "service_llib5v9",
+          "template_el2m4wc",
+          templateParams,
+          "user_tFlL3d9QPsaCEnksoYdjF"
+        );
+        alert("Yes");
+      } catch (error) {
+        console.log({ error });
+      }
+    },
+
+    makeid: function(length) {
+      var result = [];
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result.push(
+          characters.charAt(Math.floor(Math.random() * charactersLength))
+        );
+      }
+      this.vouchercode = result.join("");
+      console.log(this.vouchercode);
+    },
   },
   
+  // lifecycle
   created() {
     this.userid = fb.auth().currentUser.uid;
     this.fetchItems();

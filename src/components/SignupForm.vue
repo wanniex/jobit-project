@@ -79,6 +79,7 @@ export default {
                         "name": this.name,
                         "clothes_donated": 0,
                         "points": 0,
+                        "email": this.email,
                     }).then(() => {
                         fb
                         .auth()
