@@ -81,12 +81,17 @@ export default {
                         "points": 0,
                         "email": this.email,
                     }).then(() => {
-                        fb
-                        .auth()
-                        .signOut()
-                        .then(() => {
-                            this.$router.push('/LogIn')
-                        }).catch((error) => {alert(error);});
+                        fb.firestore().collection('useremail').doc(this.email).set({
+                            "uid": cred.user.uid,
+                        }).then(() => {
+                            fb
+                            .auth()
+                            .signOut()
+                            .then(() => {
+                                alert("Your account has been created! You can now log in with your newly created account :)");
+                                this.$router.push('/LogIn')
+                            }).catch((error) => {alert(error);});
+                    }).catch((error) => {alert(error);});
                     }).catch((error) => {alert(error);});
                 }).catch((error) => {alert(error);});
             }).catch((error) => {alert(error);});

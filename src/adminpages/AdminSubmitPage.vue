@@ -119,9 +119,10 @@ export default {
           this.donatecount = doc.data().clothes_donated;
           this.donatepoints = doc.data().points;
         }).then(() => {
-          this.donatepoints = Number(this.donatepoints) + Number(Number(this.donatecount) * 300);
+          var addpoints = Number(Number(this.addclothes) * 300);
+          this.donatepoints = Number(this.donatepoints) + addpoints;
           this.donatecount = Number(this.donatecount) + Number(this.addclothes);
-          
+
           fb.firestore().collection("users").doc(this.donateuid).update({
             "clothes_donated": Number(this.donatecount),
             "points": Number(this.donatepoints)
@@ -148,7 +149,6 @@ export default {
   },
   created() {
     this.partneruid = fb.auth().currentUser.uid;
-    
   }
 };
 </script>
