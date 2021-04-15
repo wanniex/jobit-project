@@ -4,20 +4,20 @@
 
         <EditProfileInputs></EditProfileInputs>
 
-        <Footer style = "clear: left;"></Footer>
+        <FooterAftLogin></FooterAftLogin>
     </div>
 
 </template>
 
 <script>
 import TopNavAftLogin from './TopNavAftLogin.vue'
-import Footer from '../components/Footer.vue'
+import FooterAftLogin from './FooterAftLogin.vue'
 import EditProfileInputs from './EditProfileInputs.vue'
 
 export default {
     components: {
         TopNavAftLogin,
-        Footer,
+        FooterAftLogin,
         EditProfileInputs
     },
     data() {

@@ -10,6 +10,7 @@ import HomePageAftLogin from './userafterlogin/HomePageAftLogin.vue'
 import MerchantPage from './userafterlogin/MerchantPage.vue'
 import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
+import AboutUsAftLogin from './userafterlogin/AboutUsAftLogin'
 
 import UserStats from './userafterlogin/UserStats.vue'
 import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
@@ -160,6 +161,14 @@ export default[
         path: '/EditUsername',
         name: 'EditUsername',
         component: EditUsername,
+        // meta: {
+        //     requiresAuth: true
+        // }
+    },
+    {
+        path: '/AboutUsAftLogin',
+        name: 'AboutUsAftLogin',
+        component: AboutUsAftLogin,
         // meta: {
         //     requiresAuth: true
         // }

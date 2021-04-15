@@ -1,6 +1,6 @@
 <template>
   <div>
-      <TopNav></TopNav>
+      <TopNavAftLogin></TopNavAftLogin>
 
        <div>
     <b-card-group deck class="ml-2 mr-2 mt-5">
@@ -21,21 +21,21 @@
   </div>
 
     <br>
-    <Footer></Footer>
+    <FooterAftLogin></FooterAftLogin>
       
   </div>
 </template>
 
 
 <script>
-import Footer from './Footer.vue';
-import TopNav from './TopNav.vue';
+import FooterAftLogin from './FooterAftLogin.vue';
+import TopNavAftLogin from './TopNavAftLogin.vue';
 import fb from 'firebase'
 
 export default {
   components: {
-    TopNav,
-    Footer,
+    TopNavAftLogin,
+    FooterAftLogin,
   },
   data() {
     return {
@@ -69,7 +69,7 @@ export default {
     console.log(this.email)
   }
 }
-    Footer
+
 </script>
 
 

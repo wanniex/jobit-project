@@ -34,21 +34,21 @@
         >  
                 </b-container>
                 </div>
-        <Footer style = "clear: left;"></Footer>
+        <FooterAftLogin style = "clear: left;"></FooterAftLogin>
     </div>
 </template>
 
 <script>
 import TopNavAftLogin from './TopNavAftLogin.vue'
 import UserStats from './UserStats.vue'
-import Footer from '../components/Footer.vue'
+import FooterAftLogin from './FooterAftLogin.vue'
 import fb from 'firebase'
 
 export default {
     components: {
         TopNavAftLogin,
         UserStats,
-        Footer,
+        FooterAftLogin,
     },
     data() {
         return {
