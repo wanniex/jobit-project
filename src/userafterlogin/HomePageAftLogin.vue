@@ -49,6 +49,7 @@
 
         <b-col v-for="ele in sortedArray" :key="ele.name" cols="4" class="mb-3">
           <b-card-group deck class="h-100">
+            <a v-bind:href = "ele.map_link" target = "_blank">
             <b-card
               v-bind:img-src="ele.imageURL"
               body-class="d-flex flex-column"
@@ -57,13 +58,15 @@
               img-height="300"
               img-width="200"
             >
-              <b-card-text class="text-center">
+
+              <b-card-text style = "color: black;" class="text-center">
                 <h4>{{ele.name}}</h4>
                 Address: <br>{{ele.address}}<br><br>
 
                 Opening Hours: <br>{{ele.openinghrs}}
               </b-card-text>
             </b-card>
+            </a>
           </b-card-group>
         </b-col>
       </b-row>
