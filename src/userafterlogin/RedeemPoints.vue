@@ -196,7 +196,6 @@ export default {
           templateParams,
           "user_tFlL3d9QPsaCEnksoYdjF"
         );
-        alert("Yes");
       } catch (error) {
         console.log({ error });
       }
