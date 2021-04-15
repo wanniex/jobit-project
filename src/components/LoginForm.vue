@@ -80,19 +80,31 @@ export default {
     async pressed() {
       fb.auth()
           .signInWithEmailAndPassword(this.email, this.password)
-          .then( user =>{
-            this.$router.replace({ name: "HomePageAftLogin" }) //changing the name here would redirect the user to the name of the page
-          }).catch(function(error) {
-            var ecode = error.code;
-            var emessage = error.message;
-            if ( ecode == 'auth/user-not-found' ) {
-                alert('Please provide a valid email');
-            } else if ( ecode == 'auth/wrong-password' ) {
-                alert('Wrong password!');
-            } else {
-                alert(emessage);
-            }
-          })
+          .then(() => {
+            fb
+            .auth()
+            .currentUser
+            .getIdTokenResult()
+            .then(({claims}) => {
+              if (claims.admin) {
+                this.$router.push('AdminHomePage')
+              } else {
+                this.$router.push('HomePageAftLogin')
+              }
+            }).catch((error) => {alert(error);});
+          }).catch((error) => {alert(error);});
+          //   user =>{
+          //  }).catch(function(error) {
+          //   var ecode = error.code;
+          //   var emessage = error.message;
+          //   if ( ecode == 'auth/user-not-found' ) {
+          //       alert('Please provide a valid email');
+          //   } else if ( ecode == 'auth/wrong-password' ) {
+          //       alert('Wrong password!');
+          //   } else {
+          //       alert(emessage);
+          //   }
+          // })
     },
   },
 };

@@ -13,7 +13,7 @@
       <b-navbar-nav>
         <b-nav-item to="/">Home</b-nav-item>
         <b-nav-item to="/Aboutus">About Us</b-nav-item>
-        <b-nav-item to="/AdminLogin">Admin</b-nav-item>
+        <!-- <b-nav-item to="/AdminLogin">Admin</b-nav-item> -->
       </b-navbar-nav>
       
       <!-- Right aligned nav items -->

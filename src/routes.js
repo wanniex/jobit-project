@@ -32,138 +32,137 @@ export default[
         path: '',
         name: 'Home',
         component: Home,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/SignUp',
         name: 'SignUp',
         component: SignUp,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/LogIn',
         name: 'LogIn',
         component: Login,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/AboutUs',
         name: 'AboutUs',
         component: AboutUs,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/ForgotPassword',
         name: 'ForgotPassword',
         component: ForgotPassword,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/PasswordResetLink',
         name: 'PasswordResetLink',
         component: PasswordResetLink,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/NewPasswordPage',
         name: 'NewPasswordPage',
         component: NewPasswordPage,
-        meta: {
-            guest: true
-        }
+        // meta: {
+        //     guest: true
+        // }
     },
     {
         path: '/HomePageAftLogin',
         name: 'HomePageAftLogin',
         component: HomePageAftLogin,
         meta: {
-            auth: true
+            requiresAuth: true
         }
     },
     {
         path: '/MerchantPage',
         name: 'MerchantPage',
         component: MerchantPage,
-        meta: {
-            auth: true
-        }
-        
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/RedeemPoints',
         name: 'RedeemPoints',
         component: RedeemPoints,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/EditProfile',
         name: 'EditProfile',
         component: EditProfile,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/UserStats',
         name: 'UserStats',
         component: UserStats,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/EditProfileInputs',
         name: 'EditProfileInputs',
         component: EditProfileInputs,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/EditPassword',
         name: 'EditPassword',
         component: EditPassword,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/EditPhoto',
         name: 'EditPhoto',
         component: EditPhoto,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/ProfilePage',
         name: 'ProfilePage',
         component: ProfilePage,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/EditUsername',
         name: 'EditUsername',
         component: EditUsername,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
 
     //For Admin Pages
@@ -171,41 +170,41 @@ export default[
         path: '/AdminLogin',
         name: 'AdminLogin',
         component: AdminLogin,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/AdminSubmitPage',
         name: 'AdminSubmitPage',
         component: AdminSubmitPage,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/AdminConfirmPage',
         name: 'AdminConfirmPage',
         component: AdminConfirmPage,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     {
         path: '/AdminHomepage',
         name: 'AdminHomepage',
         component: AdminHomepage,
         meta: {
-            auth: true
+            requiresAuth: true
         }
     },
     {
         path: '/Chart',
         name: 'Chart',
         component: Chart,
-        meta: {
-            auth: true
-        }
+        // meta: {
+        //     requiresAuth: true
+        // }
     },
     
 ]
