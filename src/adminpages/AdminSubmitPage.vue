@@ -80,18 +80,18 @@
       </b-row>
     </b-container>
 
-    <Footer></Footer>
+    <AdminFooter></AdminFooter>
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
 import AdminAftLoginTopNav from "./AdminAftLoginTopNav.vue";
 import fb from 'firebase';
+import AdminFooter from "./AdminFooter.vue";
 
 export default {
   components: {
-    Footer,
+    AdminFooter,
     AdminAftLoginTopNav,
   },
 

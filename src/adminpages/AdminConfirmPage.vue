@@ -53,7 +53,8 @@
           <b-button
             id="button"
             class="btn btn-primary mx-auto d-block mb-5 mt-5"
-            >Back to Homepage</b-button
+            @click="$router.push('AdminHomepage')"
+            >Back to Dashboard</b-button
           >
         </b-col>
 
@@ -62,17 +63,17 @@
       </b-row>
     </b-container>
 
-    <Footer></Footer>
+    <AdminFooter></AdminFooter>
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
+import AdminFooter from "./AdminFooter.vue";
 import AdminAftLoginTopNav from "./AdminAftLoginTopNav.vue";
 
 export default {
   components: {
-    Footer,
+    AdminFooter,
     AdminAftLoginTopNav,
   },
 
