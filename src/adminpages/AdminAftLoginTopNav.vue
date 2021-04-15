@@ -11,7 +11,8 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/">User</b-nav-item>
+        <b-nav-item to="/AdminHomepage">Dashboard</b-nav-item>
+        <b-nav-item to="/AdminSubmitPage">Submit donation</b-nav-item>
       </b-navbar-nav>
       
       <!-- Right aligned nav items -->
