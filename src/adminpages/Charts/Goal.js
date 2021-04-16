@@ -12,7 +12,7 @@ export default {
                 labels:["Donated", "Remaining"],
                 datasets: [{
                     data:[],
-                    backgroundColor: ["#17df7b","#BEBEBE"],
+                    backgroundColor: ["#2D8BBA","#BEBEBE"],
                     borderWidth:0,
                 }]
             },
