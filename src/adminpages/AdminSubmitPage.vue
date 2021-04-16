@@ -163,41 +163,41 @@ export default {
                 .update({
                   clothes_donated: Number(this.donatecount),
                   points: Number(this.donatepoints),
-                  // }).then(() => {
-                  //   fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
-                  //     var d, curmonth, curcount, curarr;
-                  //     d = new Date();
-                  //     curmonth = d.getMonth();
-                  //     curarr = partner.data().clothes_donated;
-                  //     curcount = curarr[curmonth];
-                  //     curcount = Number(curcount) + Number(this.donatecount);
-                  //     curarr[curmonth] = curcount;
+                  }).then(() => {
+                    fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
+                      var d, curmonth, curcount, curarr;
+                      d = new Date();
+                      curmonth = d.getMonth();
+                      curarr = partner.data().clothes_donated;
+                      curcount = curarr[curmonth];
+                      curcount = Number(curcount) + Number(this.donatecount);
+                      curarr[curmonth] = curcount;
 
-                  //   })
-                })
-                .then(() => {
-                  alert("clothes updated!");
-                  this.$router.push({
-                    name: "AdminConfirmPage",
-                    params: {
-                      items: [
-                        {
-                          submittime: this.submittime,
-                          email: this.email,
-                          addclothes: this.addclothes,
-                          addpoints: this.addpoints,
-                          staffname: this.staffname,
+                    }).then(() => {
+                      alert("clothes updated!");
+                      this.$router.push({
+                        name: "AdminConfirmPage",
+                        params: {
+                          items: [
+                            {
+                              submittime: this.submittime,
+                              email: this.email,
+                              addclothes: this.addclothes,
+                              addpoints: this.addpoints,
+                              staffname: this.staffname,
+                            },
+                          ],
                         },
-                      ],
-                    },
+                      });
                   });
-                });
+                })
+
             });
         });
     },
   },
   created() {
-    // this.partneruid = fb.auth().currentUser.uid;
+    this.partneruid = fb.auth().currentUser.uid;
   },
 };
 </script>
