@@ -107,6 +107,7 @@
     <div class="form-popup" id="setgoal">
       <h3 style = "font-family: Helvetica, sans-serif; text-align: center; padding: 20px;">Are you sure you would like to claim {{vouchervalue}} for {{pointsrequired}} points?</h3>
       <button type="submit" class="btn" @click = "redeem(); makeid(9); sendEmail()">Yes</button>
+      <br/>
       <button type="button" class="btn cancel" @click="closeForm()">No</button>
       
     </div>
@@ -263,6 +264,7 @@ export default {
   transform: translate(-50%, -50%); /* bring your own prefixes */
   /* border: 3px solid #f1f1f1; */
   z-index: 9;
+  height: 50%;
 }
 .open-button:hover {
   opacity: 1;
@@ -281,9 +283,9 @@ export default {
   color: white;
   border: none;
   cursor: pointer;
-  width: 60%;
+  width: 30%;
   opacity: 0.8;
-  transform: translateX(30%);
+  transform: translateX(120%);
   margin: 20px 0px 0px 0px; /*top right bot left */
 }
 
