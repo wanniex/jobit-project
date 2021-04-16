@@ -48,6 +48,7 @@
                 id="count_input"
                 placeholder="Enter a number"
                 type="number"
+                min=1
                 required
               ></b-form-input>
             </b-form-group>
@@ -103,6 +104,8 @@ export default {
       donateuid: "",
       donatecount: 0,
       partneruid: "",
+      submittime: "",
+      addpoints: "",
     };
   },
   methods: {
@@ -116,31 +119,47 @@ export default {
         this.donateuid = doc.data().uid
       }).then(() => {
         fb.firestore().collection("users").doc(this.donateuid).get().then(doc =>{
+          console.log("hi");
           this.donatecount = doc.data().clothes_donated;
           this.donatepoints = doc.data().points;
         }).then(() => {
-          var addpoints = Number(Number(this.addclothes) * 300);
-          this.donatepoints = Number(this.donatepoints) + addpoints;
+          this.addpoints = Number(Number(this.addclothes) * 100);
+          this.donatepoints = Number(this.donatepoints) + this.addpoints;
           this.donatecount = Number(this.donatecount) + Number(this.addclothes);
-
+          
+          // Get donation date & time
+          this.submittime = new Date().toLocaleString('en-GB', {timeZone:"Singapore", hour12: true});
+          
           fb.firestore().collection("users").doc(this.donateuid).update({
             "clothes_donated": Number(this.donatecount),
             "points": Number(this.donatepoints)
-          }).then(() => {
-            fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
-              var d, curmonth, curcount, curarr;
-              d = new Date();
-              curmonth = d.getMonth();
-              curarr = partner.data().clothes_donated;
-              curcount = curarr[curmonth];
-              curcount = Number(curcount) + Number(this.donatecount);
-              curarr[curmonth] = curcount;
+          // }).then(() => {
+          //   fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
+          //     var d, curmonth, curcount, curarr;
+          //     d = new Date();
+          //     curmonth = d.getMonth();
+          //     curarr = partner.data().clothes_donated;
+          //     curcount = curarr[curmonth];
+          //     curcount = Number(curcount) + Number(this.donatecount);
+          //     curarr[curmonth] = curcount;
 
-            })
+              
+          //   })
             
           }).then(() => {
             alert("clothes updated!");
-            this.$router.push("/AdminHomepage");
+            this.$router.push({
+    name: 'AdminConfirmPage',
+    params: {
+        items: [{
+          submittime: this.submittime,
+          email: this.email,
+          addclothes: this.addclothes,
+          addpoints: this.addpoints,
+          staffname: this.staffname
+        }]
+    }
+});
           })
         })
       })

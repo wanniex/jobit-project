@@ -18,7 +18,7 @@
         <b-col cols="1"></b-col>
 
         <!-- Donation image -->
-        <b-col align-self="center" cols="5">
+        <b-col align-self="start" cols="5">
           <b-img
             center
             fluid
@@ -28,12 +28,12 @@
         </b-col>
 
         <!-- Submitted donation approval details -->
-        <b-col fluid align-self="center" cols="5">
+        <b-col fluid align-self="end" cols="5">
           <b-card-group deck>
             <b-card>
               <b-card-text class="mt-2">
                 <h4 style="text-align: center">
-                  Submitted on 1/1/2021, 5:45 PM<br />
+                  Submitted on {{this.myitems[0].submittime}}<br /><br>
                   Location: Buona Vista CC
                 </h4>
                 <br /><br>
@@ -41,21 +41,33 @@
                 <p><strong>Submission Details:</strong></p>
 
                 <ul style="list-style-type: none">
-                  <li>Email: jessica@gmail.com</li><br>
-                  <li>Number of clothings donated: 3</li><br>
-                  <li>Staff Name: John</li><br>
-                  <li>Points to be awarded: 900</li>
+                  <li>Email: {{this.myitems[0].email}}</li><br>
+                  <li>Number of clothings donated: {{this.myitems[0].addclothes}}</li><br>
+                  <li>Staff Name: {{this.myitems[0].staffname}}</li><br>
+                  <li>Points to be awarded: {{this.myitems[0].addpoints}}</li>
                 </ul>
               </b-card-text>
             </b-card>
           </b-card-group>
 
+          <b-row>
+          <b-col>
+          <b-button
+            id="button"
+            class="btn btn-primary mx-auto d-block mb-5 mt-5"
+            @click="$router.push('AdminSubmitPage')"
+            >Submit another approval</b-button
+          >
+          </b-col>
+          <b-col>
           <b-button
             id="button"
             class="btn btn-primary mx-auto d-block mb-5 mt-5"
             @click="$router.push('AdminHomepage')"
             >Back to Dashboard</b-button
           >
+          </b-col>
+          </b-row>
         </b-col>
 
         <!-- Filler Column -->
@@ -79,8 +91,14 @@ export default {
 
   data() {
     return {
+      myitems: [],
     };
   },
+
+  beforeMount() {
+    this.myitems = this.$route.params.items;
+    console.log(this.myitems)
+  }
 };
 </script>
 
