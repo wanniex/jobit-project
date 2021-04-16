@@ -49,7 +49,7 @@
                   href="#"
                   id="button"
                   class="mt-auto"
-                  v-on:click="pointsRedeemed(1000); redeem(); makeid(9); sendEmail()"
+                  v-on:click="openForm(); pointsRedeemed(1000);"
                   >Redeem</b-button
                 >
               </b-card-text>
@@ -70,7 +70,7 @@
                   href="#"
                   id="button"
                   class="mt-auto"
-                  v-on:click="pointsRedeemed(1800); redeem(); makeid(9); sendEmail()"
+                  v-on:click="openForm(); pointsRedeemed(1800);"
                   >Redeem</b-button
                 >
               </b-card-text>
@@ -102,6 +102,12 @@
         </b-col>
       </b-row>
     </b-container>
+    <div class="form-popup" id="setgoal">
+      <h3 style = "font-family: Helvetica, sans-serif; text-align: center; padding: 20px;">Are you sure you would like to claim {{vouchervalue}} for {{pointsrequired}} points?</h3>
+      <button type="submit" class="btn" @click = "redeem(); makeid(9); sendEmail()">Yes</button>
+      <button type="button" class="btn cancel" @click="closeForm()">No</button>
+      
+    </div>
 
     <FooterAftLogin></FooterAftLogin>
   </div>
@@ -136,6 +142,14 @@ export default {
   },
 
     methods: {
+    openForm() {
+      document.getElementById("setgoal").style.display = "block";
+    },
+
+    closeForm() {
+      document.getElementById("setgoal").style.display = "none";
+    },
+    
     fetchItems: function () {
       var merchantsRef = fb.firestore().collection("merchants");
       merchantsRef.get().then((snapshot) => {
@@ -167,16 +181,18 @@ export default {
         // Updating new number of points user has in firebase
         fb.firestore().collection("users")
         .doc(this.userid)
-        .set(this.currUser)        
+        .set(this.currUser)     
         
         this.username = this.currUser.name;
         this.email = this.currUser.email;
         // .then(() => this.$router.push({ path: "/HomePageAftLogin" }));
       }
+      this.closeForm();
     },
 
     pointsRedeemed: function(arg) {
       this.pointsrequired = arg;
+      this.vouchervalue = this.pointsrequired == 1000 ? "$10" : "$20"
     },
 
     sendEmail: function() {
@@ -236,4 +252,52 @@ export default {
   background-color: rgb(212, 212, 212);
   color: black;
 }
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* bring your own prefixes */
+  /* border: 3px solid #f1f1f1; */
+  z-index: 9;
+}
+.open-button:hover {
+  opacity: 1;
+  background-color: #17df7b;
+  /* 2D8BBA */
+}
+
+.form-popup .btn:hover {
+    opacity: 1;
+    background-color: #17df7b;
+}
+
+/* submit button */
+.form-popup .btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  opacity: 0.8;
+  transform: translateX(30%);
+  margin: 20px 0px 0px 0px; /*top right bot left */
+}
+
+/* Add a red background color to the cancel button */
+.form-popup .cancel {
+  background-color: rgb(192, 35, 35);
+}
+
+.form-popup .cancel:hover {
+    opacity: 1;
+    background-color: red;
+}
+
+.form-popup {
+  padding: 10px;
+  background-color: white;
+}
+
 </style>
