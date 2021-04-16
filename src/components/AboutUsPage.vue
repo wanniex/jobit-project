@@ -1,7 +1,8 @@
 <template>
   <div>
       <TopNav></TopNav>
-
+      <h1 style = "padding-top: 50px; weight: bolder; text-align: center;"> How to Clonate? </h1>
+      <img src = "../assets/clonate_steps.png" style = "width: 90%; height: auto; display: block; margin-left: auto; margin-right: auto;"/>
        <div>
     <b-card-group deck class="ml-2 mr-2 mt-5">
       <b-card title="About Us" class="text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
@@ -19,7 +20,7 @@
       </b-card>
     </b-card-group>
   </div>
-
+    
     <br>
     <Footer></Footer>
       
