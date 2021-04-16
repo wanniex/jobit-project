@@ -49,7 +49,7 @@
                 placeholder="Enter a number"
                 v-model="addclothes"
                 type="number"
-                min="1"
+                min=1
                 required
               ></b-form-input>
             </b-form-group>
@@ -131,7 +131,7 @@ export default {
 
             // Resets input of fields if user does not exist
             this.email = "";
-            this.addclothes = "";
+            this.addclothes = null;
             this.staffname = "";
           }
         })
