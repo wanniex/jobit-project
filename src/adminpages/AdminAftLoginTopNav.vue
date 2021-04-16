@@ -11,7 +11,7 @@
   
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/AdminHomePage">Dash Board</b-nav-item>
+        <b-nav-item to="/AdminHomePage">Dashboard</b-nav-item>
         <b-nav-item to="/AdminSubmitPage">Approve Donation</b-nav-item>
       </b-navbar-nav>
       
