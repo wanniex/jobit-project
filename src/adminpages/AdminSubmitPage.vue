@@ -128,7 +128,7 @@ export default {
           this.donatecount = Number(this.donatecount) + Number(this.addclothes);
           
           // Get donation date & time
-          this.submittime = new Date().toLocaleString('en-GB', {timeZone:"Singapore", hour12: true});
+          this.submittime = new Date().toLocaleString('en-SG', {timeZone:'Asia/Singapore', hour12: true});
           
           fb.firestore().collection("users").doc(this.donateuid).update({
             "clothes_donated": Number(this.donatecount),
