@@ -230,7 +230,6 @@ export default {
         );
       }
       this.vouchercode = result.join("");
-      console.log(this.vouchercode);
     },
   },
   
