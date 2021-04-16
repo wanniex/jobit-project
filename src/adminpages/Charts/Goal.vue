@@ -10,7 +10,7 @@
             <h3 style = "font-family: Helvetica, sans-serif; text-align: center; padding: 20px;">Set your new goal for this month</h3>
 
             <input id = "goal_input" type="number" placeholder="Enter Goal" name="goal" required>
-
+            
             <button type="submit" class="btn">Submit</button>
             <button type="button" class="btn cancel" @click="closeForm()">Close</button>
           </form>
@@ -42,9 +42,7 @@ export default {
     },
     set_goal() {
       var db = fb.firestore();
-      // var curuser = fb.auth().currentUser;
-      //uid = curuser.uid; 
-      var uid = "HAXIeBjEPnzGcTdL8Mbk";//*********** change this later
+      var uid = fb.auth().currentUser.uid;
       var d = new Date();
       var curmonth = d.getMonth();
       var curarr;
