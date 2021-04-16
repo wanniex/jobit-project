@@ -70,7 +70,7 @@
                   href="#"
                   id="button"
                   class="mt-auto"
-                  v-on:click="pointsRedeemed(1800); redeem()"
+                  v-on:click="pointsRedeemed(1800); redeem(); makeid(9); sendEmail()"
                   >Redeem</b-button
                 >
               </b-card-text>
@@ -162,8 +162,7 @@ export default {
       } else {
         this.userpoints = this.userpoints - this.pointsrequired;
         this.currUser.points = this.userpoints;
-
-        alert('Your redemption is successful');
+        alert("Your redemption is successful!\nThe voucher has been sent to your email! :)");
 
         // Updating new number of points user has in firebase
         fb.firestore().collection("users")
