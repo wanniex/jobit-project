@@ -68,10 +68,11 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 .des {
     width: 554px;
     height: 100px;
-    font-family: Montserrat;
+    font-family: "Roboto Slab", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -80,4 +81,5 @@ export default {
     color: #616161;
     float: left;
 }
+
 </style>

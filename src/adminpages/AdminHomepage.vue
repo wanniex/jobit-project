@@ -6,20 +6,20 @@
             <h1 style = "text-align: center; color: #505050; weight: bold;"> {{place}} stats for {{curmonth}}</h1>
             <br style = "padding-top: 20px;"/>
             <img 
-                src="../assets/green_shirt.png"
+                src="../assets/t-shirt-128.png"
                 style="height:80px; width: auto; margin-top: 20px; margin-left: 30px; float: left;"               
             /> 
             <div class = "des"> {{curamt}} pieces of clothes </div>
             <br><br style= "clear: left">
 
             <img 
-                src="../assets/green_water.png"
+                src="../assets/admin-water-128.png"
                 style="height:80px; width: auto; margin-top: 20px; margin-left: 30px; float: left;"               
             />
             <div class = "des"> {{curwater}} gallons of water </div>
             <br><br style= "clear: left">
             <img 
-                src="../assets/green_leaf.png"
+                src="../assets/admin-leaf-128.png"
                 style="height:80px; width: auto; margin-left: 30px; float: left;"               
             />
             <div class = "des"> {{curweight}} KG of clothes </div>
@@ -198,9 +198,10 @@ export default {
   background-color: white;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 .des {
     height: 100px;
-    font-family: Montserrat;
+    font-family: "Roboto Slab", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
@@ -212,7 +213,7 @@ export default {
 
 .des2 {
     height: 50px;
-    font-family: Montserrat;
+    font-family: "Roboto Slab", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
