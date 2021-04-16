@@ -47,8 +47,9 @@
               <b-form-input
                 id="count_input"
                 placeholder="Enter a number"
+                v-model="addclothes"
                 type="number"
-                min=1
+                min="1"
                 required
               ></b-form-input>
             </b-form-group>
@@ -87,7 +88,7 @@
 
 <script>
 import AdminAftLoginTopNav from "./AdminAftLoginTopNav.vue";
-import fb from 'firebase';
+import fb from "firebase";
 import AdminFooter from "./AdminFooter.vue";
 
 export default {
@@ -110,65 +111,94 @@ export default {
   },
   methods: {
     onsubmit() {
-      
       this.email = document.getElementById("email_input").value;
       this.addclothes = document.getElementById("count_input").value;
       this.staffname = document.getElementById("staff_input").value;
 
-      fb.firestore().collection("useremail").doc(this.email).get().then(doc => {
-        this.donateuid = doc.data().uid
-      }).then(() => {
-        fb.firestore().collection("users").doc(this.donateuid).get().then(doc =>{
-          console.log("hi");
-          this.donatecount = doc.data().clothes_donated;
-          this.donatepoints = doc.data().points;
-        }).then(() => {
-          this.addpoints = Number(Number(this.addclothes) * 100);
-          this.donatepoints = Number(this.donatepoints) + this.addpoints;
-          this.donatecount = Number(this.donatecount) + Number(this.addclothes);
-          
-          // Get donation date & time
-          this.submittime = new Date().toLocaleString('en-SG', {timeZone:'Asia/Singapore', hour12: true});
-          
-          fb.firestore().collection("users").doc(this.donateuid).update({
-            "clothes_donated": Number(this.donatecount),
-            "points": Number(this.donatepoints)
-          // }).then(() => {
-          //   fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
-          //     var d, curmonth, curcount, curarr;
-          //     d = new Date();
-          //     curmonth = d.getMonth();
-          //     curarr = partner.data().clothes_donated;
-          //     curcount = curarr[curmonth];
-          //     curcount = Number(curcount) + Number(this.donatecount);
-          //     curarr[curmonth] = curcount;
+      fb.firestore()
+        .collection("useremail")
+        .doc(this.email)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            // User exists in database
+            console.log("Document data:", doc.data());
+            this.donateuid = doc.data().uid;
+          } else {
+            // user does not exist
+            // doc.data() will be undefined in this case
+            alert("User does not exist!");
 
-              
-          //   })
-            
-          }).then(() => {
-            alert("clothes updated!");
-            this.$router.push({
-    name: 'AdminConfirmPage',
-    params: {
-        items: [{
-          submittime: this.submittime,
-          email: this.email,
-          addclothes: this.addclothes,
-          addpoints: this.addpoints,
-          staffname: this.staffname
-        }]
-    }
-});
-          })
+            // Resets input of fields if user does not exist
+            this.email = "";
+            this.addclothes = "";
+            this.staffname = "";
+          }
         })
-      })
-      
-    }
+
+        .then(() => {
+          fb.firestore()
+            .collection("users")
+            .doc(this.donateuid)
+            .get()
+            .then((doc) => {
+              this.donatecount = doc.data().clothes_donated;
+              this.donatepoints = doc.data().points;
+            })
+            .then(() => {
+              this.addpoints = Number(Number(this.addclothes) * 100);
+              this.donatepoints = Number(this.donatepoints) + this.addpoints;
+              this.donatecount =
+                Number(this.donatecount) + Number(this.addclothes);
+
+              // Get donation date & time
+              this.submittime = new Date().toLocaleString("en-SG", {
+                timeZone: "Asia/Singapore",
+                hour12: true,
+              });
+
+              fb.firestore()
+                .collection("users")
+                .doc(this.donateuid)
+                .update({
+                  clothes_donated: Number(this.donatecount),
+                  points: Number(this.donatepoints),
+                  // }).then(() => {
+                  //   fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
+                  //     var d, curmonth, curcount, curarr;
+                  //     d = new Date();
+                  //     curmonth = d.getMonth();
+                  //     curarr = partner.data().clothes_donated;
+                  //     curcount = curarr[curmonth];
+                  //     curcount = Number(curcount) + Number(this.donatecount);
+                  //     curarr[curmonth] = curcount;
+
+                  //   })
+                })
+                .then(() => {
+                  alert("clothes updated!");
+                  this.$router.push({
+                    name: "AdminConfirmPage",
+                    params: {
+                      items: [
+                        {
+                          submittime: this.submittime,
+                          email: this.email,
+                          addclothes: this.addclothes,
+                          addpoints: this.addpoints,
+                          staffname: this.staffname,
+                        },
+                      ],
+                    },
+                  });
+                });
+            });
+        });
+    },
   },
   created() {
-    this.partneruid = fb.auth().currentUser.uid;
-  }
+    // this.partneruid = fb.auth().currentUser.uid;
+  },
 };
 </script>
 
