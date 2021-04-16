@@ -14,9 +14,14 @@
       </b-card>
 
       <b-card title="Contact Us" class="text-center">
-        <b-card-text>
-          Email: {{this.email}} <br>Number: {{this.number}}<br><br>
-          Address:<br>{{this.address}},<br>{{this.postal}}
+        <b-card-text class = "text-left" style = "margin-top: 15px;">
+          <div style = "float: left; width: 40%; text-align: right;">
+            Email: <br> Number: <br> Address: 
+          </div>
+          <div style = "float: left; width: 50%; margin-left: 50px;">
+            {{email}} <br> {{number}} <br> {{address}} <br> {{postal}}
+          </div>
+          <div style = "clear: left"/>
         </b-card-text><br>
 
       <GmapMap :center="center" :zoom="16">
