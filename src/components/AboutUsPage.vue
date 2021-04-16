@@ -96,7 +96,6 @@ export default {
     this.fetchItems()
   }
 }
-    Footer
 </script>
 
 

@@ -9,13 +9,30 @@
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
           <br><br>Join us in our cause today.
         </b-card-text>
+        <SignupBtn id="subutton" @click.native="$router.push('/SignUp')"></SignupBtn>
       </b-card>
 
-      <b-card title="Contact Us" class="text-center" v-bind:img-src="this.imageURL" img-alt="Card image" img-bottom>
-        <b-card-text>
-          Email: {{this.email}} <br>Number: {{this.number}}<br><br>
-          Address:<br>{{this.address}},<br>{{this.postal}}
-        </b-card-text>
+      <b-card title="Contact Us" class="text-center">
+        <b-card-text class = "text-left" style = "margin-top: 15px;">
+          <div style = "float: left; width: 40%; text-align: right;">
+            Email: <br> Number: <br> Address: 
+          </div>
+          <div style = "float: left; width: 50%; margin-left: 50px;">
+            {{email}} <br> {{number}} <br> {{address}} <br> {{postal}}
+          </div>
+          <div style = "clear: left"/>
+        </b-card-text><br>
+
+      <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
+      <GmapMarker
+        v-for="(item, index) in markers"
+        :key="index"
+        :position="item.position"
+        :clickable="true"
+        :icon="item.icon"
+      />
+    </GmapMap>
+
       </b-card>
     </b-card-group>
   </div>
@@ -28,6 +45,8 @@
 
 
 <script>
+const home = {lat: 1.2996575047427947, lng:103.77602467723008};
+
 import FooterAftLogin from './FooterAftLogin.vue';
 import TopNavAftLogin from './TopNavAftLogin.vue';
 import fb from 'firebase'
@@ -45,6 +64,13 @@ export default {
       number: '',
       postal: '',
       imageURL2: '',
+      center: home,
+      mapTypeId: "terrain",
+      markers: [{
+          position: home,
+          infoText: "<strong>Work</strong>",
+
+        }],
     }
   },
   methods: {
@@ -74,6 +100,24 @@ export default {
 <style scoped>
 
 
+.vue-map-container {
+  height: 330px;
+  max-width: 992px;
+  width: 100%;
+}
+
+#subutton {
+   background-color: #87ebd3;
+   color: black;
+   border: none;
+   transition-duration: 0.4s;
+   width: 100px;
+ }
+
+ #subutton:hover {
+   background-color: rgb(212, 212, 212);
+   color: black;
+ }
 
 
 
