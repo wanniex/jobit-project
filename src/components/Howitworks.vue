@@ -6,7 +6,7 @@
 
     <b-container fluid>
        <b-row align-h="center" class="mt-5 mb-5">
-           <h2 id="stepsfont">How Clonate works</h2>
+           <h2 id="stepsfont">How to Clonate?</h2>
        </b-row>
       <b-row align-v="center">
         <b-col>
@@ -42,7 +42,7 @@
               <h3 id="stepsfont">01</h3>
           </b-row>
           <b-row align-h="center" class="mt-3">
-              <h3 id="stepsfont">DONATE YOUR CLOTHES</h3>
+              <h3 id="stepsfont">CLONATE YOUR CLOTHES</h3>
           </b-row>
           <b-row align-h="center" class="mt-2">
              <p>Drop off your clothes at <br>any of our partnering locations!</p>
@@ -61,7 +61,7 @@
               <h3 id="stepsfont">ADMIN INSPECTION</h3>
           </b-row>
           <b-row align-h="center" class="mt-3">
-             <p>Be patient and wait for our admins at our partnering locations to inspect and approve your donation.</p>
+             <p>Be patient and wait for our admins at our partnering locations to inspect and approve your Clonation.</p>
           </b-row>
       </b-col>
 
@@ -76,7 +76,7 @@
               <h3 id="stepsfont">BE REWARDED</h3>
           </b-row>
           <b-row align-h="center" class="mt-3">
-             <p>Be rewarded with points from your donation and use them to redeem vouchers from any of our merchant partners!</p>
+             <p>Be rewarded with points from your Clonation and use them to redeem vouchers from any of our merchant partners!</p>
           </b-row>
       </b-col>
       </b-row>
