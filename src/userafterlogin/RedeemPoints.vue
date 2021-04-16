@@ -76,7 +76,8 @@
               </b-card-text>
             </b-card>
           </b-card-group>
-
+          </b-col>
+          <div style = "padding: 50px;">
           <p style="text-align: center">
             The e-voucher will be sent to your email.
           </p>
@@ -99,7 +100,8 @@
               Promo code is to be used for one-time redemption only.
             </li>
           </ul>
-        </b-col>
+          </div>
+        
       </b-row>
     </b-container>
     <div class="form-popup" id="setgoal">
@@ -300,4 +302,7 @@ export default {
   background-color: white;
 }
 
+li {
+  margin-bottom: 20px;
+}
 </style>
