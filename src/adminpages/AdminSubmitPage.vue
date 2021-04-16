@@ -122,7 +122,6 @@ export default {
         .then((doc) => {
           if (doc.exists) {
             // User exists in database
-            console.log("Document data:", doc.data());
             this.donateuid = doc.data().uid;
           } else {
             // user does not exist

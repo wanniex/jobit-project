@@ -95,19 +95,6 @@ export default {
                     }).catch((error) => {alert(error);});
                 }).catch((error) => {alert(error);});
             }).catch((error) => {alert(error);});
-            // fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(cred => {
-            //     fb.storage().ref('users/' + cred.user.uid + '/profile.jpg').put(imgfile).then(() => {   
-            //         console.log('photo successfully uploaded');
-            //         fb.firestore().collection("users").doc(cred.user.uid).set({
-            //             "name": this.name,
-            //             "clothes_donated": 0,
-            //             "points": 0,
-            //             "auth": "normal"
-            //         }).then(() => {
-            //             this.$router.replace({name: 'HomePageAftLogin'});
-            //         }).catch((error) => {alert(error);});
-            //     }).catch((error) => {alert(error);});
-            // }).catch((error) => {alert(error);});
         },
 
 
