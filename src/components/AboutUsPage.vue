@@ -19,7 +19,7 @@
           Address:<br>{{this.address}},<br>{{this.postal}}
         </b-card-text><br>
 
-      <GmapMap :center="center" :map-type-id="mapTypeId" :zoom="16">
+      <GmapMap :center="center" :zoom="16">
       <GmapMarker
         v-for="(item, index) in markers"
         :key="index"
@@ -63,7 +63,6 @@ export default {
       postal: '',
       imageURL2: '',
       center: home,
-      mapTypeId: "terrain",
       markers: [{
           position: home,
           infoText: "<strong>Work</strong>",
