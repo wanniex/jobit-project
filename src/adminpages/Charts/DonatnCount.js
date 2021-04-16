@@ -37,9 +37,7 @@ export default {
   methods: {
     fetchItems: function () {
         var db = fb.firestore();
-        // var curuser = fb.auth().currentUser;
-        //uid = curuser.uid; 
-        var uid = "HAXIeBjEPnzGcTdL8Mbk";//*********** change this later
+        var uid = fb.auth().currentUser.uid;
         var clothesarr, curmonth, d, ds, start;
         db.collection('partners').doc(uid).get().then(doc => {
             clothesarr = doc.data().clothes_donated;

@@ -39,7 +39,7 @@ export default {
             var db = fb.firestore();
             // var curuser = fb.auth().currentUser;
             //uid = curuser.uid; 
-            var uid = "HAXIeBjEPnzGcTdL8Mbk";//*********** change this later
+            var uid = fb.auth().currentUser.uid;//*********** change this later
             var curcount, goal,d ,curmonth;
             db.collection('partners').doc(uid).get().then(doc => {
                 d = new Date();
