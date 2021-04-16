@@ -17,7 +17,7 @@
       
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-avatar href="#foo" v-bind:src="placeimg" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
+        <b-avatar to="/AdminProfilePage" v-bind:src="profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
         <b-button pill @click="signout()" id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
       </b-navbar-nav>
     </b-collapse>
@@ -33,7 +33,8 @@ import fb from 'firebase'
 export default {
   data() {
     return {
-      placeimg: "",
+      profilepic: "",
+      uid: null,
     }
   },
   components: {
@@ -51,12 +52,24 @@ export default {
         this.$router.push('/');
       });
     },
+
+    getprofilepic() {
+      console.log("im here")
+      
+      fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
+        // document.getElementById('profilepic').src = imgURL;
+        this.profilepic = imgURL;
+        console.log(this.profilepic);
+      })
+    },
+
   },
   created() {
     this.uid = fb.auth().currentUser.uid;
-    fb.firestore().collection("partners").doc(this.uid).get().then(doc => {
-      this.placeimg = doc.data().imageURL;
-    })
+    this.getprofilepic();
+    // fb.firestore().collection("partners").doc(this.uid).get().then(doc => {
+    //   this.placeimg = doc.data().imageURL;
+    // })
   }
 };
 </script>

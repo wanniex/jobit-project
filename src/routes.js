@@ -25,6 +25,7 @@ import AdminSubmitPage from './adminpages/AdminSubmitPage.vue'
 import AdminConfirmPage from './adminpages/AdminConfirmPage.vue'
 import AdminHomepage from './adminpages/AdminHomepage.vue'
 import Chart from './adminpages/Charts/Goal.vue'
+import AdminProfilePage from './adminpages/AdminProfilePage.vue'
 
 export default[
 
@@ -211,6 +212,14 @@ export default[
         path: '/Chart',
         name: 'Chart',
         component: Chart,
+        // meta: {
+        //     requiresAuth: true
+        // }
+    },
+    {
+        path: '/AdminProfilePage',
+        name: 'AdminProfilePage',
+        component: AdminProfilePage,
         // meta: {
         //     requiresAuth: true
         // }
