@@ -2,7 +2,7 @@
     <b-navbar id="test" toggleable="lg" type="dark" variant="info">
     <b-navbar-brand>
       <img
-        src="../assets/clonate-admin.png"
+        src="../assets/clonateadmin.png"
         class="d-inline-block align-top"
         alt="Clonate"
       />
