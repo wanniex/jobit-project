@@ -1,35 +1,42 @@
 <template>
   <div>
     <TopNav></TopNav>
-    
-    <img id="clothes1" src="../assets/Clothes1.png"/>
-    <div id = "rightcontent">
-      <div id = "text1"> Sign up for a free account now!</div>
-      <SignupForm class = "SignUpForm" style = "margin-top: -60px;"></SignupForm>
-    </div>
-    <foot style = "clear: both"></foot>
+    <b-row>
+      <b-col>
+        <b-img fluid src="https://i.imgur.com/2L8Yz2I.jpg" alt="Image 1" id="image"></b-img>
+      </b-col>
+
+      <b-col>
+        <b-row align-h="center">
+          
+      <SignupForm></SignupForm>
+        </b-row>
+      </b-col>
+    </b-row>
+    <Footer></Footer>
 
   </div>
 </template>
 
 <script>
 import SignupForm from './SignupForm.vue';
-import Footer from './Footer'
 import TopNav from './TopNav.vue';
+import Footer from './Footer.vue';
 
 export default {
   components: {
     SignupForm,
-    'foot': Footer,
-    TopNav
+    TopNav,
+    Footer
   },
 }
 </script>
 
 
 <style scoped>
-.clothes1 {
-  float: left;
+#image {
+  width:100%;
+  height: 100%;
 }
 
 
