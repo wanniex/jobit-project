@@ -3,7 +3,7 @@
   <b-container fluid>
     <b-row>
       <b-col>
-        <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1"></b-img>
+        <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1" id="image"></b-img>
       </b-col>
       
       <b-col fluid class="align-self-center">
@@ -115,6 +115,11 @@ export default {
 .error {
   color: red;
   font-size: 18px;
+}
+
+#image {
+  width:100%;
+  height: 100%;
 }
 
 button {
