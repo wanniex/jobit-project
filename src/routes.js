@@ -11,6 +11,7 @@ import MerchantPage from './userafterlogin/MerchantPage.vue'
 import RedeemPoints from './userafterlogin/RedeemPoints.vue'
 import EditProfile from './userafterlogin/EditProfile.vue'
 import AboutUsAftLogin from './userafterlogin/AboutUsAftLogin'
+import Howitworks from './components/Howitworks.vue'
 
 import UserStats from './userafterlogin/UserStats.vue'
 import EditProfileInputs from './userafterlogin/EditProfileInputs.vue'
@@ -173,6 +174,11 @@ export default[
         // meta: {
         //     requiresAuth: true
         // }
+    },
+    {
+        path: '/Howitworks',
+        name: 'Howitworks',
+        component: Howitworks,
     },
 
     //For Admin Pages
