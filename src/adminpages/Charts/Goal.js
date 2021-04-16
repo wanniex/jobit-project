@@ -12,7 +12,7 @@ export default {
                 labels:["Donated", "Remaining"],
                 datasets: [{
                     data:[],
-                    backgroundColor: ["#2D8BBA","grey"],
+                    backgroundColor: ["#17df7b","#BEBEBE"],
                     borderWidth:0,
                 }]
             },
@@ -39,7 +39,7 @@ export default {
             var db = fb.firestore();
             var uid = fb.auth().currentUser.uid;
             var curcount, goal,d ,curmonth;
-            db.collection('partners').doc(uid).get().then(doc => {
+            db.collection('partners').doc(uid).onSnapshot(doc => {
                 d = new Date();
                 curmonth = d.getMonth();   
                 curcount = doc.data().clothes_donated[curmonth];
@@ -49,11 +49,15 @@ export default {
                     curcount = goal;
                 }
                 goal = goal - curcount;
+                this.datacollection.datasets[0].data = [];
                 this.datacollection.datasets[0].data.push(curcount);
                 this.datacollection.datasets[0].data.push(goal);
-            }).then(() => {
                 this.renderChart(this.datacollection, this.options);
-            })
+            });
+            // }).then(() => {
+            //     this.renderChart(this.datacollection, this.options);
+            // })
+            
         },
         
     },

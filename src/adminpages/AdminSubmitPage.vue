@@ -148,8 +148,7 @@ export default {
             .then(() => {
               this.addpoints = Number(Number(this.addclothes) * 100);
               this.donatepoints = Number(this.donatepoints) + this.addpoints;
-              this.donatecount =
-                Number(this.donatecount) + Number(this.addclothes);
+              this.donatecount = Number(this.donatecount) + Number(this.addclothes);
 
               // Get donation date & time
               this.submittime = new Date().toLocaleString("en-SG", {
@@ -163,17 +162,20 @@ export default {
                 .update({
                   clothes_donated: Number(this.donatecount),
                   points: Number(this.donatepoints),
-                  }).then(() => {
+                }).then(() => {
                     fb.firestore().collection("partners").doc(this.partneruid).get().then(partner => {
                       var d, curmonth, curcount, curarr;
                       d = new Date();
                       curmonth = d.getMonth();
                       curarr = partner.data().clothes_donated;
                       curcount = curarr[curmonth];
-                      curcount = Number(curcount) + Number(this.donatecount);
+                      alert(curcount)
+                      curcount = Number(curcount) + Number(this.addclothes);
                       curarr[curmonth] = curcount;
-
-                    }).then(() => {
+                      alert(curcount)
+                      fb.firestore().collection('partners').doc(this.partneruid).update({
+                        clothes_donated: curarr,
+                      }).then(() => {
                       alert("clothes updated!");
                       this.$router.push({
                         name: "AdminConfirmPage",
@@ -189,7 +191,8 @@ export default {
                           ],
                         },
                       });
-                  });
+                    });
+                  })
                 })
 
             });
