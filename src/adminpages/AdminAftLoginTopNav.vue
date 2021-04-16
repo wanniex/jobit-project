@@ -54,12 +54,9 @@ export default {
     },
 
     getprofilepic() {
-      console.log("im here")
       
       fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
-        // document.getElementById('profilepic').src = imgURL;
         this.profilepic = imgURL;
-        console.log(this.profilepic);
       })
     },
 

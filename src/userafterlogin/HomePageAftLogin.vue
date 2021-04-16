@@ -130,7 +130,6 @@ export default {
         })
       }),
       fb.firestore().collection('users').doc(this.userid).get().then(snapshot => {
-        console.log(this.userid)
         this.username = snapshot.data().name;
         this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
       })
@@ -139,7 +138,6 @@ export default {
 
   computed: {
     sortedArray: function () {
-      console.log(this.partners);
       var newArray = this.partners;
       function compareAsc(a, b) {
         if (a.name < b.name) return -1;
@@ -152,7 +150,6 @@ export default {
         if (a.name < b.name) return 1;
         return 0;
       }
-      console.log(newArray);
       if (this.selected == "Ascending" && this.filterselect == "All") {
         return newArray.sort(compareAsc);
       } else if (this.selected == "Descending" && this.filterselect == "All") {
@@ -190,8 +187,7 @@ export default {
 
   created() {
     this.userid = fb.auth().currentUser.uid;
-    this.fetchItems()
-    console.log(this.partners)
+    this.fetchItems();
   }
 };
 </script>

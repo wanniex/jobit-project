@@ -53,7 +53,6 @@ export default {
       fb.firestore().collection('aboutus').get().then(snapshot => {
         let item = {}
         snapshot.docs.forEach(doc => {
-          console.log(doc.data())
           item = doc.data()
           this.email = item.email
           this.address = item.address
@@ -67,7 +66,6 @@ export default {
   },
   created() {
     this.fetchItems()
-    console.log(this.email)
   }
 }
     Footer

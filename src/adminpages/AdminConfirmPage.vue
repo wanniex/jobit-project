@@ -97,7 +97,6 @@ export default {
 
   beforeMount() {
     this.myitems = this.$route.params.items;
-    console.log(this.myitems)
   }
 };
 </script>

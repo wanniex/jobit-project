@@ -19,6 +19,7 @@ import ProfilePage from './userafterlogin/ProfilePage.vue'
 import EditUsername from './userafterlogin/EditUsername.vue'
 import EditPassword from './userafterlogin/EditPassword.vue'
 import EditPhoto from './userafterlogin/EditPhoto.vue'
+import HowitworksAftLogin from './userafterlogin/HowitworksAftLogin.vue'
 
 // For Admin Pages
 import AdminLogin from './adminpages/AdminLogin.vue'
@@ -179,6 +180,11 @@ export default[
         path: '/Howitworks',
         name: 'Howitworks',
         component: Howitworks,
+    },
+    {
+        path: '/HowitworksAftLogin',
+        name: 'HowitworksAftLogin',
+        component: HowitworksAftLogin,
     },
 
     //For Admin Pages
