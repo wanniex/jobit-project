@@ -102,7 +102,7 @@ export default {
 
 
 .vue-map-container {
-  height: 330px;
+  height: 360px;
   max-width: 992px;
   width: 100%;
 }
