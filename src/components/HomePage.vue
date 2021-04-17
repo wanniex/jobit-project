@@ -4,7 +4,7 @@
     <top-nav></top-nav>
 
     <b-container id="container" fluid>
-      <carousel></carousel>
+      <carousel class="animated fadeInRight"></carousel>
     </b-container>
 
 
