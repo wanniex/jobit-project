@@ -5,7 +5,7 @@
       <img src = "../assets/clonate_steps.png" style = "width: 90%; height: auto; display: block; margin-left: auto; margin-right: auto;"/> -->
        <div>
     <b-card-group deck class="ml-2 mr-2 mt-5">
-      <b-card title="About Us" class="text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
+      <b-card title="About Us" class="wow fadeInDown text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
         <b-card-text>
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
           <br><br>Join us in our cause today.
@@ -13,7 +13,7 @@
         <SignupBtn id="subutton" @click.native="$router.push('/SignUp')"></SignupBtn>
       </b-card>
 
-      <b-card title="Contact Us" class="text-center">
+      <b-card title="Contact Us" class="wow fadeInUp text-center">
         <b-card-text class = "text-left" style = "margin-top: 15px;">
           <div style = "float: left; width: 40%; text-align: right;">
             Email: <br> Number: <br> Address: 
@@ -52,6 +52,7 @@ import Footer from './Footer.vue';
 import TopNav from './TopNav.vue';
 import fb from 'firebase';
 import SignupBtn from './SignupBtn';
+import {WOW} from 'wowjs';
 
 export default {
   components: {
@@ -91,6 +92,11 @@ export default {
       })
     }
   },
+
+  mounted() {
+  new WOW().init();
+  },
+
   created() {
     this.fetchItems()
   }
