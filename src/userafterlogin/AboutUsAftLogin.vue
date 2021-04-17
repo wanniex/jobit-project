@@ -4,7 +4,7 @@
 
        <div>
     <b-card-group deck class="ml-2 mr-2 mt-5">
-      <b-card title="About Us" class="text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
+      <b-card title="About Us" class="wow fadeInDown slow text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
         <b-card-text>
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
           <br><br>Join us in our cause today.
@@ -12,7 +12,7 @@
         <SignupBtn id="subutton" @click.native="$router.push('/SignUp')"></SignupBtn>
       </b-card>
 
-      <b-card title="Contact Us" class="text-center">
+      <b-card title="Contact Us" class="wow fadeInDown slow text-center">
         <b-card-text class = "text-left" style = "margin-top: 15px;">
           <div style = "float: left; width: 40%; text-align: right;">
             Email: <br> Number: <br> Address: 
@@ -50,6 +50,7 @@ const home = {lat: 1.2996575047427947, lng:103.77602467723008};
 import FooterAftLogin from './FooterAftLogin.vue';
 import TopNavAftLogin from './TopNavAftLogin.vue';
 import fb from 'firebase'
+import {WOW} from 'wowjs'
 
 export default {
   components: {
@@ -89,6 +90,11 @@ export default {
       })
     }
   },
+
+  mounted() {
+    new WOW().init();
+  },
+
   created() {
     this.fetchItems()
   }
