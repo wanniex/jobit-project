@@ -2,7 +2,7 @@
     <div>
         <TopNavAftLogin/>
         
-        <div class="justify-content-center">
+        <div class="justify-content-center animated fadeInUp">
             <b-container>
                 <b-row align-h="center" class="mt-5">
                     <h2>Change your profile photo</h2>
