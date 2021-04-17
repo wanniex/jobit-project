@@ -4,13 +4,13 @@
 
         <div class="justify-content-center">
     <b-container>
-      <b-row align-h="center" class="mt-5 mb-5">
+      <b-row align-h="center" class="mt-5 mb-5 animated fadeInDown">
         <h1>Your Admin Profile</h1>
       </b-row>
 
       <b-row class="mb-4">
 
-        <b-col cols="5" class="mb-3">
+        <b-col cols="5" class="mb-3 animated fadeInLeft">
           <b-card-group deck class="h-100">
             <b-card
               v-bind:img-src="this.imageURL"
@@ -33,7 +33,7 @@
         </b-col>
           
           
-    <b-col>    
+    <b-col class="animated fadeInRight">    
       <b-row align-h="center" class="mt-3 mb-3">
         <b-avatar
           v-bind:src="profilepic"

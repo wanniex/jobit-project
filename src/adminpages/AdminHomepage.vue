@@ -1,8 +1,8 @@
 <template>
     <div>
         <AdminAftLoginTopNav style = "margin-bottom: 100px;"></AdminAftLoginTopNav>
-        <DonatnCount style ="float: left; width: 50%; padding: 20px; "></DonatnCount>
-        <div style = "width: 45%; float: left; margin-top: -20px;">
+        <DonatnCount style ="float: left; width: 50%; padding: 20px; " class="wow fadeInLeft"></DonatnCount>
+        <div style = "width: 45%; float: left; margin-top: -20px;" class="wow fadeInRight">
             <h1 style = "text-align: center; color: #505050; weight: bold;"> {{place}} stats for {{curmonth}}</h1>
             <br style = "padding-top: 20px;"/>
             <img 
@@ -25,15 +25,16 @@
             <div class = "des"> {{curweight}} KG of clothes </div>
         </div>
         <div style = "clear:left; padding-top: 100px;"/>
-        <Goal style ="float: left; width: 50%;"></Goal>
-        <div style = "width: 45%; float: left; margin-top: 30px;">
+        <Goal style ="float: left; width: 50%;" class="wow fadeInUp"></Goal>
+        <div style = "width: 45%; float: left; margin-top: 30px;" class="wow fadeInUp">
             <div class = "des2"> Current Amount: {{curamt}} </div>
             <div class = "des2"> Current Goal: {{curgoal}} </div>
             <div class = "des2" id = "statement">hello</div>
         </div>
        
-       
-        <button class="open-button" @click="openForm()" style = "clear:left;  left: 50%; transform: translate(-50%, -50%);">Edit Goal</button>
+       <div class="wow fadeInUp">
+        <button id="open-button" @click="openForm()" style = "clear:left;  left: 50%; transform: translate(-50%, -50%);">Edit Goal</button>
+       </div>
         <!-- Pop Up Form -->
         <div class="form-popup" id="setgoal">
           <form class="form-container" @submit.prevent="set_goal">
@@ -56,6 +57,7 @@ import DonatnCount from './Charts/DonatnCount.vue'
 import Goal from './Charts/Goal.vue'
 import AdminFooter from "./AdminFooter.vue";
 import fb from "firebase";
+import {WOW} from 'wowjs';
 
 export default {
     data() {
@@ -125,6 +127,11 @@ export default {
         },
         
     },
+
+  mounted() {
+    new WOW().init();
+  },
+
     created() {
         this.uid = fb.auth().currentUser.uid;
         this.getinfo();
@@ -144,7 +151,7 @@ export default {
   z-index: 9;
 }
 
-.open-button {
+#open-button {
   background-color: #555;
   color: white;
   border: none;
@@ -158,7 +165,7 @@ export default {
 }
 
 
-.open-button:hover {
+#open-button:hover {
   opacity: 1;
   background-color: #2d8bba;
   /* 2D8BBA */
