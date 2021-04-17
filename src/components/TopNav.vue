@@ -36,8 +36,6 @@ export default {
     loginBtn: LoginBtn,
     signupBtn: SignupBtn,
   },
-  methods: {
-  }
 };
 </script>
 
