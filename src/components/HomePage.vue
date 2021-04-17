@@ -15,6 +15,7 @@
             src="https://i.imgur.com/03sVNdK.png"
             fluid
             alt="placeholder"
+            class="wow fadeInLeft"
           ></b-img>
         </b-col>
         <b-col>
@@ -22,15 +23,16 @@
             src="https://i.imgur.com/dr8DLP8.png"
             fluid
             alt="placeholder"
+            class="wow fadeInLeft"
           ></b-img>
         </b-col>
         <b-col class="text-center">
-          <p id="aboutus" class="animated fadeInDown">
+          <p id="aboutus" class="wow fadeInDown">
           Clonate aims to encourage the donation of clothing for the needy,
           reduce textile waste and empower communities.<br><br>
           Join us in our cause today.
           </p>
-          <signup-btn id="subutton" @click.native="$router.push('/SignUp')"></signup-btn>
+          <signup-btn class="wow fadeInUp" id="subutton" @click.native="$router.push('/SignUp')"></signup-btn>
         </b-col>
       </b-row>
     </b-container>
@@ -45,6 +47,7 @@ import Carousel from "./Carousel.vue";
 import SignupBtn from './SignupBtn.vue';
 import TopNav from "./TopNav.vue";
 import Footer from "./Footer.vue"
+import {WOW} from 'wowjs';
 
 export default {
 
@@ -55,6 +58,9 @@ export default {
     Footer
   },
 
+  mounted() {
+  new WOW().init();
+  }
 };
 </script>
 

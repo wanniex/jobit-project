@@ -61,6 +61,12 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+
+// trying out wowjs
+import {WOW} from 'wowjs';
+import 'animate.css';
+
+
 const myRouter = new VueRouter({
   routes: Routes,
   mode: 'history'

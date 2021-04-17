@@ -2,7 +2,7 @@
   <b-carousel
     id="carousel-1"
     v-model="slide"
-    :interval="3000"
+    :interval="2500"
     controls
     indicators
     background="#ababab"
@@ -55,7 +55,7 @@ export default {
     data() {
     return {
       slide: 0,
-      sliding: null,
+      sliding: true,
       imageURL: "https://i.imgur.com/kLbiwtb.png",
       clothesimg: "https://i.imgur.com/03sVNdK.png",
       womanimg: "https://i.imgur.com/dr8DLP8.png",
