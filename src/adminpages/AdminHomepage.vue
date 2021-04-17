@@ -160,7 +160,7 @@ export default {
 
 .open-button:hover {
   opacity: 1;
-  background-color: #17df7b;
+  background-color: #2d8bba;
   /* 2D8BBA */
 }
 

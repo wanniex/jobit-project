@@ -122,15 +122,20 @@ export default {
 
 <style scoped>
 #button {
-  background-color: #2d8bba;
-  color: #ffff;
+  background-color: #2d8bba!important;
+  color: #ffffff!important;
   border: none;
   transition-duration: 0.4s;
-  width: 200px;
+  text-transform: none;
 }
 
 #button:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color: rgb(0, 0, 0)!important;
+}
+
+#profilepic {
+  color:white!important;
+  background-color:grey!important;
 }
 </style>

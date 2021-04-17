@@ -72,7 +72,7 @@
 
 <script>
 import TopNavAftLogin from "./TopNavAftLogin.vue";
-import FooterAftLogin from './FooterAftLogin.vue'
+import FooterAftLogin from './FooterAftLogin.vue';
 import fb from "firebase";
 
 export default {
@@ -124,6 +124,7 @@ export default {
       merchantsRef.get().then((snapshot) => {
         let item = {};
         snapshot.docs.forEach((doc) => {
+          // console.log(doc.data())
           item = {
             name: doc.data().name,
             imageURL: doc.data().imageURL,
@@ -131,6 +132,7 @@ export default {
             link: doc.data().link,
             docid: doc.id
           }
+          //this.merchants.push([doc.id, item]);
           this.merchantitems.push(item);
         });
       });
@@ -141,6 +143,7 @@ export default {
         name: "RedeemPoints",
         params: { id: event.target.getAttribute("id") },
       });
+      // console.log(event.target.getAttribute("id"))
     },
   },
 
@@ -158,6 +161,8 @@ export default {
         if (a.name < b.name) return 1;
         return 0;
       }
+      console.log("hello");
+      console.log(this.merchantitems);
        if (this.selected == "Ascending" && this.filterselect == "All") {
         return newArray.sort(compareAsc);
       } else if (this.selected == "Descending" && this.filterselect == "All") {
@@ -205,15 +210,16 @@ export default {
 
 <style scoped>
 .btn {
-  background-color: #87ebd3;
-  color: #ffff;
+  background-color: #87ebd3!important;
+  color: #ffffff!important;
   border: none;
   transition-duration: 0.4s;
+  text-transform: none;
 }
 
 .btn:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color: rgb(0, 0, 0)!important;
 }
 
 #formformat {

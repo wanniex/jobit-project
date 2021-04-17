@@ -11,9 +11,9 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/">Home</b-nav-item>
-        <b-nav-item to="/Aboutus">About Us</b-nav-item>
-        <b-nav-item to="/Howitworks">How It Works</b-nav-item>
+        <b-nav-item id="linkone" to="/">Home</b-nav-item>
+        <b-nav-item id="linktwo" to="/Aboutus">About Us</b-nav-item>
+        <b-nav-item id="linkthree" to="/Howitworks">How It Works</b-nav-item>
         <!-- <b-nav-item to="/AdminLogin">Admin</b-nav-item> -->
       </b-navbar-nav>
       
@@ -52,20 +52,60 @@ export default {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding-right: 5rem;
+  padding-right: 2.0rem;
+  padding-left: 0.8rem;
+  color: rgb(71, 70, 70)!important;
+  font-weight: 350;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  padding-right: 2.0rem;
   padding-left: 0.5rem;
+  color: rgb(255, 255, 255)!important;
+  font-weight: 350;
+}
+
+#linkone {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linkone:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+#linktwo {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linktwo:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+#linkthree {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linkthree:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
 }
 
 #subutton {
-   background-color:#ffffff;
+   background-color:#fdf9f9!important;
    color: black;
    border: none;
    transition-duration: 0.4s;
    width: 100px;
+   text-transform: none;
  }
 
  #subutton:hover {
-   background-color: rgb(212, 212, 212);
+   background-color: rgb(212, 212, 212)!important;
    color: black;
  }
 </style>

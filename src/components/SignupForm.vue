@@ -162,7 +162,7 @@ input[type="checkbox"] {
 
 button {
     background: #87EBD3;
-    color: white;
+    color:white;
     transition-duration: 0.4s;
     text-align: center;
     border: none;

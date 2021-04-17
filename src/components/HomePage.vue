@@ -25,7 +25,7 @@
           ></b-img>
         </b-col>
         <b-col class="text-center">
-          <p id="aboutus">
+          <p id="aboutus" class="animated fadeInDown">
           Clonate aims to encourage the donation of clothing for the needy,
           reduce textile waste and empower communities.<br><br>
           Join us in our cause today.
@@ -54,6 +54,7 @@ export default {
     SignupBtn,
     Footer
   },
+
 };
 </script>
 
@@ -69,15 +70,16 @@ export default {
 }
 
 #subutton {
-   background-color: #87ebd3;
-   color: black;
+   background-color: #87ebd3!important;
+   color: rgb(71, 70, 70)!important;
    border: none;
    transition-duration: 0.4s;
    width: 100px;
+   text-transform: none;
  }
 
  #subutton:hover {
-   background-color: rgb(212, 212, 212);
-   color: black;
+   background-color: rgb(212, 212, 212)!important;
+   color: rgb(255,255,255)!important;
  }
 </style>

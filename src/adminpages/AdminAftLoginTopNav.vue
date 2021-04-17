@@ -11,13 +11,13 @@
   
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/AdminHomePage">Dashboard</b-nav-item>
-        <b-nav-item to="/AdminSubmitPage">Approve Donation</b-nav-item>
+        <b-nav-item id="linkone" to="/AdminHomePage">Dashboard</b-nav-item>
+        <b-nav-item id="linktwo" to="/AdminSubmitPage">Approve Donation</b-nav-item>
       </b-navbar-nav>
       
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-avatar to="/AdminProfilePage" v-bind:src="profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
+        <b-avatar id="profilepic" to="/AdminProfilePage" v-bind:src="profilepic" class="mt-2 mr-2 ml-2" size="3rem"></b-avatar>
         <b-button pill @click="signout()" id="sobutton" class="mt-2 mr-2 ml-2">Sign Out</b-button>
       </b-navbar-nav>
     </b-collapse>
@@ -82,20 +82,56 @@ export default {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding-right: 5rem;
-  padding-left: 0.5rem;
+  padding-right: 3rem;
+  padding-left: 0.8rem;
+  color: rgb(235, 235, 235)!important;
+  font-weight: 350;
 }
 
-#sobutton {
-   background-color:#ffffff;
-   color: black;
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  padding-right: 3rem;
+  padding-left: 0.5rem;
+  color: rgb(0, 0, 0)!important;
+  font-weight: 350;
+}
+
+#linkone {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linkone:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+#linktwo {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linktwo:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+
+ #sobutton {
+   background-color:#fdf9f9!important;
+   color: rgb(0, 0, 0);
    border: none;
    transition-duration: 0.4s;
    width: 100px;
+   text-transform: none;
  }
 
  #sobutton:hover {
-   background-color: rgb(212, 212, 212);
+   background-color: rgb(212, 212, 212)!important;
    color: black;
  }
+
+ #profilepic {
+  color:white!important;
+  background-color:grey!important;
+}
 </style>

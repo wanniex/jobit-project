@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "vue-cli-service serve --open"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
@@ -16,6 +17,7 @@
     "firebase": "^8.3.1",
     "firebase-admin": "^9.6.0",
     "firebase-functions": "^3.13.2",
+    "mdbvue": "6.7.2",
     "vue": "^2.6.12",
     "vue-chartjs": "^3.5.1",
     "vue-router": "^3.5.1",
@@ -28,6 +30,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-cli-plugin-mdb": "~2.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

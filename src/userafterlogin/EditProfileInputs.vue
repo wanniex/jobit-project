@@ -18,7 +18,7 @@
         <h4>{{ this.username }}</h4>
       </b-row>
 
-      <b-row align-h="center" class="mb-3">
+      <b-row align-h="center" class="mb-2">
         <b-button
           id="button"
           class="btn btn-primary mx-auto d-block"
@@ -27,7 +27,7 @@
         >
       </b-row>
 
-      <b-row align-h="center" class="mb-3">
+      <b-row align-h="center" class="mb-2">
         <b-button
           id="button"
           class="btn btn-primary mx-auto d-block"
@@ -84,16 +84,23 @@ export default {
 </script>
 
 <style scoped>
+
 #button {
-  background-color: #87ebd3;
-  color: #ffff;
+  background-color: #87ebd3!important;
+  color: #4d4b4b!important;
   border: none;
   transition-duration: 0.4s;
-  width: 200px;
+  text-transform: none;
+  width:200px;
 }
 
 #button:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color: rgb(255, 255, 255)!important;
+}
+
+#profilepic {
+  color:white!important;
+  background-color:grey!important;
 }
 </style>

@@ -5,7 +5,7 @@
         <div class="justify-content-center">
             <b-container style = "margin-top: 100px;">
                 <b-row align-h="center">
-                <b-avatar :to="{ path: '/EditPhoto'}" :src= "profilepic" size="11em"></b-avatar>
+                <b-avatar :to="{ path: '/EditPhoto'}" :src= "profilepic" size="11em" id="avatar"></b-avatar>
                 </b-row>
                 
                 <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">{{username}}</p>
@@ -83,17 +83,22 @@ export default {
 
 <style scoped>
 #button {
-  background-color: #87ebd3;
-  color: #ffff;
+  background-color: #87ebd3!important;
+  color: rgb(88, 87, 87)!important;
   border: none;
   transition-duration: 0.4s;
   width: 170px;
+  text-transform: none;
 }
 
 #button:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color:white!important;
 }
 
+#avatar {
+  color:white!important;
+  background-color:grey!important;
+}
 </style>
 

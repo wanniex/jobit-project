@@ -243,17 +243,20 @@ export default {
 
 
 <style scoped>
+
 #button {
-  background-color: #87ebd3;
-  color: #ffff;
+  background-color: #87ebd3!important;
+  color: #4d4b4b!important;
   border: none;
   transition-duration: 0.4s;
+  text-transform: none;
 }
 
 #button:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color: rgb(255, 255, 255)!important;
 }
+
 
 .form-popup {
   display: none;

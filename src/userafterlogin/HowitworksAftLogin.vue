@@ -123,17 +123,18 @@ export default {
 }
 
 #subutton {
-   background-color: #87ebd3;
-   color: black;
+   background-color: #87ebd3!important;
+   color: black!important;
    border: none;
    transition-duration: 0.4s;
    width: fit-content;
-   font-weight: bolder;
+   font-weight: 450;
+   text-transform: none;
  }
 
  #subutton:hover {
-   background-color: rgb(212, 212, 212);
-   color: black;
+   background-color: rgb(212, 212, 212)!important;
+   color: rgb(255, 255, 255)!important;
  }
 
 #stepsfont {

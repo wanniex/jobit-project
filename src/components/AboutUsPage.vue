@@ -108,16 +108,17 @@ export default {
 }
 
 #subutton {
-   background-color: #87ebd3;
-   color: black;
+   background-color: #87ebd3!important;
+   color: rgb(71, 70, 70)!important;
    border: none;
    transition-duration: 0.4s;
    width: 100px;
+   text-transform: none;
  }
 
  #subutton:hover {
-   background-color: rgb(212, 212, 212);
-   color: black;
+   background-color: rgb(212, 212, 212)!important;
+   color: rgb(255,255,255)!important;
  }
 
 </style>

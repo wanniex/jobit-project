@@ -11,7 +11,7 @@
                     <h2>Change your username</h2>
                 </b-row> 
                     <b-row align-h="center">
-                    <b-avatar v-bind:src = "profilepic" size="8em"></b-avatar>
+                    <b-avatar v-bind:src = "profilepic" size="8em" id="profilepic"></b-avatar>
                     </b-row>
 
                     <b-row align-h="center" class="mt-2">
@@ -91,15 +91,21 @@ export default {
 
 <style scoped>
 #button {
-  background-color: #87ebd3;
-  color: #ffff;
+  background-color: #87ebd3!important;
+  color: #4d4b4b!important;
   border: none;
   transition-duration: 0.4s;
-  width: 200px;
+  text-transform: none;
+  width:200px;
 }
 
 #button:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color: rgb(255, 255, 255)!important;
+}
+
+#profilepic {
+  color:white!important;
+  background-color:grey!important;
 }
 </style>

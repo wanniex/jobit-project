@@ -12,15 +12,16 @@ export default {
 
 <style scoped>
  #button {
-   background-color:#ffffff;
-   color: black;
+   background-color:#fdf9f9!important;
+   color: rgb(0, 0, 0);
    border: none;
    transition-duration: 0.4s;
    width: 100px;
+   text-transform: none;
  }
 
  #button:hover {
-   background-color: rgb(212, 212, 212);
+   background-color: rgb(212, 212, 212)!important;
    color: black;
  }
 

@@ -11,9 +11,9 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/HomePageAftLogin">Home</b-nav-item>
-        <b-nav-item to="/MerchantPage">Redeem Points</b-nav-item>
-        <b-nav-item to="/HowitworksAftLogin">How It Works</b-nav-item>
+        <b-nav-item id="linkone" to="/HomePageAftLogin">Home</b-nav-item>
+        <b-nav-item id="linktwo" to="/MerchantPage">Redeem Points</b-nav-item>
+        <b-nav-item id="linkthree" to="/HowitworksAftLogin">How It Works</b-nav-item>
       </b-navbar-nav>
       
       <!-- Right aligned nav items -->
@@ -80,20 +80,65 @@ export default {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding-right: 5rem;
-  padding-left: 0.5rem;
+  padding-right: 2.0rem;
+  padding-left: 0.8rem;
+  color: rgb(71, 70, 70)!important;
+  font-weight: 350;
 }
 
-#sobutton {
-   background-color:#ffffff;
-   color: black;
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  padding-right: 2.0rem;
+  padding-left: 0.5rem;
+  color: rgb(255, 255, 255)!important;
+  font-weight: 350;
+}
+
+#linkone {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linkone:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+#linktwo {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linktwo:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+#linkthree {
+  padding-right: 0rem;
+  padding-left: 2.0rem;
+}
+
+#linkthree:hover {
+  padding-right: 1.3rem;
+  padding-left: 1.2rem;
+}
+
+ #sobutton {
+   background-color:#fdf9f9!important;
+   color: rgb(0, 0, 0);
    border: none;
    transition-duration: 0.4s;
    width: 100px;
+   text-transform: none;
  }
 
  #sobutton:hover {
-   background-color: rgb(212, 212, 212);
+   background-color: rgb(212, 212, 212)!important;
    color: black;
  }
+
+#profilepic {
+  color:white!important;
+  background-color:grey!important;
+}
 </style>

@@ -41,7 +41,7 @@
           <p id = "text2">
             <span>Don't have an account? </span>
             <span id = "text3">
-              <router-link id="text3" to=/SignUp exact>Join free today!</router-link>
+              <router-link id="text3" to=/SignUp exact>Join us today!</router-link>
             </span>             
           </p>
         </b-form>
@@ -123,16 +123,17 @@ export default {
 }
 
 button {
-  background-color: #87ebd3;
-  color: #ffff;
+  background-color: #87ebd3!important;
+  color: rgb(255, 255, 255)!important;
   border: none;
   transition-duration: 0.4s;
   width: 200px;
+  text-transform: none;
 }
 
 button:hover {
-  background-color: rgb(212, 212, 212);
-  color: black;
+  background-color: rgb(212, 212, 212)!important;
+  color: black!important;
 }
 
 #forgetpw {
