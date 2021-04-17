@@ -1,7 +1,7 @@
 <template>
     <div>
         <TopNavAftLogin/>
-        <div class="justify-content-center">
+        <div class="justify-content-center animated fadeInUp">
             
             <b-container>
 

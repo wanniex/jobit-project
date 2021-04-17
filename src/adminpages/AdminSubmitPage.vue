@@ -4,7 +4,7 @@
     <b-container fluid>
       <!-- Header -->
       <!-- <br><br><h1 style="text-align:center">Submit a donation approval</h1> -->
-      <b-row align-h="center" class="mt-5">
+      <b-row align-h="center" class="mt-5 animated fadeInDown">
         <h1>Submit a donation approval</h1>
       </b-row>
 
@@ -13,7 +13,7 @@
         <b-col cols="1"></b-col>
 
         <!-- Donation image -->
-        <b-col align-self="center" cols="5">
+        <b-col align-self="center" cols="5" class="animated fadeInLeft">
           <b-img
             center
             fluid
@@ -23,7 +23,7 @@
         </b-col>
 
         <!-- Form to submit donation approval -->
-        <b-col fluid align-self="center" cols="5">
+        <b-col fluid align-self="center" cols="5" class="animated fadeInRight">
           <b-form fluid @submit.prevent="onsubmit">
             <b-form-group
               id="input-group-1"
@@ -168,10 +168,10 @@ export default {
                       curmonth = d.getMonth();
                       curarr = partner.data().clothes_donated;
                       curcount = curarr[curmonth];
-                      alert(curcount)
+                     
                       curcount = Number(curcount) + Number(this.addclothes);
                       curarr[curmonth] = curcount;
-                      alert(curcount)
+                      
                       fb.firestore().collection('partners').doc(this.partneruid).update({
                         clothes_donated: curarr,
                       }).then(() => {

@@ -1,8 +1,8 @@
 <template>
     <div>
         <TopNavAftLogin></TopNavAftLogin>
-        <UserStats style = "float: left; width: 60%"></UserStats>
-        <div class="justify-content-center">
+        <UserStats style = "float: left; width: 60%" class="wow fadeInLeft"></UserStats>
+        <div class="justify-content-center wow fadeInUp">
             <b-container style = "margin-top: 100px;">
                 <b-row align-h="center">
                 <b-avatar :to="{ path: '/EditPhoto'}" :src= "profilepic" size="11em" id="avatar"></b-avatar>
@@ -43,6 +43,7 @@ import TopNavAftLogin from './TopNavAftLogin.vue'
 import UserStats from './UserStats.vue'
 import FooterAftLogin from './FooterAftLogin.vue'
 import fb from 'firebase'
+import {WOW} from 'wowjs';
 
 export default {
     components: {
@@ -72,6 +73,11 @@ export default {
             })
         },
     },
+
+    mounted() {
+        new WOW().init();
+    },
+
     created() {
         this.uid = fb.auth().currentUser.uid;
         this.getprofilepic();

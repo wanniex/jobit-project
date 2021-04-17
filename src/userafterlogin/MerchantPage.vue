@@ -4,14 +4,14 @@
 
     <b-container fluid class="mt-5 mb-5">
       <b-row align-h="center">
-        <h1>Redeem your points</h1>
+        <h1 class="animated fadeInUp">Redeem your points</h1>
       </b-row>
 
       <b-row align-h="center" class="mt-4">
-        <h4 style="color: gray">Choose your merchant:</h4>
+        <h4 style="color: gray" class="animated fadeInUp">Choose your merchant:</h4>
       </b-row>
 
-      <b-row align-h="center" class="mt-5 mb-5">
+      <b-row align-h="center" class="mt-5 mb-5 animated fadeInUp">
                 <!-- Dropdown for sorting -->
                 <b-col align-v="center" class="mr-2" cols="1">
           <b-row align-h="end" class="mt-1">
@@ -43,7 +43,7 @@
 
       <b-row class="mt-5 mb-5"></b-row>
 
-      <b-row class="mt-5 align-items-stretch">
+      <b-row class="mt-5 align-items-stretch animated fadeInLeft slow">
         <b-col v-for="ele in sortedArray" :key="ele.name" cols="3">
           <b-card-group deck class="h-100 mb-3">
             <b-card

@@ -4,14 +4,14 @@
 
     <b-container fluid class="mt-5 mb-5">
       <b-row align-h="center">
-        <h1 class="animated fadeInUp delay-1s faster">Welcome Back, {{username}}!</h1>
+        <h1 class="animated fadeInUp delay-1s fast">Welcome Back, {{username}}!</h1>
       </b-row>
 
      <b-row align-h="center" class="mt-4">
-        <h4 style="color:gray" class="animated fadeInUp delay-1s faster">Where would you like to donate?</h4>
+        <h4 style="color:gray" class="animated fadeInUp delay-1s fast">Where would you like to donate?</h4>
       </b-row>
 
-      <b-row align-h="center" class="mt-5 mb-5 animated fadeInLeft">
+      <b-row align-h="center" class="mt-5 mb-5 animated fadeInUp delay-1s fast">
                 <!-- Dropdown for sorting -->
                 <b-col align-v="center" class="mr-2" cols="1">
           <b-row align-h="end" class="mt-1">
@@ -45,7 +45,7 @@
 
       <b-row class="mt-5 mb-5"></b-row>
 
-      <b-row class="mt-5 align-items-stretch animated fadeInLeft">
+      <b-row class="mt-5 align-items-stretch animated fadeInLeft slow">
 
         <b-col v-for="ele in sortedArray" :key="ele.name" cols="4" class="mb-3">
           <b-card-group deck class="h-100">

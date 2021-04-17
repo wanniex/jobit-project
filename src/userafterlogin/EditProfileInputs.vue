@@ -1,5 +1,5 @@
 <template>
-  <div class="justify-content-center">
+  <div class="justify-content-center animated fadeInRight">
     <b-container>
       <b-row align-h="center" class="mt-5 mb-3">
         <h1>Edit your profile</h1>

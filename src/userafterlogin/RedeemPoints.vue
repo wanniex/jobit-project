@@ -2,7 +2,7 @@
   <div>
     <TopNavAftLogin></TopNavAftLogin>
 
-    <b-container fluid class="mt-5 mb-5">
+    <b-container fluid class="mt-5 mb-5 animated zoomIn">
       <b-row align-h="center">
         <h1>Redeem your points</h1>
       </b-row>
@@ -121,6 +121,7 @@ import TopNavAftLogin from "./TopNavAftLogin.vue";
 import FooterAftLogin from './FooterAftLogin.vue';
 import fb from "firebase";
 import emailjs from "emailjs-com";
+import {WOW} from 'wowjs';
 
 export default {
   data() {
@@ -234,6 +235,10 @@ export default {
   },
   
   // lifecycle
+  mounted() {
+  new WOW().init();
+  },
+
   created() {
     this.userid = fb.auth().currentUser.uid;
     this.fetchItems();

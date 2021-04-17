@@ -4,7 +4,7 @@
     <b-container fluid>
       <!-- Header -->
       <!-- <br><br><h1 style="text-align:center">Submit a donation approval</h1> -->
-      <b-row align-h="center" class="mt-5">
+      <b-row align-h="center" class="mt-5 animated fadeInRight">
         <b-col cols="7">
           <b-img right fluid src="https://i.imgur.com/hxJp1vi.png"></b-img>
         </b-col>
@@ -18,7 +18,7 @@
         <b-col cols="1"></b-col>
 
         <!-- Donation image -->
-        <b-col align-self="start" cols="5">
+        <b-col align-self="start" cols="5" class="animated fadeInLeft">
           <b-img
             center
             fluid
@@ -29,7 +29,7 @@
 
         <!-- Submitted donation approval details -->
         <b-col fluid align-self="end" cols="5">
-          <b-card-group deck>
+          <b-card-group deck class="animated fadeInRight">
             <b-card>
               <b-card-text class="mt-2">
                 <h4 style="text-align: center">
@@ -50,7 +50,7 @@
             </b-card>
           </b-card-group>
 
-          <b-row>
+          <b-row class="wow fadeInUp">
           <b-col>
           <b-button
             id="button"
@@ -82,6 +82,7 @@
 <script>
 import AdminFooter from "./AdminFooter.vue";
 import AdminAftLoginTopNav from "./AdminAftLoginTopNav.vue";
+import {WOW} from 'wowjs';
 
 export default {
   components: {
@@ -97,6 +98,10 @@ export default {
 
   beforeMount() {
     this.myitems = this.$route.params.items;
+  },
+
+  mounted() {
+    new WOW().init();
   }
 };
 </script>

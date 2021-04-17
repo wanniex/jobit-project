@@ -3,11 +3,11 @@
     <TopNav></TopNav>
     <b-row>
       <b-col>
-        <b-img fluid src="https://i.imgur.com/2L8Yz2I.jpg" alt="Image 1" id="image"></b-img>
+        <b-img fluid src="https://i.imgur.com/2L8Yz2I.jpg" alt="Image 1" id="image" class="animated fadeInLeft"></b-img>
       </b-col>
 
       <b-col>
-        <b-row align-h="center">
+        <b-row align-h="center" class="animated fadeInRight">
           
       <SignupForm></SignupForm>
         </b-row>
