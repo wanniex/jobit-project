@@ -3,10 +3,10 @@
   <b-container fluid>
     <b-row>
       <b-col>
-        <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1" id="image"></b-img>
+        <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1" id="image" class="animated fadeInLeft"></b-img>
       </b-col>
       
-      <b-col fluid class="align-self-center">
+      <b-col fluid class="align-self-center animated fadeInRight">
         <b-form fluid @submit.prevent="pressed">
         <h1 style="text-align:center">Login</h1>
         <b-form-group
