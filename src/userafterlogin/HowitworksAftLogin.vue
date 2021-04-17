@@ -5,10 +5,10 @@
 
 
     <b-container fluid>
-       <b-row align-h="center" class="mt-5 mb-5">
+       <b-row align-h="center" class="mt-5 mb-5 wow fadeInUp">
            <h2 id="stepsfont">How to Clonate?</h2>
        </b-row>
-      <b-row align-v="center">
+      <b-row align-v="center" class="wow fadeInUp">
         <b-col>
           <b-img
             src="https://i.imgur.com/DOItRfm.png"
@@ -35,7 +35,7 @@
       </b-row>
 
 
-      <b-row align-h="center" class="mt-5">
+      <b-row align-h="center" class="mt-5 wow fadeInLeft">
 
       <b-col class="text-center mb-5" cols="3">
           <b-row align-h="center">
@@ -81,13 +81,13 @@
       </b-col>
       </b-row>
 
-      <b-row align-h="center" class="mt-5">
+      <b-row align-h="center" class="mt-5 wow fadeInUp">
           <p id="aboutus">
           Clonate aims to encourage the donation of clothing for the needy,<br>
           reduce textile waste and empower communities.<br><br>
           </p>
       </b-row>
-        <b-row align-h="center" class="mb-5">
+        <b-row align-h="center" class="mb-5 wow fadeInUp">
             <b-button pill class="mt-2 mr-2 ml-2" id = "subutton" @click="$router.push('/HomePageAftLogin').catch(()=>{});"> Clonate Now </b-button>
         </b-row>
 
@@ -101,6 +101,7 @@
 <script>
 import TopNav from "./TopNavAftLogin.vue";
 import Footer from "./FooterAftLogin.vue";
+import {WOW} from 'wowjs';
 
 export default {
 
@@ -108,6 +109,10 @@ export default {
     TopNav,
     Footer,
   },
+
+  mounted() {
+    new WOW().init();
+  }
 };
 </script>
 
