@@ -53,21 +53,24 @@ export default {
       });
     },
 
-    getprofilepic() {
+    getprofilepic(user) {
       
-      fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
+      fb.storage().ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
         this.profilepic = imgURL;
       })
     },
 
   },
-  created() {
-    this.uid = fb.auth().currentUser.uid;
-    this.getprofilepic();
-    // fb.firestore().collection("partners").doc(this.uid).get().then(doc => {
-    //   this.placeimg = doc.data().imageURL;
-    // })
+   created() {
+    fb.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+        this.getprofilepic(user);
+  } else {
+    // No user is signed in.
   }
+});
+   }
 };
 </script>
 
