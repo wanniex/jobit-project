@@ -122,14 +122,17 @@ export default {
     };
   },
   methods: {
-    fetchItems: function() {
-      fb.firestore().collection('partners').get().then(snapshot => {
+    fetchPlaces: function() {
+fb.firestore().collection('partners').get().then(snapshot => {
         let item = {}
         snapshot.docs.forEach(doc => {
           item = doc.data()
           this.partners.push(item)
         })
-      }),
+      });
+    },
+    fetchItems: function() {
+      
       fb.firestore().collection('users').doc(this.userid).get().then(snapshot => {
         this.username = snapshot.data().name;
         this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
@@ -187,6 +190,7 @@ export default {
 
 
   created() {
+    this.fetchPlaces();
     this.userid = fb.auth().currentUser.uid;
     this.fetchItems();
   },
