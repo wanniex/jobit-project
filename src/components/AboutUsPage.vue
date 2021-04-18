@@ -46,7 +46,7 @@
 
 
 <script>
-const home = {lat:1.2949094844201743, lng:103.77389153859521};
+const home = {lat:1.29714115007198, lng:103.77631474055867};
 
 import Footer from './Footer.vue';
 import TopNav from './TopNav.vue';
