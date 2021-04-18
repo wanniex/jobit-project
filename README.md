@@ -4,9 +4,9 @@
 Clonate is a web application that aims to encourage the donation of clothing for the needy, reduce textile waste and empower communities.
 
 ## Group Members & Github usernames
-Seow Li Da (adilwoes)
-Quek Wan Xian (wanniex)
-Srimoyee Dastidar (sdas04)
+Seow Li Da (adilwoes)  
+Quek Wan Xian (wanniex)  
+Srimoyee Dastidar (sdas04)  
 Samuel Lim Zhao Xuan (SamuelLimZX)
 
 ## Project setup
