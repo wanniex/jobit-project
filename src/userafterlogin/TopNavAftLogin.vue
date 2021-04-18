@@ -40,8 +40,8 @@ export default {
   components: {
   },
   methods: {
-    getprofilepic() {
-      fb.storage().ref('users/' + this.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
+    getprofilepic(user) {
+      fb.storage().ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(imgURL  => {
         // document.getElementById('profilepic').src = imgURL;
         this.profilepic = imgURL;
       })
@@ -59,8 +59,15 @@ export default {
 
   },
   created() {
-    this.uid = fb.auth().currentUser.uid;
-    this.getprofilepic();
+    fb.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+        this.getprofilepic(user);
+  } else {
+    // No user is signed in.
+  }
+});
+    // this.uid = fb.auth().currentUser.uid;
   }
 
 

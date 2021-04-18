@@ -154,13 +154,19 @@ export default {
       document.getElementById("setgoal").style.display = "none";
     },
     
-    fetchItems: function () {
+    fetchItems: function (user) {      
+      
+      fb.firestore().collection('users').doc(user.uid).get().then(snapshot => {
+        this.currUser = snapshot.data();
+        this.userpoints = snapshot.data().points;
+      })
+
       var merchantsRef = fb.firestore().collection("merchants");
       merchantsRef.get().then((snapshot) => {
         let item = {};
         snapshot.docs.forEach((doc) => {
           item = doc.data();
-          if (doc.id == this.$route.params.id) {
+          if (doc.id == this.$route.query.id) {
           this.datapacket.push(item);
           this.merchantname = doc.data().name;
           this.merchantlink = doc.data().link;
@@ -168,10 +174,7 @@ export default {
         });
       });
 
-      fb.firestore().collection('users').doc(this.userid).get().then(snapshot => {
-        this.currUser = snapshot.data();
-        this.userpoints = snapshot.data().points;
-      })
+
     },
 
     redeem: function () {
@@ -240,8 +243,16 @@ export default {
   },
 
   created() {
-    this.userid = fb.auth().currentUser.uid;
-    this.fetchItems();
+    // this.userid = fb.auth().currentUser.uid;
+
+     fb.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+    this.fetchItems(user);
+  } else {
+    // No user is signed in.
+  }
+});
   }
 };
 </script>

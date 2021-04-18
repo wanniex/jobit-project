@@ -131,8 +131,8 @@ fb.firestore().collection('partners').get().then(snapshot => {
         })
       });
     },
-    fetchItems: function() {
-      
+    fetchItems: function(user) {
+      this.userid = user.uid;
       fb.firestore().collection('users').doc(this.userid).get().then(snapshot => {
         this.username = snapshot.data().name;
         this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
@@ -191,8 +191,16 @@ fb.firestore().collection('partners').get().then(snapshot => {
 
   created() {
     this.fetchPlaces();
-    this.userid = fb.auth().currentUser.uid;
-    this.fetchItems();
+    fb.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+    this.fetchItems(user);
+  } else {
+    // No user is signed in.
+  }
+});
+    // this.userid = fb.auth().currentUser.uid;
+
   },
 
  mounted() {

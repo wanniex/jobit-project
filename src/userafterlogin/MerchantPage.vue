@@ -141,7 +141,7 @@ export default {
     route: function (event) {
       this.$router.push({
         name: "RedeemPoints",
-        params: { id: event.target.getAttribute("id") },
+        query: { id: event.target.getAttribute("id") },
       });
       // console.log(event.target.getAttribute("id"))
     },
