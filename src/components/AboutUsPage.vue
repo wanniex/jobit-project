@@ -8,7 +8,7 @@
       <b-card title="About Us" class="wow fadeInDown slow text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
         <b-card-text>
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
-          <br><br>Join us in our cause .
+          <br><br>Join us in our cause today.
         </b-card-text>
         <SignupBtn id="subutton" @click.native="$router.push('/SignUp')"></SignupBtn>
       </b-card>
