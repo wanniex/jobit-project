@@ -8,7 +8,7 @@
       <b-card title="About Us" class="wow fadeInDown slow text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
         <b-card-text>
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
-          <br><br>Join us in our cause tomorrow.
+          <br><br>Join us in our cause today.
         </b-card-text>
         <SignupBtn id="subutton" @click.native="$router.push('/SignUp')"></SignupBtn>
       </b-card>
@@ -46,7 +46,7 @@
 
 
 <script>
-const home = {lat:1.29714115007198, lng:103.77631474055867};
+const home = {lat:1.2949094844201743, lng:103.77389153859521};
 
 import Footer from './Footer.vue';
 import TopNav from './TopNav.vue';
