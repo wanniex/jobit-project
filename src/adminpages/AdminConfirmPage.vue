@@ -56,7 +56,7 @@
             id="button"
             class="btn btn-primary mx-auto d-block mb-5 mt-5"
             @click="$router.push('AdminSubmitPage')"
-            >Submit another approval</b-button
+            >Submit Another Approval</b-button
           >
           </b-col>
           <b-col>
@@ -115,6 +115,7 @@ export default {
   transition-duration: 0.4s;
   text-transform: none;
   width:200px;
+  height: 60px;
 }
 
 #button:hover {
