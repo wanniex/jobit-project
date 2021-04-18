@@ -102,13 +102,17 @@ export default {
                 }
             })
         },
-        set_goal() {
+        set_goal(e) {
             var db = fb.firestore();
             var uid = fb.auth().currentUser.uid;
             var d = new Date();
             var curmonth = d.getMonth();
             var curarr;
             var newgoal = document.getElementById("goal_input").value;
+            if (newgoal <= 0) {
+                newgoal = 1;
+            }
+
             db.collection("partners").doc(uid).get().then(doc => {
                 curarr = doc.data().donation_goal
                 curarr[curmonth] = newgoal;
