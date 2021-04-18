@@ -18,7 +18,7 @@
           <div style = "float: left; width: 40%; text-align: right;">
             Email: <br> Number: <br> Address: 
           </div>
-          <div style = "float: left; width: 50%; margin-left: 50px;">
+          <div style = "float: left; width: 50%; margin-left: 10px;">
             {{email}} <br> {{number}} <br> {{address}} <br> {{postal}}
           </div>
           <div style = "clear: left"/>
