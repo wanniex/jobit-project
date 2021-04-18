@@ -21,7 +21,7 @@
 
     <!-- Slides with custom text -->
     <b-carousel-slide img-src="https://i.imgur.com/xdXjWLP.jpg">
-      <h1>Only 4% (168,000 tonnes) of textile waste are recycled in Singapore annually.</h1>
+      <h1>Only 4% of textile waste are recycled in Singapore annually.</h1>
     </b-carousel-slide>
 
     <!-- Slides with image only -->
