@@ -155,7 +155,7 @@ export default {
     },
     
     fetchItems: function (user) {      
-      
+      this.userid = user.uid;
       fb.firestore().collection('users').doc(user.uid).get().then(snapshot => {
         this.currUser = snapshot.data();
         this.userpoints = snapshot.data().points;
@@ -189,7 +189,7 @@ export default {
         fb.firestore().collection("users")
         .doc(this.userid)
         .set(this.currUser)     
-        
+        alert('hello')
         this.username = this.currUser.name;
         this.email = this.currUser.email;
         // .then(() => this.$router.push({ path: "/HomePageAftLogin" }));
