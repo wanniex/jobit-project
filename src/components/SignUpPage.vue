@@ -13,7 +13,7 @@
         </b-row>
       </b-col>
     </b-row>
-    <Footer></Footer>
+    <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
 
   </div>
 </template>

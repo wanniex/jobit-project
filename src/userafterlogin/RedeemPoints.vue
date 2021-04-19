@@ -112,7 +112,7 @@
       
     </div>
 
-    <FooterAftLogin></FooterAftLogin>
+    <FooterAftLogin style = "position: fixed; bottom:0; width: 100%; z-index:100;"></FooterAftLogin>
   </div>
 </template>
 

@@ -38,7 +38,7 @@
   </div>
 
     <br>
-    <FooterAftLogin></FooterAftLogin>
+    <FooterAftLogin style = "position: fixed; bottom:0; width: 100%;"></FooterAftLogin>
       
   </div>
 </template>

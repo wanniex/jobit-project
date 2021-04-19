@@ -51,7 +51,7 @@
 
             </b-container>
         </div>
-        <FooterAftLogin/>
+        <FooterAftLogin style = "position: fixed; bottom:0; width: 100%;"/>
     </div>
 
 </template>

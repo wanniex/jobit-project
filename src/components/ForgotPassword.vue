@@ -1,6 +1,6 @@
 <template>
   <div>
-    <top-nav></top-nav>
+    <TopNav></TopNav>
     <b-container class="animated fadeInLeft">
       <b-form fluid @submit.prevent="forgetpwbtn">
         <h1 style="text-align: center">Forgot Password?</h1><br>
@@ -25,7 +25,7 @@
 </b-row>
       </b-form>
     </b-container>
-    <Footer></Footer>
+    <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
   </div>
 </template>
 

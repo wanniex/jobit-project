@@ -1,6 +1,7 @@
 <template>
     <div>
-        <AdminAftLoginTopNav style = "margin-bottom: 100px;"></AdminAftLoginTopNav>
+        <AdminAftLoginTopNav></AdminAftLoginTopNav>
+        <div style = "padding-top:100px"/>
         <DonatnCount style ="float: left; width: 50%; padding: 20px; " class="wow fadeInLeft"></DonatnCount>
         <div style = "width: 45%; float: left; margin-top: -20px;" class="wow fadeInRight">
             <h1 style = "text-align: center; color: #505050; weight: bold;"> {{place}} stats for {{curmonth}}</h1>
@@ -36,7 +37,7 @@
         <button id="open-button" @click="openForm()" style = "clear:left;  left: 50%; transform: translate(-50%, -50%);">Edit Goal</button>
        </div>
         <!-- Pop Up Form -->
-        <div class="form-popup" id="setgoal">
+        <div class="form-popup" id="setgoal" style = "margin-bottom: 50px">
           <form class="form-container" @submit.prevent="set_goal">
             <h3 style = "font-family: Helvetica, sans-serif; text-align: center; padding: 20px;">Set your new goal for this month</h3>
 
@@ -46,8 +47,8 @@
             <button type="button" class="btn cancel" @click="closeForm()">Close</button>
           </form>
         </div>
-        
-        <AdminFooter style = "clear: left; padding-top: 50px;"></AdminFooter>
+        <div style = "clear:left; padding-top: 100px;"/>
+        <AdminFooter style = "position:fixed; bottom:0; width: 100%; z-index:100;"></AdminFooter>
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <admin-top-nav></admin-top-nav>
+    <AdminTopNav></AdminTopNav>
 <b-container fluid>
   <b-row>
     <b-col>
@@ -50,7 +50,7 @@
   </b-row>
 </b-container>
 
-<Footer></Footer>
+<Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
   </div>
 </template>
 

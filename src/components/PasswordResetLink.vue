@@ -7,7 +7,7 @@
                 <img src="../assets/email.png" class="img-fluid" style = "width: 300px; height: auto; display: block; margin-left: auto; margin-right: auto; margin-top:30px;"/>
                 </router-link>
         </b-container>
-        <Footer></Footer>
+        <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
     </div>
 </template>
 

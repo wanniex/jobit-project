@@ -34,7 +34,7 @@
         >  
                 </b-container>
                 </div>
-        <FooterAftLogin style = "clear: left;"></FooterAftLogin>
+        <FooterAftLogin style = "clear: left; position: fixed; bottom:0; width: 100%; z-index:100;"></FooterAftLogin>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     
-    <top-nav></top-nav>
+    <TopNav></TopNav>
 
     <b-container id="container" fluid>
       <carousel class="animated fadeInRight"></carousel>
@@ -37,7 +37,7 @@
       </b-row>
     </b-container>
 
-    <Footer></Footer>
+    <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
 
   </div>
 </template>

@@ -71,7 +71,7 @@
   </div>
         
         
-        <AdminFooter></AdminFooter>
+        <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>
     </div>
 </template>
 
