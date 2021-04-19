@@ -112,6 +112,10 @@ export default {
       {
         value: "Fashion",
         text: "Fashion"
+      },
+      {
+        value: "Health & Beauty",
+        text: "Health & Beauty"
       }
     ],
     filterselect: "All"
@@ -171,6 +175,8 @@ export default {
             newArray.push(this.merchantitems[i]);
           } else if (this.filterselect == "Fashion" && this.merchantitems[i].category == "fashion") {
             newArray.push(this.merchantitems[i]);
+          } else if (this.filterselect == "Health & Beauty" && this.merchantitems[i].category == "healthbeauty") {
+            newArray.push(this.merchantitems[i]);
           }
         }
 
@@ -184,6 +190,8 @@ export default {
           } else if (this.filterselect == "Supermarket" && this.merchantitems[i].category == "supermarket") {
             newArray.push(this.merchantitems[i]);
           } else if (this.filterselect == "Fashion" && this.merchantitems[i].category == "fashion") {
+            newArray.push(this.merchantitems[i]);
+          } else if (this.filterselect == "Health & Beauty" && this.merchantitems[i].category == "healthbeauty") {
             newArray.push(this.merchantitems[i]);
           }
         }
