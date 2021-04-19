@@ -12,7 +12,7 @@
       <b-row align-v="center">
         <b-col>
           <b-img
-            src="https://i.imgur.com/03sVNdK.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2Fcanva-animate1.png?alt=media&token=b3016ad2-fd78-49d0-9e1f-32ce855ae6f8"
             fluid
             alt="placeholder"
             class="wow fadeInLeft"
@@ -20,7 +20,7 @@
         </b-col>
         <b-col>
           <b-img
-            src="https://i.imgur.com/dr8DLP8.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2Fcanva-animate.png?alt=media&token=5eb1db17-8658-46d6-81e7-b4d6a4f503fc"
             fluid
             alt="placeholder"
             class="wow fadeInLeft"
