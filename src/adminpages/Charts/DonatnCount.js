@@ -65,7 +65,14 @@ export default {
     }
   },
   created () {
-    this.fetchItems()
+    fb.auth().onAuthStateChanged((user) => {
+      if (user) {
+          // User is signed in.
+          this.fetchItems()
+      } else {
+          // No user is signed in.
+      }
+    });
   }
 }
 

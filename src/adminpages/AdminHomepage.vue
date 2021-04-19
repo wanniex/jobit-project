@@ -137,8 +137,16 @@ export default {
   },
 
     created() {
-        this.uid = fb.auth().currentUser.uid;
-        this.getinfo();
+        fb.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in.
+                this.uid = fb.auth().currentUser.uid;
+                this.getinfo();
+            } else {
+                // No user is signed in.
+            }
+        });
+
     },
 }
 </script>
