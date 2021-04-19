@@ -93,18 +93,6 @@ export default {
               }
             }).catch((error) => {alert(error);});
           }).catch((error) => {alert(error);});
-          //   user =>{
-          //  }).catch(function(error) {
-          //   var ecode = error.code;
-          //   var emessage = error.message;
-          //   if ( ecode == 'auth/user-not-found' ) {
-          //       alert('Please provide a valid email');
-          //   } else if ( ecode == 'auth/wrong-password' ) {
-          //       alert('Wrong password!');
-          //   } else {
-          //       alert(emessage);
-          //   }
-          // })
     },
   },
 };
