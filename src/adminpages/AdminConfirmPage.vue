@@ -22,7 +22,7 @@
           <b-img
             center
             fluid
-            src="https://i.imgur.com/JZIDK5w.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/adminimages%2Fapproval-image.png?alt=media&token=e887049c-4de9-4eb0-88c0-31187c1f66a1"
             alt="Image 1"
           ></b-img>
         </b-col>
