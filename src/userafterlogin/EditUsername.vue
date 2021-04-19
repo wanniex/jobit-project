@@ -24,7 +24,6 @@
                     >
                         <b-form-input
                         id = "name_input"
-                        v-model = "new_name"
                         placeholder ="Enter new Username"
                         required
                         ></b-form-input>
