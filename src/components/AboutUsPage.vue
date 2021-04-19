@@ -5,7 +5,7 @@
       <img src = "../assets/clonate_steps.png" style = "width: 90%; height: auto; display: block; margin-left: auto; margin-right: auto;"/> -->
        <div>
     <b-card-group deck class="ml-2 mr-2 mt-5">
-      <b-card title="About Us" class="wow fadeInDown slow text-center" v-bind:img-src="imageURL2" img-alt="Card image" img-top>
+      <b-card title="About Us" class="wow fadeInDown slow text-center" v-bind:img-src="imageURL" img-alt="Card image" img-top>
         <b-card-text>
           Clonate aims to encourage the donation of clothing for the needy, <br> reduce textile waste and empower communities. 
           <br><br>Join us in our cause today.
@@ -87,7 +87,6 @@ export default {
           this.imageURL = item.imageURL
           this.number = item.number
           this.postal = item.postal
-          this.imageURL2 = item.imageURL2
         })
       })
     }
