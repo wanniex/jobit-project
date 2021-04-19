@@ -185,14 +185,11 @@ export default {
         this.currUser.points = this.userpoints;
         alert("Your redemption is successful!\nThe voucher has been sent to your email! :)");
 
-        // Updating new number of points user has in firebase
         fb.firestore().collection("users")
         .doc(this.userid)
         .set(this.currUser)     
-        alert('hello')
         this.username = this.currUser.name;
         this.email = this.currUser.email;
-        // .then(() => this.$router.push({ path: "/HomePageAftLogin" }));
       }
       this.closeForm();
     },
