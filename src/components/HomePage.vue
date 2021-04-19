@@ -35,6 +35,7 @@
           <signup-btn class="wow fadeInUp" id="subutton" @click.native="$router.push('/SignUp')"></signup-btn>
         </b-col>
       </b-row>
+      <div style = "padding-top: 100px;"/>
     </b-container>
 
     <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
