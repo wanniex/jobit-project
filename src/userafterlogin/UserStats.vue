@@ -11,7 +11,7 @@
                     <b-row align-h="center">
             <img 
                 src="../assets/green_shirt.png"  
-                style="width:80px"             
+                style="width:80px; height:80px"             
             /> 
                     </b-row>
                 </b-col>
@@ -33,7 +33,7 @@
                     <b-row align-h="center">
 <img 
                 src="../assets/green_water.png"   
-                style="width:80px"   
+                style="width:80px; height:80px"   
             />
                     </b-row>
                 </b-col>
@@ -49,7 +49,7 @@
                     <b-row align-h="center">
             <img 
                 src="../assets/green_leaf.png"   
-                style="width:80px"        
+                style="width:80px; height:80px"        
             />
                     </b-row>
                 </b-col>
