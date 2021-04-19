@@ -1,27 +1,68 @@
 <template>
     <div>
-        <b-container style = "margin-top: 100px; margin-left: 20px;">
-            <h1 style = "color: #616161"> You have donated: </h1>
-            <img 
-                src="../assets/green_shirt.png"
-                style="height:80px; width: auto; margin-top: 20px; margin-left: 30px; float: left;"               
-            /> 
-            <div id = "nclothes" class = "des"> </div>
-            <br>
-            <h1 style = "color: #616161; margin-top: 50px; clear: left;"> You have saved: </h1>
-            <img 
-                src="../assets/green_water.png"
-                style="height:80px; width: auto; margin-top: 20px; margin-left: 30px; float: left;"               
-            />
-            <div id = "water" class = "des"> </div>
-            <br><br style= "clear: left">
+        <b-container class="mt-5 ml-5">
 
+        <b-row>
+        <h2 style="color:#545454">You have donated:</h2>
+        </b-row>
+
+            <b-row class="mt-4" align-h="center" align-v="center">
+                <b-col>
+                    <b-row align-h="center">
             <img 
-                src="../assets/green_leaf.png"
-                style="height:80px; width: auto; margin-left: 30px; float: left;"               
+                src="../assets/green_shirt.png"  
+                style="width:80px"             
+            /> 
+                    </b-row>
+                </b-col>
+                <b-col cols="10">
+                    <b-row align-h="start" class="ml-2">
+            <h2 class="des">{{this.nclothes}} articles of clothings</h2>
+                    </b-row>
+                </b-col>
+
+            </b-row>
+
+
+                <b-row class="mt-4">
+                    <h2 style="color:#545454">You have saved:</h2>
+                </b-row>
+
+            <b-row class="mt-4" align-h="start" align-v="center">
+                <b-col>
+                    <b-row align-h="center">
+<img 
+                src="../assets/green_water.png"   
+                style="width:80px"   
             />
-            <div id = "cotton" class = "des"> </div>
+                    </b-row>
+                </b-col>
+                <b-col cols="10">
+                     <b-row align-h="start" class="ml-2">
+            <h2 class="des">{{this.water}} gallons of water </h2>
+                     </b-row>
+                </b-col>
+                </b-row>
+            
+            <b-row class="mt-4" align-h="start" align-v="center">
+                <b-col>
+                    <b-row align-h="center">
+            <img 
+                src="../assets/green_leaf.png"   
+                style="width:80px"        
+            />
+                    </b-row>
+                </b-col>
+                <b-col cols="10">
+                     <b-row align-h="start" class="ml-2">
+                <h2 class="des">{{this.cotton}} kg of clothes and other textiles</h2>
+                     </b-row>
+                </b-col>
+            </b-row>
+
         </b-container>
+
+
     </div>
 
 </template>
@@ -32,39 +73,42 @@ export default {
     data() {
         return {
             uid: "",
+            nclothes: null,
+            water: null,
+            cotton: null
         }
     },
     methods: {
-        fetchStats() {
+        fetchStats(user) {
             // var user = fb.auth().currentUser;
             // var uid = user.uid;
 
             // var user = fb.auth().currentUser;
             // var uid = "Pmn78vDLq3ZCSZc4G0uudIxH06L2";
-            var name, clothes_donated, water, cotton;
-            if (this.uid) {
+            // var name, clothes_donated, water, cotton;
+
+                this.uid = user.uid;
                 fb.firestore().collection("users").doc(this.uid).get().then(doc => {
-                    name = doc.data().name;
-                    clothes_donated = doc.data().clothes_donated;
-                    water = (clothes_donated * 2700 * 0.264172).toFixed(); // liter to gallons 
-                    cotton = (clothes_donated * 0.138).toFixed(2);
-                    document.getElementById("nclothes").innerHTML = clothes_donated + " articles of clothing(s)";
-                    document.getElementById("water").innerHTML = water + " gallons of water";
-                    document.getElementById("cotton").innerHTML = cotton + "kg of clothes and other textiles";
+                    // name = doc.data().name;
+  
+                    this.nclothes = doc.data().clothes_donated;
+                    this.water = (this.nclothes * 2700 * 0.264172).toFixed(); // liter to gallons 
+                    this.cotton = (this.nclothes * 0.138).toFixed(2);
+                    // document.getElementById("nclothes").innerHTML = clothes_donated + " articles of clothing(s)";
+                    // document.getElementById("water").innerHTML = water + " gallons of water";
+                    // document.getElementById("cotton").innerHTML = cotton + "kg of clothes and other textiles";
+
+
                 });
-
-
-            } else {
-                alert("No users signed in"); // can change this part. For now using alert. 
-            }
-        }
+            
+        },
     },
     created() {
         fb.auth().onAuthStateChanged((user) => {
             if (user) {
                 // User is signed in.
-                this.uid = fb.auth().currentUser.uid;
-                this.fetchStats();
+                // this.uid = fb.auth().currentUser.uid;
+                this.fetchStats(user);
             } else {
                 // No user is signed in.
             }
@@ -78,16 +122,14 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 .des {
-    width: 554px;
-    height: 100px;
+
     font-family: "Roboto Slab", serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
-    margin-top: 30px;
-    margin-left: 50px;
+    font-size: 30px!important;
+
     color: #616161;
-    float: left;
+
 }
 
 </style>

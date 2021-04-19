@@ -1,27 +1,46 @@
 <template>
     <div>
         <TopNavAftLogin></TopNavAftLogin>
-        <UserStats style = "float: left; width: 60%" class="wow fadeInLeft"></UserStats>
-        <div class="justify-content-center wow fadeInUp">
-            <b-container style = "margin-top: 100px;">
+        <b-row>
+        <b-col>
+        <UserStats class="wow fadeInLeft"></UserStats>
+        </b-col>
+        <b-col class="mt-4 mr-5" cols="5">
+            <b-container class="mt-4 wow fadeInUp">
                 <b-row align-h="center">
                 <b-avatar :to="{ path: '/EditPhoto'}" :src= "profilepic" size="11em" id="avatar"></b-avatar>
                 </b-row>
                 
+                <b-row align-h="center">
                 <p class="text-center" style="font-weight:bold; color: #616161; font-size: 30px; margin-top: 10px;">{{username}}</p>
-                
-                <p class="text-center" style="color: #616161; font-size: 25px;"> {{userpoints}} points
+                </b-row>
+
+                <b-row>
+                    <b-col>
+                        <b-row align-h="end" align-v="end" class="mt-2">
+                <p style="color: #616161; font-size: 25px;"> {{userpoints}} points</p> 
+                        </b-row>          
+                    </b-col>
+
+                    <b-col cols="5" class="ml-2">
+                        <b-row>
                 <img 
-                src="../assets/pointsanimate.png"
-                style="float: center; margin-left: 5px;"        
+                src="../assets/pointsanimate.png"    
                 />
-                </p>
+                        </b-row>
+                    </b-col>
+                </b-row>
+
+                <b-row align-h="center">
                 <b-button
           id="button"
-          class="btn btn-primary mx-auto d-block mb-3 mt-5"
+          class="btn btn-primary mx-auto d-block mb-3 mt-3"
           @click="$router.push('MerchantPage')"
           >Redeem Points</b-button
         >
+                </b-row>
+
+                <b-row>
 
         <b-button
           id="button"
@@ -29,10 +48,12 @@
           @click="$router.push('EditProfile')"
           >Edit Profile</b-button
         >  
+                </b-row>
         </b-container>
-        <div style = "padding-top: 100px"/>
-        </div>
-        <FooterAftLogin style = "clear: left; position: fixed; bottom:0; width: 100%; z-index:100;"></FooterAftLogin>
+        </b-col>
+        </b-row>
+        <div style = "padding-top: 100px"></div>
+        <FooterAftLogin id="try" style = "position: fixed; bottom:0; width: 100%;"></FooterAftLogin>
     </div>
 </template>
 
@@ -112,5 +133,7 @@ export default {
   color:white!important;
   background-color:grey!important;
 }
+
+
 </style>
 
