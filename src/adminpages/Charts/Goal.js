@@ -62,11 +62,19 @@ export default {
         
     },
     created() {
-        this.addPlugin({
-            id: 'my-plugin',
-            beforeDraw: plugin
-        })
-        this.fetchItems();
+
+        fb.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in.
+                this.addPlugin({
+                    id: 'my-plugin',
+                    beforeDraw: plugin
+                })
+                this.fetchItems();
+            } else {
+                // No user is signed in.
+            }
+          });
     },
 }
 
