@@ -3,7 +3,7 @@
   <b-container fluid>
     <b-row>
       <b-col>
-        <b-img fluid src="https://i.imgur.com/fR3eGsd.jpg" alt="Image 1" id="image" class="animated fadeInLeft"></b-img>
+        <b-img fluid src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2Fclothing-donation-image.jpg?alt=media&token=db99a6a3-9862-449d-808e-7849abcd876e" alt="Image 1" id="image" class="animated fadeInLeft"></b-img>
       </b-col>
       
       <b-col fluid class="align-self-center animated fadeInRight">

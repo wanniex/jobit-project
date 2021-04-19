@@ -3,7 +3,7 @@
     <TopNav></TopNav>
     <b-row>
       <b-col>
-        <b-img fluid src="https://i.imgur.com/2L8Yz2I.jpg" alt="Image 1" id="image" class="animated fadeInLeft"></b-img>
+        <b-img fluid src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2Fclothing-donation-image-2.jpg?alt=media&token=833d17a7-cbb7-493a-97fc-8390565c22e7" alt="Image 1" id="image" class="animated fadeInLeft"></b-img>
       </b-col>
 
       <b-col>
