@@ -17,7 +17,7 @@
           <b-img
             center
             fluid
-            src="https://i.imgur.com/1ZeFo1N.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/adminimages%2Fapproval-image1.png?alt=media&token=bfb46cab-c9e5-48f7-9d15-4ff97c43de4d"
             alt="Image 1"
           ></b-img>
         </b-col>
