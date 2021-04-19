@@ -37,7 +37,7 @@
       </b-card>
     </b-card-group>
   </div>
-    
+    <div style = "padding-top: 100px;"/>
     <br>
     <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
       

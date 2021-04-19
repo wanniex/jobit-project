@@ -111,7 +111,9 @@ export default {
             var curarr;
             var newgoal = document.getElementById("goal_input").value;
             if (newgoal <= 0) {
-                newgoal = 1;
+                alert("Your goal has to be greater than 0.")
+                e.preventDefault();
+                return false;
             }
 
             db.collection("partners").doc(uid).get().then(doc => {

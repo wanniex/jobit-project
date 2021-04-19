@@ -78,9 +78,7 @@
           </b-card-group>
           </b-col>
           <div style = "padding: 50px;">
-          <p style="text-align: center">
-            The e-voucher will be sent to your email.
-          </p>
+
           <br />
           <p><strong>Terms and conditions:</strong></p>
 
