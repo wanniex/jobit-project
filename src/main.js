@@ -45,7 +45,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-// trying out wowjs
+// wowjs
 import {WOW} from 'wowjs';
 import 'animate.css';
 
@@ -59,69 +59,3 @@ new Vue({
   render: h => h(App),
   router: myRouter,
 }).$mount('#app')
-
-// myRouter.beforeEach((to, from, next) => {
-//   var auth = firebase.auth()
-//   auth.onAuthStateChanged(userAuth => {
-//     if (userAuth) {
-//       auth.currentUser.getIdTokenResult()
-//         .then(({claims}) => {
-//           if (claims.admin) {
-//             if (to.path !== '/AdminHomePage')
-//               return next({
-//                 path: '/AdminHomePage'
-//               });
-//           }
-//           if (claims.customer) {
-//             if (to.path !== '/HomePageAftLogin')
-//               return next({
-//                 path: '/HomePageAftLogin'
-//               });
-//           }
-//         })
-//       }
-//       const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-//       const isAuthenticated = auth.currentUser;
-//       if (requiresAuth && !isAuthenticated) {
-//         next('/LogIn');
-//       } else {
-//         next();
-//       }
-//     })
-//     next();
-//   });
-        // .then(function ({
-        //   claims
-        // }) 
-        // {
-        //
-        //   if (claims.customer) {
-        //     if (to.path !== '/HomePageAftLogin')
-        //       return next({
-        //         path: '/HomePageAftLogin',
-        //       })
-        //   } else if (claims.admin) {
-        //     if (to.path !== '/AdminHomePage')
-        //       return next({
-        //         path: '/AdminHomePage',
-        //       })
-        //   } 
-        // })
-//     } else {
-//       if (to.matched.some(record => record.meta.auth)) {
-//         next({
-//           path: '/LogIn',
-//           query: {
-//             redirect: to.fullPath
-//           }
-//         })
-//       } else {
-//         next()
-//       }
-//     }
-
-//   })
-
-//   next()
-
-// })
