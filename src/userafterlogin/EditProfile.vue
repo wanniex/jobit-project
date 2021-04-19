@@ -2,8 +2,8 @@
     <div>
         <TopNavAftLogin></TopNavAftLogin>
 
-        <EditProfileInputs></EditProfileInputs>
-
+        <EditProfileInputs style = "padding-bottom: 50px;"></EditProfileInputs>
+        
         <FooterAftLogin style = "position: fixed; bottom:0; width: 100%;"></FooterAftLogin>
     </div>
 

@@ -74,6 +74,7 @@
           </b-row>
         </b-col>
       </b-row>
+      <div style = "padding-top: 50px"/>
     </b-container>
 
     <FooterAftLogin style = "position: fixed; bottom:0; width: 100%;"></FooterAftLogin>
