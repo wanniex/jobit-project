@@ -50,14 +50,17 @@
         <b-col v-for="ele in sortedArray" :key="ele.name" cols="4" class="mb-3">
           <b-card-group deck class="h-100">
             <a v-bind:href = "ele.map_link" target = "_blank">
-            <b-card
+            <!-- <b-card
               v-bind:img-src="ele.imageURL"
               body-class="d-flex flex-column"
               img-alt="Card image"
               img-top
               img-height="300"
               img-width="200"
-            >
+            > -->
+
+            <b-card id="cardops" body-class="d-flex flex-column" fluid>
+            <b-img v-bind:src="ele.imageURL" fluid id="imgops"></b-img>
 
               <b-card-text style = "color: black;" class="text-center">
                 <h4>{{ele.name}}</h4>
@@ -229,5 +232,15 @@ fb.firestore().collection('partners').get().then(snapshot => {
 
 #formformat {
   width: 80%;
+}
+
+#imgops {
+  height: 200px;
+  width: 300px;
+}
+
+#cardops {
+  height: 400px;
+  width: 300px;
 }
 </style>
