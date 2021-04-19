@@ -90,9 +90,9 @@
         <b-row align-h="center" class="mb-5 wow fadeInUp">
             <b-button pill class="mt-2 mr-2 ml-2" id = "subutton" @click="$router.push('/HomePageAftLogin').catch(()=>{});"> Clonate Now </b-button>
         </b-row>
-
+      <div style = "padding-top: 50px"/>
     </b-container>
-
+    
     <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
 
   </div>
