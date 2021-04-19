@@ -60,7 +60,12 @@ export default {
             const objectURL = URL.createObjectURL(imgfile)
             document.getElementById('img').src = objectURL;
         },
-        async registerButtonPressed() {
+        async registerButtonPressed(e) {
+             if (this.passwordvalidate) {
+                e.preventDefault();
+                alert("Your passwords do not match!")
+                return false;
+            }
             fb
             .auth()
             .createUserWithEmailAndPassword(this.email, this.password)
