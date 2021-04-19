@@ -124,7 +124,6 @@ export default {
       merchantsRef.get().then((snapshot) => {
         let item = {};
         snapshot.docs.forEach((doc) => {
-          // console.log(doc.data())
           item = {
             name: doc.data().name,
             imageURL: doc.data().imageURL,
@@ -132,7 +131,6 @@ export default {
             link: doc.data().link,
             docid: doc.id
           }
-          //this.merchants.push([doc.id, item]);
           this.merchantitems.push(item);
         });
       });
@@ -143,7 +141,6 @@ export default {
         name: "RedeemPoints",
         query: { id: event.target.getAttribute("id") },
       });
-      // console.log(event.target.getAttribute("id"))
     },
   },
 
@@ -161,8 +158,6 @@ export default {
         if (a.name < b.name) return 1;
         return 0;
       }
-      console.log("hello");
-      console.log(this.merchantitems);
        if (this.selected == "Ascending" && this.filterselect == "All") {
         return newArray.sort(compareAsc);
       } else if (this.selected == "Descending" && this.filterselect == "All") {
