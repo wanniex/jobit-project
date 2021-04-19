@@ -60,8 +60,16 @@ export default {
         }
     },
     created() {
-        this.uid = fb.auth().currentUser.uid;
-        this.fetchStats()
+        fb.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in.
+                this.uid = fb.auth().currentUser.uid;
+                this.fetchStats();
+            } else {
+                // No user is signed in.
+            }
+        });
+
     }
 
 }
