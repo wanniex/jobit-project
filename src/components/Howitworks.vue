@@ -92,7 +92,7 @@
       <b-row align-h="center" class="mb-5 wow fadeInUp">
       <SignupBtn id="subutton" @click.native="$router.push('/SignUp')"></SignupBtn>
       </b-row>
-
+      <div style = "padding-top: 50px;"/>
     </b-container>
 
     <Footer style = "position: fixed; bottom:0; width: 100%;"></Footer>
