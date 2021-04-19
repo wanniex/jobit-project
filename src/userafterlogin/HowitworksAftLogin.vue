@@ -11,7 +11,7 @@
       <b-row align-v="center" class="wow fadeInUp">
         <b-col>
           <b-img
-            src="https://i.imgur.com/DOItRfm.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2F21.png?alt=media&token=c0f35991-fc2b-478e-b7e0-e83ea0adb2b5"
             fluid
             alt="placeholder"
           ></b-img>
@@ -19,7 +19,7 @@
                 <b-col cols="1"></b-col>
         <b-col>
           <b-img
-            src="https://i.imgur.com/AlJ9z5W.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2F22.png?alt=media&token=0229b562-88c7-46e6-aa98-742bfc6fdfeb"
             fluid
             alt="placeholder"
           ></b-img>
@@ -27,7 +27,7 @@
                 <b-col cols="1"></b-col>
         <b-col class="text-center">
             <b-img
-            src="https://i.imgur.com/TWcKSDq.png"
+            src="https://firebasestorage.googleapis.com/v0/b/jobit-38c72.appspot.com/o/clonateimages%2F23.png?alt=media&token=5694c7f9-db70-4b43-93ea-2666244142a8"
             fluid
             alt="placeholder"
           ></b-img>
