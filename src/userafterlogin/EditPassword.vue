@@ -48,7 +48,7 @@
                     <br>
                     <b-button id="button" type="submit" class="btn btn-primary mx-auto d-block">Submit</b-button>
                 </b-form>
-
+                <div style = "padding-top: 50px"/>
             </b-container>
         </div>
         <FooterAftLogin style = "position: fixed; bottom:0; width: 100%;"/>

@@ -34,6 +34,7 @@
                 </b-row>
 
             </b-container>
+            <div style = "padding-top: 50px"/>
         </div>
         <FooterAftLogin style = "position: fixed; bottom:0; width: 100%;"/>
     </div>

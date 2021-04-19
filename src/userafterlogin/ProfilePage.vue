@@ -16,9 +16,6 @@
                 style="float: center; margin-left: 5px;"        
                 />
                 </p>
-
-               
-
                 <b-button
           id="button"
           class="btn btn-primary mx-auto d-block mb-3 mt-5"
@@ -32,8 +29,9 @@
           @click="$router.push('EditProfile')"
           >Edit Profile</b-button
         >  
-                </b-container>
-                </div>
+        </b-container>
+        <div style = "padding-top: 100px"/>
+        </div>
         <FooterAftLogin style = "clear: left; position: fixed; bottom:0; width: 100%; z-index:100;"></FooterAftLogin>
     </div>
 </template>
