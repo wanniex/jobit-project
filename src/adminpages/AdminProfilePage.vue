@@ -68,10 +68,9 @@
       </b-row>
 
     </b-container>
+    <div style = "margin-bottom: 100px;"/>
   </div>
-        
-        
-        <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>
+      <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>
     </div>
 </template>
 
@@ -112,10 +111,17 @@ export default {
         },
     },
     created() {
-        this.uid = fb.auth().currentUser.uid;
-        this.email = fb.auth().currentUser.email;
-        this.getprofilepic();
-        this.getuserinfo();
+      fb.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.uid = fb.auth().currentUser.uid;
+          this.email = fb.auth().currentUser.email;
+          this.getprofilepic();
+          this.getuserinfo();
+        } else {
+          // No user is signed in.
+        }
+      });
+
     }
 }
 </script>

@@ -200,7 +200,15 @@ export default {
     },
   },
   created() {
-    this.partneruid = fb.auth().currentUser.uid;
+    
+    fb.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.partneruid = fb.auth().currentUser.uid;
+      } else {
+        // No user is signed in.
+      }
+    });
+
   },
 };
 </script>
