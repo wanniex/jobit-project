@@ -70,7 +70,6 @@
     </b-container>
     <div style = "margin-bottom: 100px;"/>
   </div>
-  <div style = "margin-bottom: 100px;"/>
       <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>
     </div>
 </template>
