@@ -195,16 +195,15 @@ fb.firestore().collection('partners').get().then(snapshot => {
 
 
   created() {
-    this.fetchPlaces();
+
     fb.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in.
-    this.fetchItems(user);
-  } else {
-    // No user is signed in.
-  }
-});
-    // this.userid = fb.auth().currentUser.uid;
+      if (user) {
+        this.fetchPlaces();
+        this.fetchItems(user);
+      } else {
+        // No user is signed in.
+      }
+    });
 
   },
 

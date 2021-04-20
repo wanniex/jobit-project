@@ -112,10 +112,17 @@ export default {
         },
     },
     created() {
-        this.uid = fb.auth().currentUser.uid;
-        this.email = fb.auth().currentUser.email;
-        this.getprofilepic();
-        this.getuserinfo();
+      fb.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.uid = fb.auth().currentUser.uid;
+          this.email = fb.auth().currentUser.email;
+          this.getprofilepic();
+          this.getuserinfo();
+        } else {
+          // No user is signed in.
+        }
+      });
+
     }
 }
 </script>

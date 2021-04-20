@@ -63,13 +63,13 @@ export default {
   },
    created() {
     fb.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in.
-        this.getprofilepic(user);
-  } else {
-    // No user is signed in.
-  }
-});
+      if (user) {
+        // User is signed in.
+            this.getprofilepic(user);
+      } else {
+        // No user is signed in.
+      }
+    });
    }
 };
 </script>
