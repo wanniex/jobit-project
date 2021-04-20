@@ -73,6 +73,7 @@
         <!-- Filler Column -->
         <b-col cols="1"></b-col>
       </b-row>
+      <div style = "margin-bottom:50px;"/>
     </b-container>
 
     <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>

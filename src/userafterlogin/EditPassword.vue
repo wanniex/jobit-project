@@ -93,8 +93,14 @@ export default {
         },
 
         // Changes user's password...
-        changePassword() {
+        changePassword(e) {
+            
             this.reauthenticate(this.old_pw).then(() => {
+                if (this.passwordvalidate) {
+                    e.preventDefault();
+                    alert("Your new passwords do not match!");
+                    return false;
+                }
                 this.user.updatePassword(this.new_pw).then(() => {
                     alert("Password updated!");
                     this.$router.replace({name: 'EditProfile'});
