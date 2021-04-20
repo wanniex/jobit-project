@@ -68,10 +68,9 @@
       </b-row>
 
     </b-container>
+    <div style = "margin-bottom: 100px;"/>
   </div>
-        
-        
-        <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>
+      <AdminFooter style = "position: fixed; bottom:0; width: 100%;"></AdminFooter>
     </div>
 </template>
 
